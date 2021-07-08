@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] = "スポットを投稿しました"
-      redirect_to post_path
+      redirect_to posts_path
     else
       render :new
     end
@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.all
   end
 
   def edit
@@ -35,7 +36,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post_image).permit(:title, :date, :image, :content)
+    params.require(:post).permit(:title, :date, :image, :content)
   end
 
   def baria_user
