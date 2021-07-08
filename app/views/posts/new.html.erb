@@ -1,0 +1,5 @@
+<h2>Let's Post!!</h2>
+<%= form_with model: @post, local:true do |f| %>
+  <%= render "posts/post_form", post: @post, f: f %>
+  <%= f.submit '投稿' %>
+<% end %>
