@@ -1,0 +1,44 @@
+<div class="containar">
+  <div class="row no-gutters">
+
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <% if current_user.present? && (@user.id == current_user.id) %>
+      <h5 class="text-dark bg-light p-4 mb-0">マイページ</h5>
+    <% else %>
+      <h5 class="text-dark bg-light p-4 mb-0"><%= @user.nickname %> さん</h5>
+    <% end %>
+
+    <table class="table">
+      <tr>
+        <td colspan="2">
+        <%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+        </td>
+      </tr>
+      <tr>
+        <td>ニックネーム</td>
+        <td><%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <td>誕生日</td>
+        <td><%= @user.birthday %></td>
+      </tr>
+      <tr>
+        <td>自己紹介</td>
+        <td><%= @user.introduction %></td>
+      </tr>
+    </table>
+
+    <% if current_user.present? && (@user.id == current_user.id) %>
+      <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary mb-5" %>
+    <% elsif current_user.present? && (@user.id != current_user.id) %>
+      <h5>フォローボタン予定</h5>
+    <% end %>
+    </div>
+
+    <div class="col-md-7 px-3 ml-5">
+      <h3 class="mb-4">posts</h3>
+      <%= render "post_index", posts: @posts %>
+    </div>
+
+  </div>
+</div>
