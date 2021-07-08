@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <td>誕生日</td>
-        <td><%= @user.birthday %></td>
+        <td><%= @user.birthday.strftime("%Y年%-m月%-d日") %></td>
       </tr>
       <tr>
         <td>自己紹介</td>
