@@ -1,0 +1,26 @@
+<hr>
+<div class="comments card-text">
+  <h4 class="mt-3"><%= post.comments.count %>件コメント</h4>
+  <% post.comments.each do |comment| %>
+    <div class="media border mb-3">
+      <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"bd-placeholder-img align-self-center mx-3" %>
+      <div class="media-body ml-4 p-3">
+        <p><%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %></p>
+        <p><%= comment.comment %></p>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<hr>
+<div class="new-comment card-text">
+  <%= form_with(model:[post, comment]) do |f| %>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">コメントする</label>
+      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+    </div>
+    <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right" %>
+  <% end %>
+</div>
