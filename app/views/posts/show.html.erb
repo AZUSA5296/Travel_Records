@@ -13,13 +13,13 @@
             <% end %>
           </p>
           <p class="card-title">内容：<%= @post.content %></p>
-          <span><i class="fas fa-user"></i> By <%= @post.user.name %> ｜ </span>
+          <span><i class="fas fa-user"></i> By <%= @post.user.nickname %> ｜ </span>
           <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+          <%= render 'favorites/favorite', post: @post %>
           <% if @post.user == current_user %>
             <span><%= link_to "削除", post_path(@post), class:"text-dark", method: :delete %>｜ </span>
             <span><%= link_to "編集", edit_post_path(@post), class:"text-dark" %></span>
           <% end %>
-
         </div>
       </div>
     </div>
