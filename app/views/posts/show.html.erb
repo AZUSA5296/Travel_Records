@@ -1,0 +1,22 @@
+<div class="post-detail py-5 bg-light">
+  <div class="card w-75 mx-auto mt-4 shadow-lg">
+    <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+          <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+        </div>
+        <div class="col-10">
+          <p class="card-title">
+            <%= link_to(post_path(@post.id), class:"text-dark") do %>
+              <strong><span><%= @post.title %></span></strong>
+            <% end %>
+          </p>
+          <p class="card-title">内容：<%= @post.content %></p>
+          <span><i class="fas fa-user"></i> By <%= @post.user.name %> ｜ </span>
+          <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
