@@ -26,12 +26,28 @@
         <td>自己紹介</td>
         <td><%= @user.introduction %></td>
       </tr>
+      <tr>
+        <td>フォロー数</td>
+        <td>
+          <%= link_to following_user_path(@user) do %>
+            <%= @user.following.count %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>フォロワー数</td>
+        <td>
+          <%= link_to followers_user_path(@user) do %>
+            <%= @user.followers.count %></td>
+          <% end %>
+      </tr>
+      </tr>
     </table>
 
     <% if current_user.present? && (@user.id == current_user.id) %>
       <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary mb-5" %>
     <% elsif current_user.present? && (@user.id != current_user.id) %>
-      <h5>フォローボタン予定</h5>
+      <%= render 'relationships/follow_form', user: @user %>
     <% end %>
     </div>
 

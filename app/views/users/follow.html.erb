@@ -1,0 +1,16 @@
+<h3 class="mb-4"><%= @user.nickname %>さんの<%= @title %></h3>
+<% if @users.present? %>
+  <% @users.each do |user| %>
+  <table class='table'>
+    <tr>
+      <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %></td>
+      <td><%= user.name %></td>
+      <td><%= "フォロー数: #{user.following.count}" %></td>
+      <td><%= "フォロワー数: #{user.followers.count}" %></td>
+      <td><%= render 'relationships/follow_form', user: user %></td>
+    </tr>
+  </table>
+  <% end %>
+<% else %>
+  ユーザーはいません
+<% end %>
