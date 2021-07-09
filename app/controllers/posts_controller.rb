@@ -32,6 +32,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = "スポットを削除しました"
+    redirect_to  posts_path
   end
 
   private
@@ -41,7 +45,7 @@ class PostsController < ApplicationController
   end
 
   def baria_user
-    if current_user.nil? || Spot.find(params[:id]).user.id.to_i != current_user.id
+    if current_user.nil? || Post.find(params[:id]).user.id.to_i != current_user.id
       flash[:alert] = "権限がありません"
       redirect_to top_path
     end
