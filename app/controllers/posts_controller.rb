@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :baria_user, { only: [:edit, :update, :destroy] }
+  before_action :baria_user, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
