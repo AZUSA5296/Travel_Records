@@ -1,6 +1,6 @@
 <div class="card-list-containar py-5">
 
-  <% if @posts %>
+  <% if @posts.present? %>
     <% @posts.each do |post| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
       <%= link_to post_path(post) do %>
