@@ -18,7 +18,8 @@
               <% end %>
             </p>
             <p class="card-text">内容：<%= post.content %></p>
-            <span><i class="fas fa-user"></i> By <%= post.user.nickname %></span>
+            <span><i class="fas fa-user"></i> By <%= post.user.nickname %> ｜ </span>
+            <%= render 'favorites/favorite', post: post %>
           </div>
         </div>
       </div>
