@@ -23,8 +23,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
     @post = Post.new
+    @posts = Post.where(user_id: [current_user.id, *current_user.following_ids])  #フォローしてるユーザーの投稿のみをタイムラインに表示する
   end
 
   def edit
