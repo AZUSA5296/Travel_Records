@@ -22,7 +22,8 @@
             <p class="card-text">内容：<%= post.content %></p>
             <span><i class="fas fa-user"></i> By <%= post.user.nickname %> ｜ </span>
             <span><%= render 'favorites/favorite', post: post %>｜ </span>
-            <span><%= link_to "#{post.comments.count} コメント", post_path(post.id), class:"text-dark" %></span>
+            <span><%= link_to "#{post.comments.count} コメント", post_path(post.id), class:"text-dark" %>｜ </span>
+            <span><%= post.status ? '非公開' : '公開' %></span>
           </div>
         </div>
       </div>

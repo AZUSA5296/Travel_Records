@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.order(id: "DESC") # idの降順
     @user = current_user
   end
 

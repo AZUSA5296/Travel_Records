@@ -24,7 +24,9 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.where(user_id: [current_user.id, *current_user.following_ids])  #フォローしてるユーザーの投稿のみをタイムラインに表示する
+    #フォローしてるユーザーの投稿のみをタイムラインに表示する
+    #ステータスが公開の投稿のみを表示する
+    @posts = Post.where(status: false, user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC") # idの降順
   end
 
   def edit
@@ -34,8 +36,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:notice] = "投稿を更新しました"
-      redirect_to post_path(@post.id)
+       flash[:notice] = "投稿を更新しました"
+       redirect_to post_path(@post.id)
     else
       render :edit
     end
@@ -51,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :date, :image, :content)
+    params.require(:post).permit(:title, :date, :image, :content, :status)
   end
 
   def baria_user
