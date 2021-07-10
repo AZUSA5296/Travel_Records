@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @posts = Post.where(user_id: @user.id)
   end
 
+  def index
+    @users = User.all
+    @user = current_user
+  end
+
   def edit
     @user = User.find(params[:id])
   end
