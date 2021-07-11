@@ -19,7 +19,7 @@
   <%= form_with(model:[post, Comment.new], remote: true) do |f| %>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">コメントする</label>
-      <%= f.text_area :comment, rows:'5', class: "form-control", id: "comment_form", placeholder: "コメントをここに" %>
+      <%= f.text_area :comment, rows:'5', class: "form-control", id: "comment_form", placeholder: "300文字以内" %>
     </div>
     <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right" %>
   <% end %>

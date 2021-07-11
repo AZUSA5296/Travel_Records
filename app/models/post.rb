@@ -21,6 +21,7 @@ class Post < ApplicationRecord
   end
 
   validates :title, presence: true, length: { maximum: 20 }
+  validates :image, presence: true
   validate :date_is_valid?
   validates :content, length: { maximum: 500 }
 

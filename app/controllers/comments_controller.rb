@@ -6,13 +6,18 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     comment = current_user.comments.new(comment_params)
     comment.post_id = @post.id
-    comment.save
+    if comment.save
+      flash.now[:notice] = "コメントを送信しました"
+    else
+      flash.now[:alert] = "コメントを記入してください"
+    end
   end
 
   def destroy
     @post = Post.find(params[:post_id])
     comment = @post.comments.find(params[:id])
     comment.destroy
+    flash.now[:notice] = "コメントを削除しました"
   end
 
   private

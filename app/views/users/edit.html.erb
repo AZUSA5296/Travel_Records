@@ -6,15 +6,15 @@
       <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
     </tr>
     <tr>
-      <td>ニックネーム ※</td>
+      <td>ニックネーム</td>
       <td><%= f.text_field :nickname, autocomplete: "nickname" %></td>
     </tr>
     <tr>
-      <td>メールアドレス ※</td>
+      <td>メールアドレス</td>
       <td><%= f.email_field :email, autocomplete: "email" %></td>
     </tr>
     <tr>
-      <td>生年月日 ※</td>
+      <td>生年月日</td>
       <td><%= f.date_select :birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, autofocus: true %></td>
     </tr>
     <tr>
