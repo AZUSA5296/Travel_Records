@@ -1,7 +1,7 @@
 <div class="post-detail py-5 bg-light">
   <div class="card w-75 mx-auto mt-4 shadow-lg">
     <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
-    <div class="card-body">
+    <div class="card-body" id="comment_<%= @post.id %>">
       <div class="row">
         <div class="col-2">
           <%= link_to user_path(@post.user) do %>
@@ -24,7 +24,9 @@
           <% end %>
         </div>
       </div>
-      <%= render "comments/comments", post: @post, comment: @comment %>
+      <div class="comment">
+         <%= render "comments/comment", post: @post, comment: @comment %>
+      </div>
     </div>
   </div>
 </div>

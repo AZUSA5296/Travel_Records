@@ -8,7 +8,7 @@
         <p><%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %></p>
         <p><%= comment.comment %></p>
         <% if comment.user == current_user %>
-          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
         <% end %>
       </div>
     </div>
@@ -16,10 +16,10 @@
 </div>
 <hr>
 <div class="new-comment card-text">
-  <%= form_with(model:[post, comment]) do |f| %>
+  <%= form_with(model:[post, Comment.new], remote: true) do |f| %>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">コメントする</label>
-      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+      <%= f.text_area :comment, rows:'5', class: "form-control", id: "comment_form", placeholder: "コメントをここに" %>
     </div>
     <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right" %>
   <% end %>
