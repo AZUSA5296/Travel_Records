@@ -19,6 +19,10 @@
     <td><%= f.text_area :content, autocomplete: "content", placeholder: "500字以内" %></td>
   </tr>
   <tr>
+    <td>タグ</td>
+    <td><%= f.text_field :tag_list, value: @post.tag_list.join(',') %></td>
+  </tr>
+  <tr>
     <td>公開設定</td>
     <td><%= f.radio_button :status, :false %>公開<%= f.radio_button :status, :true %>非公開</td>
   </tr>

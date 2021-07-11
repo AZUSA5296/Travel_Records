@@ -27,6 +27,10 @@ class PostsController < ApplicationController
     #フォローしてるユーザーの投稿のみをタイムラインに表示する
     #ステータスが公開の投稿のみを表示する
     @posts = Post.where(status: false, user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC") # idの降順
+    #タグで絞り込む
+    if params[:tag_name]
+      @posts = Post.tagged_with(params[:tag_name])
+    end
   end
 
   def edit
@@ -53,7 +57,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :date, :image, :content, :status)
+    params.require(:post).permit(:title, :date, :image, :content, :status, :tag_list)
   end
 
   def baria_user

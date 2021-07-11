@@ -12,4 +12,7 @@ class Post < ApplicationRecord
    favorites.where(user_id: user.id).exists?
  end
 
+  #タグ付け機能
+  acts_as_taggable
+
 end

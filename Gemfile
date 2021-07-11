@@ -73,5 +73,8 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 
+# タグ機能用gem
+gem 'acts-as-taggable-on', '~> 6.0'
+
 # デバックに使用
 gem 'pry-byebug', group: :development
