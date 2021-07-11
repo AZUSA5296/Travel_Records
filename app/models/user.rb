@@ -32,5 +32,14 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  #誕生日の制限
+  def birthday_is_valid?
+    errors.add(:birthday, "が無効な日付です") if birthday.nil? || birthday > Date.today
+  end
+
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :nickname, { presence: true, uniqueness: true, length: { maximum: 20 } }
+  validate :birthday_is_valid?
+  validates :introduction, length: { maximum: 150 }
 
 end
