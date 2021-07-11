@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.where(user_id: @user.id)
+     #タグで絞り込む
+    if params[:tag_name]
+      @posts = Post.tagged_with(params[:tag_name])
+    end
   end
 
   def index

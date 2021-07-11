@@ -15,6 +15,7 @@
             <% end %>
           </p>
           <p class="card-title">内容：<%= @post.content %></p>
+          <div><%= render "posts/index_tag_list", post: @post %></div>
           <span><i class="fas fa-user"></i> By <%= @post.user.nickname %> ｜ </span>
           <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
           <span class="favorite"><%= render 'favorites/favorite', post: @post %>｜ </span>

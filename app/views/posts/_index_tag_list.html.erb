@@ -1,0 +1,7 @@
+<% post.tag_list.each do |tag| %>
+  <span class="badge badge-primary mr-1 p-2">
+    <%= link_to posts_path(tag_name: tag), {class: "text-white"} do %>
+      <%= tag %>
+    <% end %>
+  </span>
+<% end %>
