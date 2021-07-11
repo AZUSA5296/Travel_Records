@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.order(id: "DESC") # idの降順
+    # 自分以外のユーザー一覧を表示
+    @users = User.where.not(id: current_user.id).order(id: "DESC") # idの降順
     @user = current_user
   end
 
