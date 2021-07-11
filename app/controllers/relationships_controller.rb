@@ -2,13 +2,14 @@ class RelationshipsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
+    @user = User.find(params[:followed_id])
     Relationship.create(create_params)
   end
 
   def destroy
+    @user = Relationship.find(params[:id]).followed
     relationship =  Relationship.find(params[:id])
     relationship.destroy
-    redirect_back fallback_location: post_path
   end
 
   private
