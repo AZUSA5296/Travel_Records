@@ -18,6 +18,7 @@
           <div><%= render "posts/index_tag_list", post: @post %></div>
           <span><i class="fas fa-user"></i> By <%= @post.user.nickname %> ｜ </span>
           <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+          <!--いいね機能-->
           <span class="favorite"><%= render 'favorites/favorite', post: @post %>｜ </span>
           <% if @post.user == current_user %>
             <span><%= link_to "削除", post_path(@post), class:"text-dark", method: :delete %>｜ </span>
@@ -25,6 +26,7 @@
           <% end %>
         </div>
       </div>
+      <!--コメント機能-->
       <div class="comment">
          <%= render "comments/comment", post: @post, comment: @comment %>
       </div>

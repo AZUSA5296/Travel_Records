@@ -13,7 +13,6 @@ class PostsController < ApplicationController
       flash[:notice] = "画像を投稿しました"
       redirect_to posts_path
     else
-      flash[:notice] = "エラー"
       render :new
     end
   end

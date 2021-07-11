@@ -1,5 +1,6 @@
 <h2>プロフィール編集</h2>
 <%= form_with model:@user, local:true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <table>
     <tr>
       <td>氏名</td>

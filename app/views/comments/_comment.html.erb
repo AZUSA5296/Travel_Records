@@ -17,6 +17,9 @@
 <hr>
 <div class="new-comment card-text">
   <%= form_with(model:[post, Comment.new], remote: true) do |f| %>
+    <div id="comments-error">
+      <%= render 'layouts/error_messages', model: f.object %>
+    </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">コメントする</label>
       <%= f.text_area :comment, rows:'5', class: "form-control", id: "comment_form", placeholder: "300文字以内" %>
