@@ -13,7 +13,7 @@
               <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
             <% end %>
           </div>
-          <div class="col-10">
+          <div class="col-10" id="favorite_<%= post.id %>">
             <p class="card-title">
               <%= link_to(post_path(post), class:"text-dark") do %>
                 <span><%= post.title %></span>
@@ -21,7 +21,7 @@
             </p>
             <p class="card-text">内容：<%= post.content %></p>
             <span><i class="fas fa-user"></i> By <%= post.user.nickname %> ｜ </span>
-            <span><%= render 'favorites/favorite', post: post %>｜ </span>
+            <span class="favorite"><%= render 'favorites/favorite', post: post %>｜ </span>
             <span><%= link_to "#{post.comments.count} コメント", post_path(post.id), class:"text-dark" %></span>
           </div>
         </div>
