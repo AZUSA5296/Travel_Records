@@ -4,6 +4,7 @@
 
   <div class="row mt-3 mb-5" style="margin-left: 0; margin-right: 0; padding-left: 0;">
     <%= form_with model: @post, local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
       <%= render "posts/post_form", post: @post, f: f %>
       <%= f.submit "更新する", class: "btn btn-success", style: "width: 125px;" %>
     <% end %>

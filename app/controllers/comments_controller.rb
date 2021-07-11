@@ -4,15 +4,21 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    comment = current_user.comments.new(comment_params)
-    comment.post_id = @post.id
-    comment.save
+    @comment = Comment.new
+    @comment = current_user.comments.new(comment_params)
+    @comment.post_id = @post.id
+    if @comment.save
+      flash.now[:notice] = "コメントを送信しました"
+    else
+      render :error  #render先にjsファイルを指定
+    end
   end
 
   def destroy
     @post = Post.find(params[:post_id])
-    comment = @post.comments.find(params[:id])
-    comment.destroy
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
+    flash.now[:notice] = "コメントを削除しました"
   end
 
   private
