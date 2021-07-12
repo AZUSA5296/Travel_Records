@@ -70,7 +70,7 @@ gem 'refile-mini_magick'
 gem 'kaminari', '~> 1.2.1'
 
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
+gem 'jquery-rails', '4.3.3'
 gem 'font-awesome-sass', '~> 5.13'
 
 # タグ機能用gem
@@ -81,3 +81,7 @@ gem 'pry-byebug', group: :development
 
 # 多言語化
 gem 'devise-i18n'
+
+# カレンダー機能
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

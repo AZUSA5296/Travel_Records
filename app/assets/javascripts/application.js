@@ -14,7 +14,22 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+// require turbolinks
+//= require jquery
+//= require moment
+//= require fullcalendar
 
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+/* global $*/
+$(document).ready(function() {
+  $("#calendar").fullCalendar({
+    header: {
+      left:"prev, next, today",
+      center: "title",
+      right: "month, agendaday, listMonth",
+    },
+  })
+});
