@@ -1,6 +1,6 @@
 <div class="post-detail py-5 bg-light">
   <div class="card w-75 mx-auto mt-4 shadow-lg">
-    <span><%= @post.date.strftime('%Y年%m月%d日') %></span>
+    <span><%= I18n.l @post.date, format: :long %></span>
     <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
     <div class="card-body" id="comment_<%= @post.id %>">
       <div class="row">
