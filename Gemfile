@@ -78,3 +78,6 @@ gem 'acts-as-taggable-on', '~> 6.0'
 
 # デバックに使用
 gem 'pry-byebug', group: :development
+
+# 多言語化
+gem 'devise-i18n'

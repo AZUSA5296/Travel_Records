@@ -3,6 +3,7 @@
   <% if @posts.present? %>
     <% @posts.each do |post| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <span><%= post.date.strftime('%Y年%m月%d日') %></span>
       <%= link_to post_path(post) do %>
         <%= attachment_image_tag post, :image, class:"card-img-top"; %>
       <% end %>
@@ -19,7 +20,7 @@
                 <span><%= post.title %></span>
               <% end %>
             </p>
-            <p class="card-text">内容：<%= post.content %></p>
+            <p class="card-text">思い出：<%= post.content %></p>
             <div><%= render "posts/index_tag_list", post: post %></div>
             <span><i class="fas fa-user"></i> By <%= post.user.nickname %> ｜ </span>
             <span class="favorite"><%= render "favorites/favorite", post: post %></span>

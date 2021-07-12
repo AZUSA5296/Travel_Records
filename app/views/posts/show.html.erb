@@ -1,5 +1,6 @@
 <div class="post-detail py-5 bg-light">
   <div class="card w-75 mx-auto mt-4 shadow-lg">
+    <span><%= @post.date.strftime('%Y年%m月%d日') %></span>
     <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
     <div class="card-body" id="comment_<%= @post.id %>">
       <div class="row">
@@ -14,7 +15,7 @@
               <strong><span><%= @post.title %></span></strong>
             <% end %>
           </p>
-          <p class="card-title">内容：<%= @post.content %></p>
+          <p class="card-title">思い出：<%= @post.content %></p>
           <div><%= render "posts/index_tag_list", post: @post %></div>
           <span><i class="fas fa-user"></i> By <%= @post.user.nickname %> ｜ </span>
           <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
