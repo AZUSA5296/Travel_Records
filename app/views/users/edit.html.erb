@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <td>生年月日</td>
-      <td><%= f.date_select :birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, autofocus: true %></td>
+      <td><%= raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, default: Date.new(2000, 1, 1), date_separator: '%s'),'年 ', '月 ') + '日' %></td>
     </tr>
     <tr>
       <td>プロフィール画像</td>
@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <td>自己紹介</td>
-      <td><%= f.text_area :introduction, autocomplete: "introduction", placeholder: "50字以内で自由に記述してください" %></td>
+      <td><%= f.text_area :introduction, autocomplete: "introduction", placeholder: "50字以内で自由に記述してください。" %></td>
     </tr>
   </table>
   <%= f.submit "更新する", class: "btn btn-success" %>

@@ -34,7 +34,7 @@ class User < ApplicationRecord
 
   #誕生日の制限
   def birthday_is_valid?
-    errors.add(:birthday, "が無効な日付です") if birthday.nil? || birthday > Date.today
+    errors.add(:birthday, "が無効な日付です。") if birthday.nil? || birthday > Date.today
   end
 
   validates :name, presence: true, length: { maximum: 20 }
