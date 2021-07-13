@@ -1,0 +1,40 @@
+<div id="calendar"></div>
+    <script>
+      $(document).ready(function() {
+  $("#calendar").fullCalendar({
+    header: {
+      left: '',
+      center: 'today prev,next',
+      right: 'title',
+    },
+
+    buttonText: {
+      prev: '前',
+      next: '次',
+      today: '今日',
+      month: '月',
+      week: '週',
+      day: '日'
+    },
+
+    events: "/users/<%= @user.id %>",
+
+    //イベントの色を変える
+    eventColor: 'black',
+    //イベントの文字色を変える
+    eventTextColor: 'white',
+    //カレンダー上部を年月で表示させる
+    titleFormat: 'YYYY年 M月',
+    //曜日を日本語表示
+    dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+    //ボタンのレイアウト
+    color: 'yellow',
+    textColor: 'black',
+     navLinks: false,
+    select: function(date) {
+      $('#new_post').modal('show');
+    }
+
+  })
+});
+    </script>
