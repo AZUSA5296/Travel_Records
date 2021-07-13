@@ -32,9 +32,14 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  #誕生日の制限
+  # 誕生日の制限
   def birthday_is_valid?
     errors.add(:birthday, "が無効な日付です。") if birthday.nil? || birthday > Date.today
+  end
+
+  # ユーザー検索
+  def self.search(keyword)
+    where(["name like? OR nickname like?", "%#{keyword}%", "%#{keyword}%"])
   end
 
   validates :name, presence: true, length: { maximum: 20 }
