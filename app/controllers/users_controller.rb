@@ -45,6 +45,13 @@ class UsersController < ApplicationController
     render 'follow'
   end
 
+  def search
+     # 自分以外のユーザーを検索
+    @users = User.search(params[:keyword]).where.not(id: current_user.id).order(id: "DESC") # idの降順
+    @keyword = params[:keyword]
+    render "index"
+  end
+
   private
 
   def user_params
