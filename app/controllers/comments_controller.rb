@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
     if @comment.save
       flash.now[:notice] = "コメントを送信しました"
+      # 通知を作成
+      @comment_item.create_notification_comment!(current_user, @comment.id)
     else
       render :error  #render先にjsファイルを指定
     end
