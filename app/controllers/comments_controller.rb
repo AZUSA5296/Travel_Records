@@ -4,13 +4,14 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = Comment.new
-    @comment = current_user.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
     @comment.post_id = @post.id
+    @comment_post = @comment.post
     if @comment.save
       flash.now[:notice] = "コメントを送信しました"
       # 通知を作成
-      @comment_item.create_notification_comment!(current_user, @comment.id)
+      @comment_post.create_notification_comment!(current_user, @comment.id)
     else
       render :error  #render先にjsファイルを指定
     end
