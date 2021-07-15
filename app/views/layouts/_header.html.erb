@@ -1,5 +1,5 @@
-<header class="shadow-sm">
-  <nav class="navbar navbar-expand-lg navbar-light">
+<header>
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand p-3" href="/">ロゴ予定</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,29 +12,45 @@
             <i class="fa fa-circle" style="color: gold;"></i>
           <% end %>
           <li>
-            <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
+            <%= link_to notifications_path, class: "nav-link" do %>
+              <i class="fas fa-exclamation-circle"></i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to 'タイムライン', posts_path, class: 'nav-link text-dark' %>
+            <%= link_to posts_path, class: 'nav-link' do %>
+              <i class="fas fa-stream">タイムライン</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark' %>
+            <%= link_to new_post_path, class: 'nav-link' do %>
+              <i class="far fa-plus-square"></i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+            <%= link_to user_path(current_user.id), class: 'nav-link' do %>
+              <i class="fas fa-user-circle"></i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to 'ユーザー', users_path(current_user.id), class: 'nav-link text-dark' %>
+            <%= link_to users_path(current_user.id), class: 'nav-link' do %>
+              <i class="fas fa-users"></i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+              <i class="fas fa-sign-out-alt"></i>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+            <%= link_to new_user_registration_path, class: 'nav-link' do %>
+              <i class="fas fa-user-plus"></i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+            <%= link_to new_user_session_path, class: 'nav-link' do %>
+              <i class="fas fa-sign-in-alt"></i>
+            <% end %>
           </li>
         <% end %>
         </ul>
