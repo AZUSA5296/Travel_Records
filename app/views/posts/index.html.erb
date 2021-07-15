@@ -2,7 +2,7 @@
 
   <% if @posts.present? %>
     <% @posts.each do |post| %>
-    <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="polaroid">
       <span><%= I18n.l post.date, format: :long %></span>
       <%= link_to post_path(post) do %>
         <%= attachment_image_tag post, :image, class:"card-img-top"; %>
