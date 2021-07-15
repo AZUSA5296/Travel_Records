@@ -38,6 +38,14 @@ a {
   color: white;
 }
 
+a:hover {
+  color: white;
+}
+
+ul {
+  text-align: center;
+}
+
 /* ========================================================================== */
 /* header                                                                     */
 /* ========================================================================== */
@@ -45,10 +53,14 @@ a {
 header {
   background: black;
   width: 100%;
-  height: 70px;
+  height: 60px;
   position: fixed;
   top: 0;
   z-index: 2;
+}
+
+.container {
+  margin-right: 170px;
 }
 
 .zigzag {
@@ -58,14 +70,102 @@ header {
   -webkit-mask-size: 100% 100%, 30px 30px, 30px 30px;
 }
 
+.nav-item {
+  margin-left: 60px;
+}
+
 .nav-link {
+  padding: 0;
+}
+
+.nav-item i {
+  font-size: 22px;
+}
+
+.link-text {
+  font-size: 12px;
+}
+
+.nav_right {
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.nav_right li {
+  width: 170px;
+  color: white;
+  font-size: 18px;
+  display: block;
+  height: 60px;
+  position: relative;
+  line-height: 60px;
+  text-align: left;
+  padding-left: 30px;
+}
+
+#nav_right_1 {
+  background-color: #00428f;
+	color: white;
+	overflow: hidden;
+	text-decoration: none;
+	position: relative;
+	}
+
+#nav_right_1:before {
+	background-color: white;
+	color: #00428f;
+	content:"";
+	display: block;
+	height: 100%;
+	left: -96%;
+	opacity: 0.3;
+	position: absolute;
+	transition: .4s;
+	top: 0px;
+	width: 100%;
+	pointer-events : none;
+}
+
+#nav_right_1:hover:before {
+  left:0;
+}
+
+#nav_right_2 {
+  background: black;
+  color: white;
+	overflow: hidden;
+	text-decoration: none;
+	position: relative;
+	}
+
+#nav_right_2:before {
+	background: white;
+	content:"";
+	display: block;
+	height: 100%;
+	left: -96%;
+	opacity: 0.3;
+	position: absolute;
+	transition: .4s;
+	top: 0px;
+	width: 100%;
+	pointer-events : none;
+}
+
+#nav_right_2:hover:before {
+  left:0;
 }
 
 /* ========================================================================== */
 /* footer                                                                     */
 /* ========================================================================== */
+
 footer {
-  background: #000033;
+  background: black;
+  height: 60px;
 }
 
 footer p {
