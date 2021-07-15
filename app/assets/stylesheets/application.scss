@@ -53,7 +53,7 @@ ul {
 header {
   background: black;
   width: 100%;
-  height: 60px;
+  height: 65px;
   position: fixed;
   top: 0;
   z-index: 2;
@@ -63,15 +63,9 @@ header {
   margin-right: 170px;
 }
 
-.zigzag {
-  -webkit-mask-image: linear-gradient(0deg, transparent 30px, white 30px), linear-gradient(-135deg, white 15px, transparent 15px), linear-gradient(135deg, white 15px, transparent 15px);
-  -webkit-mask-position: left bottom;
-  -webkit-mask-repeat: repeat-x;
-  -webkit-mask-size: 100% 100%, 30px 30px, 30px 30px;
-}
-
 .nav-item {
   margin-left: 60px;
+  margin-top: 8px;
 }
 
 .nav-link {
@@ -79,11 +73,88 @@ header {
 }
 
 .nav-item i {
-  font-size: 22px;
+  font-size: 20px;
+  border-radius: 25%;
+  background: #3f3f3f;
+  border: 5px solid #3f3f3f;
 }
 
 .link-text {
   font-size: 12px;
+}
+
+.icon {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 25%;
+  position: relative;
+  color: white;
+}
+
+
+.icon:after {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25%;
+  content:'';
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.icon.effect:after {
+  top: -7px;
+  left: -7px;
+  padding: 7px;
+  box-shadow: 0 0 0 4px #fff;
+  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+  -webkit-transform: scale(.8);
+  -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+  -moz-transform: scale(.8);
+  -ms-transform: scale(.8);
+  transition: transform 0.2s, opacity 0.2s;
+  transform: scale(.8);
+  opacity: 0;
+}
+
+.icon.effect:hover i {
+  border-radius: 25%;
+  background: white;
+  border: 5px solid white;
+}
+
+.icon.effect.blue:hover i {
+  color: #4689FF;
+}
+
+.icon.effect.orange:hover i {
+  color: #FF6928;
+}
+
+.icon.effect.pink:hover i {
+  color: #FF5192;
+}
+
+.icon.effect.purple:hover i {
+  color: #9057FF;
+}
+
+.icon.effect.green:hover i {
+  color: #3CB371;
+}
+
+.icon.effect:hover:after {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 0.5;
+}
+
+.nav-item2 i {
+  font-size: 22px;
 }
 
 .nav_right {
@@ -99,9 +170,9 @@ header {
   color: white;
   font-size: 18px;
   display: block;
-  height: 60px;
+  height: 65px;
   position: relative;
-  line-height: 60px;
+  line-height: 65px;
   text-align: left;
   padding-left: 30px;
 }
@@ -165,7 +236,9 @@ header {
 
 footer {
   background: black;
-  height: 60px;
+  width: 100%;
+  height: 65px;
+  line-height: 65px;
 }
 
 footer p {
