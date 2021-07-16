@@ -1,0 +1,136 @@
+input {
+  ::-webkit-input-placeholder {
+     color: rgba(255,255,255,0.7);
+  }
+  ::-moz-placeholder {
+     color: rgba(255,255,255,0.7);
+  }
+  :-ms-input-placeholder {
+     color: rgba(255,255,255,0.7);
+  }
+  &:focus {
+    outline: 0 transparent solid;
+    ::-webkit-input-placeholder {
+     color: rgba(0,0,0,0.7);
+    }
+    ::-moz-placeholder {
+       color: rgba(0,0,0,0.7);
+    }
+    :-ms-input-placeholder {
+       color: rgba(0,0,0,0.7);
+    }
+  }
+}
+
+.box {
+  width: 350px;
+  height: 450px;
+  margin: 60px auto 0;
+}
+
+.box-inner {
+  margin: 110px auto 0;
+}
+
+.devise-text {
+  color: white;
+  height: 70px;
+  font-size: 40px;
+  margin-bottom: 70px;
+}
+
+.fa-stack-1x {
+  color: black;
+  line-height: 80px;
+}
+
+.box-form {
+  margin-top: 25px;
+}
+
+.box-form input {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid rgba(white, .5);
+  color: white;
+  display: block;
+  width: 100%;
+  padding: .5rem;
+  &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.box-login input {
+  font-size: 20px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  display: block;
+  margin: 30px auto;
+  min-width: 1px;
+  padding: .25rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.column-left {
+  text-align: left;
+  margin-left: 7px;
+}
+
+.column-left a {
+  color: rgba(white, .5);
+}
+
+input[type="checkbox"] {
+  display: none;
+  color: rgba(white, .5);
+}
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  color: rgba(white, .5);
+}
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  position: absolute;
+  left: 50px;
+  top: 3px;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -2px;
+  left: 55px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.box-newuser {
+  color: white;
+}
