@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <td>タイトル</td>
+    <td><%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "20文字以内" %></td>
+  </tr>
+  <tr>
+    <td>日付</td>
+    <td> <%= raw sprintf(f.date_select(:date, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, date_separator: '%s'),'年 ', '月 ') + '日' %></td>
+  </tr>
+  <tr>
+    <td>画像</td>
+    <td>
+      <%= attachment_image_tag post, :image, :fill, 60, 60, fallback: "no_image.jpg" %>
+      <%= f.attachment_field :image, placeholder: "画像" %>
+    </td>
+  </tr>
+  <tr>
+    <td>思い出</td>
+    <td><%= f.text_area :content, autocomplete: "content", placeholder: "500文字以内" %></td>
+  </tr>
+  <tr>
+    <td>タグ</td>
+    <td><%= f.text_field :tag_list, value: @post.tag_list.join(',') %></td>
+  </tr>
+  <tr>
+    <td>公開設定</td>
+    <td><%= f.radio_button :status, :false %>公開<%= f.radio_button :status, :true %>非公開</td>
+  </tr>
+</table>

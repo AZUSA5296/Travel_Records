@@ -1,0 +1,209 @@
+.action input {
+  font-size: 20px;
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  display: block;
+  margin: 30px auto;
+  min-width: 1px;
+  padding: .25rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: black;
+    color: white;
+    transition: 250ms background ease-in;
+  }
+}
+
+.box-user p a {
+  color: black;
+}
+
+
+/* ========================================================================== */
+/* sign in                                                                    */
+/* ========================================================================== */
+
+input {
+  ::-webkit-input-placeholder {
+     color: rgba(255,255,255,0.7);
+  }
+  ::-moz-placeholder {
+     color: rgba(255,255,255,0.7);
+  }
+  :-ms-input-placeholder {
+     color: rgba(255,255,255,0.7);
+  }
+  &:focus {
+    outline: 0 transparent solid;
+    ::-webkit-input-placeholder {
+     color: rgba(0,0,0,0.7);
+    }
+    ::-moz-placeholder {
+       color: rgba(0,0,0,0.7);
+    }
+    :-ms-input-placeholder {
+       color: rgba(0,0,0,0.7);
+    }
+  }
+}
+
+.box1 {
+  width: 350px;
+  height: 450px;
+  margin: 60px auto 0;
+}
+
+.box1-inner {
+  margin: 110px auto 0;
+}
+
+.devise-text {
+  color: black;
+  height: 70px;
+  font-size: 40px;
+  margin-bottom: 70px;
+}
+
+.fa-stack-1x {
+  color: white;
+  line-height: 80px;
+}
+
+.box-form {
+  margin-top: 25px;
+}
+
+.box-form input {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid black;
+  color: white;
+  display: block;
+  width: 100%;
+  padding: .5rem;
+  &:focus {
+    background: black;
+    color: white;
+    transition: 250ms background ease-in;
+  }
+}
+
+.column-left {
+  text-align: left;
+  margin-left: 7px;
+}
+
+.column-left a {
+  color: black;
+  &:hover {
+  color: black;
+  }
+}
+
+input[type="checkbox"] {
+  display: none;
+  color: black;
+}
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  color: black;
+}
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  position: absolute;
+  left: 50px;
+  top: 3px;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -2px;
+  left: 55px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* ========================================================================== */
+/* sign up                                                                    */
+/* ========================================================================== */
+
+.box2 {
+  width: 350px;
+  margin: 40px auto 0;
+}
+
+.box2-inner {
+  margin: 50px auto 0;
+}
+
+.signup-text {
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.signup-text h1 {
+  font-size: 35px;
+  color: black;
+}
+
+.field {
+  margin-bottom: 13px;
+  text-align: left;
+}
+
+.field label {
+  font-weight: 700;
+  font-size: 15px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+}
+
+.field b {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.field input {
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+
+/* ========================================================================== */
+/* password                                                                   */
+/* ========================================================================== */
+
+.password-text {
+  height: 50px;
+  margin: 50px;
+}
+
+.password-text h1 {
+  font-size: 35px;
+  color: black;
+}

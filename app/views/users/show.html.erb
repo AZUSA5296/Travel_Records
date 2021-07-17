@@ -1,0 +1,66 @@
+<div class="containar">
+  <div class="row no-gutters">
+
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <% if current_user.present? && (@user.id == current_user.id) %>
+        <h5 class="text-dark bg-light p-4 mb-0">マイページ</h5>
+      <% else %>
+        <h5 class="text-dark bg-light p-4 mb-0"><%= @user.nickname %> さん</h5>
+      <% end %>
+
+      <table class="table">
+        <tr>
+          <td colspan="2">
+          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+          </td>
+        </tr>
+        <tr>
+          <td>ニックネーム</td>
+          <td><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <td>誕生日</td>
+          <td><%= @user.birthday.strftime("%Y年%-m月%-d日") %></td>
+        </tr>
+        <tr>
+          <td>自己紹介</td>
+          <td><%= @user.introduction %></td>
+        </tr>
+        <tr class="follow_<%= @user.id %>">
+          <td>フォロー数</td>
+          <td class="following-count">
+            <%= link_to following_user_path(@user), class:"text-dark" do %>
+              <%= @user.following.count %>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="follow_<%= @user.id %>">
+          <td>フォロワー数</td>
+          <td class="followers-count">
+            <%= link_to followers_user_path(@user), class:"text-dark" do %>
+              <%= @user.followers.count %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+
+      <% if current_user.present? && (@user.id == current_user.id) %>
+        <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary mb-5" %>
+      <% elsif current_user.present? && (@user.id != current_user.id) %>
+        <div class="follow_<%= @user.id %>">
+          <div class="follow_form mb-5">
+            <%= render 'relationships/follow_form', user: @user %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div>
+       <%= render "calendar" %>
+    </div>
+    <div class="col-md-7 px-3 ml-5">
+      <h3 class="mb-4">posts</h3>
+      <%= render "posts/post_index", posts: @posts %>
+    </div>
+
+  </div>
+</div>
