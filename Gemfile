@@ -85,3 +85,6 @@ gem 'devise-i18n'
 # カレンダー機能
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+# リーダブルコード
+gem 'rubocop-airbnb'
