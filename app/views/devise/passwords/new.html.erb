@@ -1,16 +1,21 @@
-<h2>パスワードをお忘れですか?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="password-text">
+  <h1>パスワードをお忘れですか?</h1>
+</div>
+<div class="box2">
+  <div class="box2-inner">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="action">
+        <%= f.submit "パスワード再発行" %>
+      </div>
+    <% end %>
+    <div class="box-user">
+      <p>会員の方は<%= link_to "こちら", new_user_session_path %></p>
+    </div>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "パスワード再発行" %>
-  </div>
-<% end %>
-
-<p>会員の方は<%= link_to "こちら", new_user_session_path %>からログインして下さい。</p>

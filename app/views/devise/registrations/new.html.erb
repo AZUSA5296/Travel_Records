@@ -1,44 +1,43 @@
-<h2>新規会員登録</h2>
-
-<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :氏名 %><br />
-    <%= f.text_field :name, autofocus: true %>
+<div class="box2">
+  <div class="box2-inner">
+    <div class="signup-text">
+      <h1>新規会員登録</h1>
+    </div>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :氏名 %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+      <div class="field">
+        <%= f.label :ニックネーム %><br />
+        <%= f.text_field :nickname, autofocus: true %>
+      </div>
+     <div class="field">
+        <%= f.label :生年月日 %><br />
+        <%= raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, default: Date.new(2000, 1, 1), date_separator: '%s'),'年 ', '月 ') + '日' %>
+      </div>
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="field">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+          <b>（英数字<%= @minimum_password_length %>文字以上）</b>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="field">
+        <%= f.label :パスワード（確認） %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+      <div class="action">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+    <div class="box-user">
+      <p>会員の方は<%= link_to "こちら", new_user_session_path %></p>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :ニックネーム %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :生年月日 %><br />
-    <%= raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, default: Date.new(2000, 1, 1), date_separator: '%s'),'年 ', '月 ') + '日' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>（英数字<%= @minimum_password_length %>文字以上）</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード（確認） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<p>会員の方は<%= link_to "こちら", new_user_session_path %>からログインして下さい。</p>
+</div>
