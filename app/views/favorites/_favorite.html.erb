@@ -8,7 +8,7 @@
 <% else %>
   <span>
     <%= link_to(post_favorites_path(post), class:"text-dark", method: :post, remote: true) do %>
-      <i class="fa fa-heart" aria-hidden="true"></i>
+      <i class="far fa-heart" aria-hidden="true"></i>
        <span><%= post.favorites.count %></span>
     <% end %>
   </span>

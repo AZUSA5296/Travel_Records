@@ -3,7 +3,12 @@
     <% @posts.each do |post| %>
     <div class="polaroid w-50 mx-auto mt-4 shadow-lg">
       <div class="polaroid-header">
-        <%= I18n.l post.date, format: :long %>
+        <span class="date">
+          <%= I18n.l post.date, format: :long %>
+        </span>
+        <span class="polaroid-title">
+          <%= post.title %>
+        </span>
       </div>
       <%= link_to post_path(post) do %>
         <%= attachment_image_tag post, :image, class:"polaroid-img"; %>
@@ -17,21 +22,18 @@
             <% end %>
           </div>
           <div class="col-10" id="favorite_<%= post.id %>">
-            <p class="polaroid-title">
-              <span><%= post.title %></span>
-            </p>
             <p class="polaroid-text">
               <%= post.content %>
             </p>
             <div class="tag"><%= render "posts/index_tag_list", post: post %></div>
             <div class="icon">
-              <span class="favorite"><%= render "favorites/favorite", post: post %></span>
-              <span>
+              <div class="favorite"><%= render "favorites/favorite", post: post %></div>
+              <div class="comment">
                 <%= link_to post_path(post.id), class:"text-dark" do %>
                   <i class="far fa-comment-alt"></i>
                   <span> <%= post.comments.count %></span>
                 <% end %>
-              </span>
+              </div>
             </div>
           </div>
         </div>
