@@ -16,6 +16,13 @@
  */
 @import "bootstrap";
 
+@font-face {
+  font-family: 'tegaki';
+  src: font-url('fonts/maru.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html{
   height: 100%;
 }
@@ -45,6 +52,7 @@ a {
 
 a:hover {
   color: white;
+  text-decoration: none;
 }
 
 ul {
