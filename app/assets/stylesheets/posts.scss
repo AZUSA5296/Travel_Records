@@ -2,29 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.polaroid-list-containar {
+ background-image: url(black.jpg);
+ min-height: 100%;
+}
+
 .polaroid {
  padding: 0 30px;
  margin-bottom: 80px;
+ background: white;
 }
 
 .polaroid-header {
- height: 50px;
+ height: 60px;
  text-align: left;
- font-size: 20px;
- padding-top: 20px;
+ padding-top: 10px;
+ position: relative;
 }
 
 .date {
- margin-right: 30px;
+ font-size: 19px;
+ position: absolute;
+ top: 0;
+ right: -70px;
+ margin: 0;
+ padding: 10px;
+ background: rgba(255, 255, 245, 0.8);
+ box-shadow: 0 2px 4px #555;
+ transform: rotate(15deg);
+ z-index: 5;
 }
 
 .polaroid-title {
-}
-
-.polaroid-title span {
-}
-
-.polaroid-title::before {
+ font-size: 25px;
+ font-family: MyFont;
 }
 
 .polaroid-img {

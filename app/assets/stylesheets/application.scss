@@ -17,8 +17,8 @@
 @import "bootstrap";
 
 @font-face {
-  font-family: 'tegaki';
-  src: font-url('fonts/maru.ttf') format('truetype');
+  font-family: 'MyFont';
+  src: font-url('YuseiMagic-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -39,10 +39,12 @@ html{
   min-height: 100%;
   background: white;
   text-align: center;
+  height: 100%;
  }
 
  main {
   padding-top: 65px;
+  height: 100%;
 }
 
 a {
@@ -69,7 +71,7 @@ header {
   height: 65px;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 100;
   border-bottom: 1px solid;
   border-color: white;
 }
