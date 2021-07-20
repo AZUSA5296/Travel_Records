@@ -41,6 +41,24 @@
     </div>
     <% end %>
   <% else %>
-    <p>フォローしよう</p>
+    <p class="nocontents">まだタイムラインに投稿がありません。</p>
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col">
+          <p class="lets-text">あなたの思い出を投稿しよう！</p>
+        </div>
+        <div class="col">
+          <p class="lets-text">友達をフォローしよう！</p>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col">
+          <a href="/posts/new" class="btn btn-border-shadow btn-border-shadow--color" id="pink">Let's post !!</a>
+        </div>
+        <div class="col">
+          <a href="/users" class="btn btn-border-shadow btn-border-shadow--color" id="yellow">Let's follow !!</a>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
