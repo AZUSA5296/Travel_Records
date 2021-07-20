@@ -16,6 +16,13 @@
  */
 @import "bootstrap";
 
+@font-face {
+  font-family: 'MyFont';
+  src: font-url('YuseiMagic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html{
   height: 100%;
 }
@@ -29,12 +36,15 @@ html{
  body {
   width: 100%;
   position: relative;
-  min-height: 100%;
   background: white;
   text-align: center;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
  }
 
  main {
+  flex: 1;
   padding-top: 65px;
 }
 
@@ -45,6 +55,7 @@ a {
 
 a:hover {
   color: white;
+  text-decoration: none;
 }
 
 ul {
@@ -61,13 +72,9 @@ header {
   height: 65px;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 100;
   border-bottom: 1px solid;
   border-color: white;
-}
-
-.container {
-  margin-right: 170px;
 }
 
 .nav-item {
@@ -136,8 +143,8 @@ header {
   color: #4689FF;
 }
 
-.icon.effect.orange:hover i {
-  color: #FF6928;
+.icon.effect.green:hover i {
+  color:  #3CB371;
 }
 
 .icon.effect.pink:hover i {
@@ -148,8 +155,8 @@ header {
   color: #9057FF;
 }
 
-.icon.effect.green:hover i {
-  color: #3CB371;
+.icon.effect.yellow:hover i {
+  color: #FFCC33;
 }
 
 .icon.effect:hover:after {
@@ -246,7 +253,6 @@ footer {
   width: 100%;
   height: 65px;
   line-height: 65px;
-  margin-top: auto;
   border-top: 1px solid;
   border-color: white;
 }
