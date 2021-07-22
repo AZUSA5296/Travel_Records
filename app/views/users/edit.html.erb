@@ -1,34 +1,38 @@
-<h2>プロフィール編集</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
-  <table>
-    <tr>
-      <td>氏名</td>
-      <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
-    </tr>
-    <tr>
-      <td>ニックネーム</td>
-      <td><%= f.text_field :nickname, autocomplete: "nickname" %></td>
-    </tr>
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= f.email_field :email, autocomplete: "email" %></td>
-    </tr>
-    <tr>
-      <td>生年月日</td>
-      <td><%= raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, default: Date.new(2000, 1, 1), date_separator: '%s'),'年 ', '月 ') + '日' %></td>
-    </tr>
-    <tr>
-      <td>プロフィール画像</td>
-      <td>
-        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br />
-        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-      </td>
-    </tr>
-    <tr>
-      <td>自己紹介</td>
-      <td><%= f.text_area :introduction, autocomplete: "introduction", placeholder: "50字以内で自由に記述してください。" %></td>
-    </tr>
-  </table>
-  <%= f.submit "更新する", class: "btn btn-success" %>
-<% end %>
+<div class="user-container">
+  <div class="user-contents">
+    <h1>Edit</h1>
+    <div class="user-form">
+      <%= form_with model:@user, local:true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="user-field">
+          <%= f.label :氏名 %><span Class="required-orange">必須</span><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "title" %>
+        </div>
+        <div class="user-field">
+          <%= f.label :ニックネーム %><span Class="required-orange">必須</span><br />
+          <%= f.text_field :nickname, autocomplete: "nickname" %>
+        </div>
+        <div class="user-field">
+          <%= f.label :メールアドレス %><span Class="required-orange">必須</span><br />
+          <%= f.email_field :email, autocomplete: "email" %>
+        </div>
+        <div class="user-field" id="birthday">
+          <%= f.label :生年月日 %><span Class="required-orange">必須</span><br />
+          <%= raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, default: Date.new(2000, 1, 1), date_separator: '%s'),'&nbsp;年&emsp;', '&nbsp;月&emsp;') + '&nbsp;日' %>
+        </div>
+        <div class="post-field" id="profile">
+          <%= f.label :プロフィール画像 %><br />
+          <%= attachment_image_tag @user, :profile_image, :fill, 75, 75, fallback: "no_image.jpg", class:"profile-image mt-3 rounded-circle"; %><br />
+          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+        </div>
+        <div class="post-field" id="introduction">
+          <%= f.label :自己紹介 %><br />
+          <%= f.text_area :introduction, autocomplete: "introduction", placeholder: "50字以内で自由に記述してください" %>
+        </div>
+        <span class="user-action">
+          <%= f.submit "更新する" %>
+         </span>
+      <% end %>
+    </div>
+  </div>
+</div>
