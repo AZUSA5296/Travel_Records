@@ -22,3 +22,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+$('input').on('change', function () {
+    var image = $(this).prop('images')[0];
+    $('p').text(image.name);
+});

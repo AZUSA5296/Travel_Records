@@ -233,3 +233,151 @@ a#yellow  {
 a#pink {
  background: #FF5192;
 }
+
+/* ========================================================================== */
+/* new                                                                        */
+/* ========================================================================== */
+
+.new-container {
+ width: 100%;
+ height: 100%;
+ border: 20px solid orange;
+ text-align: center;
+}
+
+.new-contents {
+ width: 500px;
+ display: inline-block;
+ padding: 120px 0;
+ text-align: left;
+}
+
+.new-contents h1 {
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+}
+
+.new-form {
+ padding-top: 40px;
+}
+
+.post-field {
+ margin-bottom: 20px;
+}
+
+.post-field label {
+ font-weight: 700;
+ font-size: 15px;
+ padding-left: 2px;
+ padding-bottom: 2px;
+}
+
+.required {
+ background-color: #f0ad4e;
+ color: #fff;
+ font-size: 12px;
+ font-weight: bold;
+ min-width: 10px;
+ padding: 3px 7px;
+ margin: 0px 5px;
+ line-height: 1;
+ vertical-align: middle;
+ white-space: nowrap;
+ text-align: center;
+ border-radius: 5px;
+ display: inline-block;
+}
+
+.explanation {
+ color: #94918e;
+}
+
+.post-field input {
+ height: 50px;
+ width: 500px;
+ background: #fef7ea;
+ border-radius: 0;
+ border: 1px solid orange;
+ padding: 10px;
+}
+
+.post-field input:focus {
+ box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+ border: solid 2px orange;
+}
+
+.post-field input:after {
+ background: #fef7ea;
+}
+
+#field-date select {
+ border: solid 1px orange;
+ background: #fef7ea;
+ height: 40px;
+ padding: 10px;
+}
+
+#field-image input {
+ background: #fff;
+ width: auto;
+ border: none;
+}
+
+#field-date select:focus {
+ box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+ border: solid 2px orange;
+ outline: none;
+}
+
+#field-text textarea {
+ height: 100px;
+ width: 500px;
+ background: #fef7ea;
+ border-radius: 0;
+ border: 1px solid orange;
+ padding: 10px;
+}
+
+#field-text textarea:focus {
+ box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+ border: solid 2px orange;
+ outline: none;
+}
+
+#field-text textarea:after {
+ height: 100px;
+ width: 500px;
+ background: #fef7ea;
+ border-radius: 0;
+ border: 1px solid orange;
+ padding: 10px;
+}
+
+#field-radio_button input {
+ display: none;
+}
+
+#inline-radio {
+ display: flex;
+}
+
+#inline-radio label {
+ width: 100px;
+ height: 50px;
+ color: #b6b6b6;
+ background: #fff;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 1px solid #d81b60;
+}
+
+#field-radio_button input:checked + label {
+ background: #d81b60;
+ font-weight: 500;
+ color: #fff;
+}
