@@ -1,11 +1,13 @@
-<div class="new-container">
-  <div class="new-contents">
+<div class="post-container">
+  <div class="post-contents">
     <h1>Let's Post !!</h1>
-    <div class="new-form">
+    <div class="post-form">
       <%= form_with model: @post, local:true do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
         <%= render "posts/post_form", post: @post, f: f %>
-        <%= f.submit '投稿' %>
+        <span class="post-action">
+          <%= f.submit '投稿' %>
+        </span>
       <% end %>
      </div>
   </div>

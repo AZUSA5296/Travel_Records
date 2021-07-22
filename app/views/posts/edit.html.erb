@@ -1,13 +1,19 @@
-<div class="container px-5 mt-5 px-sm-0">
-
-  <h2>編集</h2>
-
-  <div class="row mt-3 mb-5" style="margin-left: 0; margin-right: 0; padding-left: 0;">
-    <%= form_with model: @post, local: true do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-      <%= render "posts/post_form", post: @post, f: f %>
-      <%= f.submit "更新する", class: "btn btn-success", style: "width: 125px;" %>
-    <% end %>
+<div class="post-container">
+  <div class="post-contents">
+    <h1>Edit</h1>
+    <div class="post-form">
+      <%= form_with model: @post, local:true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <%= render "posts/post_form", post: @post, f: f %>
+        <span class="post-action">
+          <%= f.submit "更新する" %>
+        </span>
+      <% end %>
+    </div>
   </div>
-
 </div>
+
+
+
+
+
