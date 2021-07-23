@@ -1,7 +1,11 @@
 <div class="search-form">
   <%= form_with url: search_users_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword %>
-    <%= f.submit "検索" %>
+    <span class="search_title">
+      <%= f.text_field :keyword, value: @keyword, placeholder: "ユーザー検索", style: "border: none" %>
+    </span>
+    <span class="search_action">
+     <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit" %>
+    </span>
   <% end %>
 </div>
 
