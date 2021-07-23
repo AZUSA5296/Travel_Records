@@ -41,135 +41,175 @@
  font-size: 25px;
 }
 
-.cards-container{
- width: 793px;
- max-width: 100%;
- margin: 2rem auto;
+
+/* ========================================================================== */
+/* show                                                                       */
+/* ========================================================================== */
+
+#userpage-title h1 {
+ padding: 90px 0;
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
 }
 
-.card-two{
- float: left;
- margin: 30px;
+.card {
+ margin-left: 40px;
  position: relative;
- width: 300px;
+ width: 500px;
+ height: 650px;
  background: white;
  box-shadow: 0 10px 7px -5px rgba(#000,.4);
+}
 
- .users-header{
-  position: relative;
-  width: 100%;
-  height: 50px;
-  background-color: #d978c8;
-  z-index: 5;
-   &::after{
-    content: '';
-    position: absolute;
-    top: 0;bottom: 0;left: 0;right: 0;
-    background: inherit;
-     -webkit-transform: skewY(8deg);
-     -moz-transform: skewY(8deg);
-     -ms-transform: skewY(8deg);
-     -o-transform: skewY(8deg);
-     transform: skewY(8deg);
-     -webkit-transform-origin: 0 100%;
-     -moz-transform-origin: 0 100%;
-     -ms-transform-origin: 0 100%;
-     -o-transform-origin: 0 100%;
-     transform-origin: 0 100%;
+.users-header {
+ position: relative;
+ width: 100%;
+ min-height: 80px;
+ background-color: #d978c8;
+ z-index: 5;
+  &::after{
+   content: '';
+   position: absolute;
+   top: 0;bottom: 0;left: 0;right: 0;
+   background: inherit;
+    -webkit-transform: skewY(8deg);
+    -moz-transform: skewY(8deg);
+    -ms-transform: skewY(8deg);
+    -o-transform: skewY(8deg);
+    transform: skewY(8deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+  }
+  .avatar{
+   position: absolute;
+   left: 50%;
+   top: 40px;
+   margin-left: -75px;
+   z-index: 5;
+   width: 150px;
+   height: 150px;
+   background: white;
+   border-radius: 50%;
+   overflow: hidden;
+   border: 3px solid white;
+  }
+ }
+
+.card h3 {
+ position: relative;
+ margin: 110px 0 5px;
+ font-size: 40px;
+ text-align: center;
+  &::after{
+   content: '';
+   position: absolute;
+   bottom: -15px;
+   left: 50%;
+   margin-left: -15px;
+   width: 30px;
+   height: 1px;
+ }
+}
+
+.desc{
+ padding: 15px 20px 2px;
+ text-align: center;
+ min-height: 150px;
+ line-height: 1.5;
+ color: #777;
+}
+
+.counts {
+ color: #d978c8;
+ margin-bottom: 43px;
+}
+
+.counts li {
+ width: 32%;
+ text-align: center;
+ display: inline-block;
+ font-size: 20px;
+}
+
+.counts li a {
+ color: #d978c8;
+}
+
+.counts li a:hover {
+ color: orange;
+}
+
+.counts li span {
+ display: block;
+ text-transform: uppercase;
+ font-size: 25px;
+ margin-top: 10px;
+ font-weight: 700;
+}
+
+.users-footer {
+ position: relative;
+ height: 80px;
+  input{
+   font-size: 20px;
+   position: absolute;
+   bottom: 20px; left: 0;
+   width: 100%;
+   z-index: 1;
+   color: white;
+   font-weight: 700;
+   text-decoration: none;
+    &:hover{
+     color: #d978c8;
+     font-weight: 700;
+     text-decoration: none;
     }
- .avatar{
-  position: absolute;
-  left: 50%;
-  top: 30px;
-  margin-left: -50px;
-  z-index: 5;
-  width: 100px;
-  height: 100px;
-  background: white;
-  border-radius: 50%;
-  overflow: hidden;
-  border:3px solid white;
+    &:focus{
+     box-shadow:none;
+    }
   }
+  &::before{
+   z-index: 1;
+   content: '';
+   position: absolute;
+   top: 0px;bottom: 0px;left: 0;right: 0;
+   background: inherit;
+    -webkit-transform: skewY(8deg);
+    -moz-transform: skewY(8deg);
+    -ms-transform: skewY(8deg);
+    -o-transform: skewY(8deg);
+    transform: skewY(8deg);
+    -webkit-transform-origin: 100%;
+    -moz-transform-origin: 100%;
+    -ms-transform-origin: 100%;
+    -o-transform-origin: 10%;
+    transform-origin: 100%;
  }
+}
 
- h3{
-  position: relative;
-  margin: 80px 0 10px;
-  font-size: 25px;
-  text-align: center;
-   &::after{
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    margin-left: -15px;
-    width: 30px;
-    height: 1px;
+.users-footer a {
+ font-size: 20px;
+ position: absolute;
+ bottom: 20px; left: 0;
+ width: 100%;
+ z-index: 1;
+ color: white;
+ font-weight: 700;
+ text-decoration: none;
+  &:hover{
+   color: #d978c8;
+   font-weight: 700;
   }
- }
-
- .desc{
-  padding: 0 20px 2px;
-  text-align: center;
-  min-height: 74px;
-  line-height: 1.5;
-  color: #777;
- }
-
- .counts {
-  color: #d978c8;
-  margin-bottom: 25px;
- }
-
- .counts li {
-  width: 32%;
-  text-align: center;
-  display: inline-block;
-  font-size: 15px;
- }
-
- .counts li span {
-  display: block;
-  text-transform: uppercase;
-  font-size: 25px;
-  margin-top: 10px;
-  font-weight: 700;
- }
-
- .users-footer {
-  position: relative;
-  height: 45px;
-   input{
-    padding-bottom: 80px;
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-     &:hover{
-      color: #d978c8;
-      font-weight: 700;
-     }
-     &:focus{
-      box-shadow:none;
-     }
-   }
-   &::before{
-    z-index: 0;
-    content: '';
-    position: absolute;
-    top: 0px;bottom: 0;left: 0;right: 0;
-    background: inherit;
-     -webkit-transform: skewY(8deg);
-     -moz-transform: skewY(8deg);
-     -ms-transform: skewY(8deg);
-     -o-transform: skewY(8deg);
-     transform: skewY(8deg);
-     -webkit-transform-origin: 100%;
-     -moz-transform-origin: 100%;
-     -ms-transform-origin: 100%;
-     -o-transform-origin: 100%;
-     transform-origin: 100%;
+  &:focus{
+   box-shadow:none;
   }
- }
 }
 
 #footer-followed {
@@ -178,6 +218,18 @@
 
 #footer-follow {
  background-color: #6464c8;
+}
+
+#footer-mypage {
+ background-color: orange;
+}
+
+/* ========================================================================== */
+/* edit                                                                       */
+/* ========================================================================== */
+
+#calendar {
+ width: 500px;
 }
 
 /* ========================================================================== */
