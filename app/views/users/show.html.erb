@@ -6,10 +6,10 @@
       <h1><%= @user.nickname %></h1>
     <% end %>
   </div>
-  <div class="row no-gutters">
-    <div class="col-sm">
-      <div class="user-show-containar">
-        <div class="card">
+  <div class="row mb-5">
+    <div class="col-xl-5 px-3">
+      <div class="user-show-containar mx-5" >
+        <div class="card mx-auto">
           <header class="users-header">
             <div class="avatar">
               <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "no_image.jpg" %>
@@ -62,16 +62,12 @@
         </div>
       </div>
     </div>
+    <div class="col-xl-7">
+      <%= render "calendar" %>
+    </div>
   </div>
-
-
-    <div class="col-sm">
-       <%= render "calendar" %>
-    </div>
-    <div class="col-md-7 px-3 ml-5">
-      <h3 class="mb-4">posts</h3>
-      <%= render "posts/post_index", posts: @posts %>
-    </div>
-
+  <div class="col pt-5">
+    <h3 class="users-show-post">posts</h3>
+    <%= render "posts/post_index", posts: @posts %>
   </div>
 </div>

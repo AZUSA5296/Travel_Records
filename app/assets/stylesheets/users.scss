@@ -57,7 +57,6 @@
 }
 
 .card {
- margin-left: 40px;
  position: relative;
  width: 500px;
  height: 650px;
@@ -224,13 +223,96 @@
  background-color: orange;
 }
 
+.users-show-post {
+ padding: 90px 0;
+ font-size: 45px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+}
+
+.card2-group {
+ display: flex;
+}
+
+.card2 {
+ background: white;
+}
+
+.card2-header {
+ height: 60px;
+ position: relative;
+ display: flex;
+ justify-content: center;
+ align-items: center
+}
+
+.card2-title {
+ font-size: 20px;
+ font-family: MyFont;
+}
+
+.card2-img {
+ width: 100%;
+ object-fit: contain;
+}
+
+.card2-body {
+ padding: 30px;
+ text-align: left;
+}
+
+.icon a{
+ font-size: 19px;
+}
+
+.favorite {
+ width: 70px;
+ display: inline;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ display: inline;
+}
+
+.fa:hover {
+ font-size: 25px;
+}
+
+.comment {
+ width: 70px;
+ position: absolute;
+ bottom: 0;
+ left: 75px;
+}
+
+.far:hover {
+ font-size: 24px;
+}
+
+.status {
+ width: 70px;
+ position: absolute;
+ bottom: 0;
+ left: 150px;
+ color: black;
+ pointer-events: none;
+ font-size: 18px;
+}
+
 /* ========================================================================== */
-/* edit                                                                       */
+/* calender                                                                   */
 /* ========================================================================== */
 
 #calendar {
- width: 500px;
+ width: 650px;
+ margin: 30px auto;
 }
+
+.fc-sun { color: red; }  /* 日曜日 */
+.fc-sat { color: blue; } /* 土曜日 */
 
 /* ========================================================================== */
 /* edit                                                                       */
