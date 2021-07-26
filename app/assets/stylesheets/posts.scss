@@ -44,7 +44,7 @@
 }
 
 .polaroid-body {
- padding: 30px 0;
+ padding: 20px 0;
  text-align: left;
 }
 
@@ -65,6 +65,10 @@
 /* ========================================================================== */
 /* icon                                                                       */
 /* ========================================================================== */
+
+.icon {
+ width: 100%;
+}
 
 .icon a{
  font-size: 19px;
@@ -99,7 +103,7 @@
 /* ========================================================================== */
 
 .tag {
- margin-bottom: 30px;
+ margin-bottom: 10px;
 }
 
 .badge1 {
@@ -113,17 +117,15 @@
 	position: relative;
 	display: inline-block;
 	height: 26px;
-	margin: 0 0px 10px 10;
+	margin: 0 0 10px 0;
 	padding: 0 20px 0 23px;
-	-webkit-transition: color 0.2s;
-	        transition: color 0.2s;
 	color: #455a64;
 	border-radius: 0 3px 3px 0;
 	background: #cfd8dc;
 }
 
 .badge1 a::before, .badge1 a::after {
-	background: #fafcfc;
+	background: white;
 }
 .badge1 a::before {
 	position: absolute;
@@ -147,11 +149,11 @@
 	border-radius: 4px;
 }
 .badge1 a:hover {
-	color: #ffffff;
-	background-color: #ec407a;
+	color: white;
+	background-color: #00aa71;
 }
 .badge1 a:hover::after {
-	border-color: transparent #ec407a transparent transparent;
+	border-color: transparent #00aa71 transparent transparent;
 }
 
 /* ========================================================================== */
@@ -398,4 +400,230 @@ a#pink {
    color: #d81b60;
    transition: 250ms background ease-in;
  }
+}
+
+/* ========================================================================== */
+/* show                                                                       */
+/* ========================================================================== */
+
+.polaroid-header-show {
+ height: 80px;
+ text-align: left;
+ padding-top: 10px;
+ position: relative;
+}
+
+.date-show {
+ font-size: 30px;
+ position: absolute;
+ top: 0;
+ right: -70px;
+ margin: 0;
+ padding: 10px;
+ background: rgba(255, 255, 245, 0.8);
+ box-shadow: 0 2px 4px #555;
+ transform: rotate(15deg);
+ z-index: 5;
+}
+
+.polaroid-title-show {
+ font-size: 35px;
+ font-family: MyFont;
+}
+
+.username-show {
+ color: black;
+ font-size: 20px;
+}
+
+.polaroid-text-show {
+ min-height: 98px;
+}
+
+#show-favorite {
+ width: 70px;
+ display: inline;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ display: inline;
+}
+
+.edit-btn i {
+ font-size: 30px;
+}
+
+.edit-btn a {
+ color: black;
+ position: absolute;
+ bottom: 5px;
+ right: 60px;
+}
+
+.edit-btn i:hover {
+ color: #00aa71;
+}
+
+/* ========================================================================== */
+/* delete-btn                                                                 */
+/* ========================================================================== */
+
+.trash {
+ background: black;
+ width: 20px;
+ height: 25px;
+ display: inline-block;
+ margin: 0 auto;
+ position: relative;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.trash span {
+ position: absolute;
+ height: 5px;
+ background: black;
+ top: -6px;
+ left: -3px;
+ right: -3px;
+ border-top-left-radius: 3px;
+ border-top-right-radius: 3px;
+ transform: rotate(0deg);
+ transition: transform 250ms;
+ transform-origin: 19% 100%;
+}
+
+.trash span:after {
+ content: '';
+ position: absolute;
+ width: 9px;
+ height: 3px;
+ background: black;
+ top: -4px;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+ transform: rotate(0deg);
+ transition: transform 250ms;
+ transform-origin: 19% 100%;
+ left: 8px;
+}
+
+.trash i {
+ position:relative;
+ width: 1px;
+ height: 17px;
+ background:#fff;
+ display: block;
+ margin: 4px auto;
+ border-radius: 5px;
+}
+
+.trash i:after {
+ content: '';
+ width: 1px;
+ height: 17px;
+ background: #fff;
+ position: absolute;
+ left: -5px;
+ border-radius: 5px;
+}
+
+.trash i:before {
+ content: '';
+ width: 1px;
+ height: 17px;
+ background: #fff;
+ position: absolute;
+ right: -5px;
+ border-radius: 5px;
+}
+
+.trash:hover {
+ background: #00aa71;
+}
+
+.trash:hover span {
+ transform: rotate(-45deg);
+ transition: transform 250ms;
+ background: #00aa71;
+}
+
+.trash:hover span:after {
+ background: #00aa71;
+}
+
+
+/* ========================================================================== */
+/* comment-form                                                               */
+/* ========================================================================== */
+
+.comment-box {
+ border: 2px solid #00aa71;
+}
+
+.username-comment {
+ color: black;
+ font-size: 20px;
+}
+
+.comment-form {
+ font-size: 20px;
+ font-weight: 700;
+}
+
+.comment-action input {
+ font-size: 20px;
+ border: 1px solid #00aa71;
+ background: #00aa71;
+ color: white;
+ display: block;
+ margin: 30px auto;
+ min-width: 1px;
+ padding: .25rem;
+ transition: 250ms background ease-in;
+  &:hover, &:focus {
+   background: white;
+   color: #00aa71;
+   transition: 250ms background ease-in;
+  }
+}
+
+.comment-field {
+ margin-bottom: 20px;
+}
+
+.comment-field label {
+ font-weight: 700;
+ font-size: 20px;
+ padding-left: 2px;
+ padding-bottom: 2px;
+}
+
+.comment-field textarea {
+ height: 100px;
+ width: 100%;
+ background: #F0FFF0;
+ border-radius: 0;
+ border: 1px solid #00aa71;
+ padding: 10px;
+}
+
+.comment-field textarea:focus {
+ box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+ border: solid 2px #00aa71;
+ background: #F0FFF0;
+ outline: none;
+}
+
+.comment-field textarea:after {
+ height: 100px;
+ width: 500px;
+ background: #F0FFF0;
+ border-radius: 0;
+ border: 1px solid #00aa71;
+ padding: 10px;
 }

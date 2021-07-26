@@ -1,34 +1,49 @@
-<div class="post-detail py-5 bg-light">
-  <div class="card w-75 mx-auto mt-4 shadow-lg">
-    <span><%= I18n.l @post.date, format: :long %></span>
-    <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
-    <div class="card-body" id="comment_<%= @post.id %>">
+<div class="polaroid-list-containar py-5">
+  <div class="polaroid w-75 mx-auto mt-4 shadow-lg">
+    <div class="polaroid-header-show">
+      <span class="polaroid-title-show">
+        <%= @post.title %>
+      </span>
+      <div class="date-show">
+        <%= I18n.l @post.date, format: :long %>
+      </div>
+    </div>
+    <%= attachment_image_tag @post, :image, class:"polaroid-img"; %>
+    <div class="polaroid-body" id="comment_<%= @post.id %>">
       <div class="row">
-        <div class="col-2">
+        <div class="col-2 text-center">
           <%= link_to user_path(@post.user) do %>
-            <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+            <%= attachment_image_tag @post.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
+            <div class="username-show"><%= @post.user.nickname %></div>
           <% end %>
         </div>
         <div class="col-10" id="favorite_<%= @post.id %>">
-          <p class="card-title">
-            <%= link_to(post_path(@post.id), class:"text-dark") do %>
-              <strong><span><%= @post.title %></span></strong>
-            <% end %>
+          <p class="polaroid-text-show">
+            <%= @post.content %>
           </p>
-          <p class="card-title">思い出：<%= @post.content %></p>
-          <div><%= render "posts/index_tag_list", post: @post %></div>
-          <span><i class="fas fa-user"></i> By <%= @post.user.nickname %> ｜ </span>
-          <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
-          <!--いいね機能-->
-          <span class="favorite"><%= render 'favorites/favorite', post: @post %>｜ </span>
-          <% if @post.user == current_user %>
-            <span><%= link_to "削除", post_path(@post), class:"text-dark", method: :delete %>｜ </span>
-            <span><%= link_to "編集", edit_post_path(@post), class:"text-dark" %></span>
-          <% end %>
+          <div class="tag"><%= render "posts/index_tag_list", post: @post %></div>
+          <div class="icon">
+            <div class="favorite" id="show-favorite"><%= render "favorites/favorite", post: @post %></div>
+            <% if @post.user == current_user %>
+              <div class="edit-btn">
+                <%= link_to edit_post_path(@post) do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+              </div>
+              <div class="delete-btn text-right mr-3">
+                <%= link_to post_path(@post), method: :delete do %>
+                  <span class="trash">
+                    <span></span>
+                    <i></i>
+                  </span>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
       <!--コメント機能-->
-      <div class="comment">
+      <div class="comment-show">
          <%= render "comments/comment", post: @post, comment: @comment %>
       </div>
     </div>
