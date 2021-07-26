@@ -1,4 +1,4 @@
-$("#comment_<%= @post.id %> .comment").html("<%= j(render 'comments/comment', post: @post, comment: @comment ) %>");
+$("#comment_<%= @post.id %> .comment-show").html("<%= j(render 'comments/comment', post: @post, comment: @comment ) %>");
 $("#comment_form").val("");
 <!--フラッシュメッセージの非同期通信化-->
 $('#flash-message').html("<%= j(render 'layouts/flash_messages') %>");
