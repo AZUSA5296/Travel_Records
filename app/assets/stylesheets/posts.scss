@@ -44,7 +44,7 @@
 }
 
 .polaroid-body {
- padding: 30px 0;
+ padding: 20px 0;
  text-align: left;
 }
 
@@ -65,6 +65,10 @@
 /* ========================================================================== */
 /* icon                                                                       */
 /* ========================================================================== */
+
+.icon {
+ width: 100%;
+}
 
 .icon a{
  font-size: 19px;
@@ -99,7 +103,7 @@
 /* ========================================================================== */
 
 .tag {
- margin-bottom: 30px;
+ margin-bottom: 10px;
 }
 
 .badge1 {
@@ -113,7 +117,7 @@
 	position: relative;
 	display: inline-block;
 	height: 26px;
-	margin: 0 0px 10px 10;
+	margin: 0 0 10px 0;
 	padding: 0 20px 0 23px;
 	color: #455a64;
 	border-radius: 0 3px 3px 0;
@@ -146,10 +150,10 @@
 }
 .badge1 a:hover {
 	color: white;
-	background-color: #ec407a;
+	background-color: #00aa71;
 }
 .badge1 a:hover::after {
-	border-color: transparent #ec407a transparent transparent;
+	border-color: transparent #00aa71 transparent transparent;
 }
 
 /* ========================================================================== */
@@ -436,6 +440,30 @@ a#pink {
  min-height: 98px;
 }
 
+#show-favorite {
+ width: 70px;
+ display: inline;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ display: inline;
+}
+
+.edit-btn i {
+ font-size: 30px;
+}
+
+.edit-btn a {
+ color: black;
+ position: absolute;
+ bottom: 5px;
+ right: 60px;
+}
+
+.edit-btn i:hover {
+ color: #00aa71;
+}
+
 /* ========================================================================== */
 /* delete-btn                                                                 */
 /* ========================================================================== */
@@ -468,6 +496,7 @@ a#pink {
  transition: transform 250ms;
  transform-origin: 19% 100%;
 }
+
 .trash span:after {
  content: '';
  position: absolute;
@@ -513,10 +542,24 @@ a#pink {
  border-radius: 5px;
 }
 
+.trash:hover {
+ background: #00aa71;
+}
+
 .trash:hover span {
  transform: rotate(-45deg);
  transition: transform 250ms;
+ background: #00aa71;
 }
+
+.trash:hover span:after {
+ background: #00aa71;
+}
+
+
+/* ========================================================================== */
+/* comment-form                                                               */
+/* ========================================================================== */
 
 .comment-box {
  border: 2px solid #00aa71;

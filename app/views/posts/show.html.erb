@@ -23,15 +23,21 @@
           </p>
           <div class="tag"><%= render "posts/index_tag_list", post: @post %></div>
           <div class="icon">
-            <div class="favorite"><%= render "favorites/favorite", post: @post %></div>
+            <div class="favorite" id="show-favorite"><%= render "favorites/favorite", post: @post %></div>
             <% if @post.user == current_user %>
-              <div class="edit-btn"><%= link_to "編集", edit_post_path(@post), class:"btn btn-outline-dark" %></div>
-              <span class="trash">
-                <span></span>
-                <i></i>
-                <%= link_to "削除", post_path(@post), class:"text-dark", method: :delete %>
-              </span>
-              <div class="edit-btn"><%= link_to "削除", post_path(@post), class:"btn btn-outline-dark", method: :delete %></div>
+              <div class="edit-btn">
+                <%= link_to edit_post_path(@post) do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+              </div>
+              <div class="delete-btn text-right mr-3">
+                <%= link_to post_path(@post), method: :delete do %>
+                  <span class="trash">
+                    <span></span>
+                    <i></i>
+                  </span>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
