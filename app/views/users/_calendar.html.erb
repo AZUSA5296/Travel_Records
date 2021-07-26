@@ -2,6 +2,7 @@
     <script>
       $(document).ready(function() {
   $("#calendar").fullCalendar({
+
     header: {
       left: '',
       center: 'today prev,next',
@@ -20,7 +21,7 @@
     events: "/users/<%= @user.id %>",
 
     //イベントの色を変える
-    eventColor: 'black',
+    eventColor: 'orange',
     //イベントの文字色を変える
     eventTextColor: 'white',
     //カレンダー上部を年月で表示させる
