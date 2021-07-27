@@ -1,51 +1,76 @@
-<div class="search-form">
-  <%= form_with url: search_users_path, method: :get, local: true do |f| %>
-    <span class="search_title">
-      <%= f.text_field :keyword, value: @keyword, placeholder: "ユーザー検索", style: "border: none" %>
-    </span>
-    <span class="search_action">
-     <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit" %>
-    </span>
-  <% end %>
+<div class="follow-container">
+  <div class="users-contents">
+    <h1>users</h1>
+    <div class="search-form">
+      <%= form_with url: search_users_path, method: :get, local: true do |f| %>
+        <span class="search_title">
+          <%= f.text_field :keyword, value: @keyword, placeholder: "ユーザー検索", style: "border: none" %>
+        </span>
+        <span class="search_action">
+          <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit" %>
+        </span>
+      <% end %>
+    </div>
+    <div class="follow-index">
+      <hr>
+      <% if @users.present? %>
+      <% @users.each do |user| %>
+        <div class="container">
+          <div class="row">
+            <div class="col-2 text-center">
+              <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+            </div>
+            <div class="col-8 text-left">
+              <div class="row">
+                <h2><%= user.name %>（<%= user.nickname %>）</h2>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <div class="row">
+                    <h7>posts : <%= user.posts.count %></h7>
+                  </div>
+                  <div class="row">
+                    <span class="follow_<%= user.id %>">
+                      <h7>following : </h7>
+                      <span class="following-count">
+                        <%= link_to following_user_path(user) do %>
+                          <h7><%= user.following.count %></h7>
+                        <% end %>
+                      </span>
+                      <h7>followers : </h7>
+                      <span class="followers-count">
+                        <%= link_to followers_user_path(user) do %>
+                          <h7><%= user.followers.count %></h7>
+                        <% end %>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <%= user.introduction %>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+                <div class="follow_<%= user.id %>">
+                  <span class="index_follow_form">
+                    <span class="follow_form" >
+                      <%= render 'relationships/follow_form', user: user %>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <% end %>
+      <% else %>
+        <h4 class="mt-5">ユーザーはいません</h4>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<div class="user-index-containar py-5">
-  <% @users.each do |user| %>
-    <div class="card-two">
-      <header class="users-header">
-        <div class="avatar">
-          <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-        </div>
-      </header>
-      <h3>
-        <%= user.name %></br>
-        （<%= user.nickname %>）
-      </h3>
-      <div class="desc">
-        <%= user.introduction %>
-      </div>
-      <div class="counts">
-        <span class="follow_<%= user.id %>">
-        <ul>
-          <li>
-            <span>2</span>
-            <p>posts</p>
-          </li>
-          <li>
-            <span class="following-count"><%= user.following.count %></span>
-            <p>following</p>
-          </li>
-          <li>
-            <span class="followers-count"><%= user.followers.count %></span>
-            <p>followers</p>
-          </li>
-        </ul>
-        </span>
-      </div>
-      <span class="follow_<%= user.id %>">
-        <span class="follow_form" ><%= render 'relationships/follow_form', user: user %></span>
-      </span>
-      </footer>
-    </div>
-  <% end %>
-</div>
+
+
+
