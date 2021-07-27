@@ -49,12 +49,14 @@
             </span>
           </div>
           <% if current_user.present? && (@user.id == current_user.id) %>
-            <footer class="users-footer", id="footer-mypage">
-              <%= link_to "プロフィール編集", edit_user_path(@user) %>
-            </footer>
+            <span class="follow_footer_a">
+              <footer class="users-footer", id="footer-mypage">
+                <%= link_to "プロフィール編集", edit_user_path(@user) %>
+              </footer>
+            </span>
           <% elsif current_user.present? && (@user.id != current_user.id) %>
             <div class="follow_<%= @user.id %>">
-              <div class="follow_form mb-5">
+              <div class="follow_footer_a mb-5">
                 <span class="follow_form" ><%= render 'relationships/follow_form', user: @user %></span>
               </div>
             </div>
