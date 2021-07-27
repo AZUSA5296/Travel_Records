@@ -41,6 +41,40 @@
  font-size: 25px;
 }
 
+.users-contents {
+ width: 80%;
+ display: inline-block;
+ padding: 120px 0;
+ text-align: center;
+}
+
+.users-contents h1 {
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+ margin-bottom: 40px;
+}
+
+.following-count a {
+ color: black;
+}
+
+.following-count a:hover {
+ color: #6464c8;
+ font-weight: 700;
+}
+
+.followers-count a {
+ color: black;
+}
+
+.followers-count a:hover {
+ color: #6464c8;
+ font-weight: 700;
+}
 
 /* ========================================================================== */
 /* show                                                                       */
