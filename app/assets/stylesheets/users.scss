@@ -153,7 +153,7 @@
  font-weight: 700;
 }
 
-.users-footer {
+.follow_footer_a .users-footer {
  position: relative;
  height: 80px;
   input{
@@ -193,7 +193,7 @@
  }
 }
 
-.users-footer a {
+.follow_footer_a .users-footer a {
  font-size: 20px;
  position: absolute;
  bottom: 20px; left: 0;
@@ -211,11 +211,11 @@
   }
 }
 
-#footer-followed {
+.follow_footer_a #footer-followed {
  background-color: orange;
 }
 
-#footer-follow {
+.follow_footer_a #footer-follow {
  background-color: #6464c8;
 }
 

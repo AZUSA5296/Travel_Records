@@ -2,7 +2,7 @@
   <% if current_user.following?(user) %>
     <footer class="users-footer" id="footer-followed">
       <%= form_for(current_user.active_relationships.find_by(followed_id: user.id), html: {method: :delete}, remote: true) do |f| %>
-      <%= f.submit "フォロー外す", class: "btn btn-link"%>
+      <%= f.submit "フォローを外す", class: "btn btn-link"%>
     <% end %>
     </footer>
   <% else %>
