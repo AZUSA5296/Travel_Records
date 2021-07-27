@@ -1,3 +1,55 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notifications-container {
+ width: 100%;
+ height: 100%;
+ border: 20px solid #00428f;
+ text-align: center;
+}
+
+.notifications-contents {
+ width: 60%;
+ display: inline-block;
+ padding: 120px 0;
+ text-align: center;
+}
+
+.notifications-contents h1 {
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+ margin-bottom: 40px;
+}
+
+#notifications-delete-btn {
+ margin-bottom: -20px;
+}
+
+.notification_form a {
+ color: black;
+ font-size: 18px;
+}
+
+.notification_form a:hover {
+ color: #00428f;
+ -webkit-transform: translateY(-5px);
+ transform: translateY(-5px);
+}
+
+#notifications-trash:hover {
+ background: #00428f;
+}
+
+#notifications-trash:hover span {
+ background: #00428f;
+}
+
+#notifications-trash:hover span:after {
+ background: #00428f;
+}
+
