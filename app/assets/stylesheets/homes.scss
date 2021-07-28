@@ -7,7 +7,7 @@
 }
 
 .main-visual {
-  background-image: url("top.jpg");
+  background-image: image-url("top.jpg");
   height: 800px;
   background-size:cover;
   position: relative;
@@ -42,7 +42,7 @@ a#blue {
 }
 
 #about-image {
-  background-image: url("about.jpg");
+  background-image: image-url("aboutimage.jpg");
   background-size: cover;
   width: 370px;
   height: 550px;
