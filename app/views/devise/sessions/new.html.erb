@@ -1,8 +1,10 @@
-<div class="alert alert-danger">
-  <ul class="list-unstyled">
-    <li><%= alert %></li>
-  </ul>
-</div>
+<% if flash[:alert]%>
+  <div class="alert alert-danger">
+    <ul class="list-unstyled">
+      <li><%= alert %></li>
+    </ul>
+  </div>
+<% end %>
 <div class="box1">
   <div class="box1-inner">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
