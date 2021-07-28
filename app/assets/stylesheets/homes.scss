@@ -26,5 +26,69 @@
 }
 
 #about-visual {
-  height: 800px;
+  padding: 120px 50px;
 }
+
+a#blue {
+ background: #4689FF;
+}
+
+.about-text {
+  padding: 40px 0 40px 140px;
+}
+
+#about-image {
+  background-image: url("about.jpg");
+  background-size:cover;
+  width: 370px;
+  height: 550px;
+}
+
+.about-title {
+  padding-bottom: 40px;
+  transform: translateX(-60px);
+}
+
+.about-title p {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: copperplate, serif;
+  font-size: 20px;
+}
+
+.about-title h2{
+  font-family: linotype-sabon, 'Noto Serif JP', serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+ .box p {
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+ }
+
+ .start {
+  margin-top: 50px;
+ }
+
+ .start a {
+  width: 150px;
+  font-size: 25px;
+  font-weight: 500;
+  border: 2px solid black;
+  background: transparent;
+  color: black;
+  display: block;
+  margin: 30px auto;
+  min-width: 1px;
+  padding: 5px;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: black;
+    color: white;
+    transition: 250ms background ease-in;
+  }
+}
+
