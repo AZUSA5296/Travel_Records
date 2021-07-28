@@ -1,4 +1,7 @@
 <div class="polaroid-list-containar py-5">
+  <div class="flash-message" id="flash-message-post">
+    <%= render 'layouts/flash_messages' %>
+  </div>
   <% if @posts.present? %>
     <% @posts.each do |post| %>
     <div class="polaroid w-50 mx-auto mt-4 shadow-lg">

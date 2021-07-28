@@ -1,4 +1,7 @@
 <div class="containar">
+  <div class="flash-message" id="flash-message-user">
+    <%= render 'layouts/flash_messages' %>
+  </div>
   <div id="userpage-title">
     <% if current_user.present? && (@user.id == current_user.id) %>
       <h1>My page</h1>

@@ -29,7 +29,6 @@ $('input').on('change', function () {
 });
 
 //投稿画像即時プレビュー
-
 $(function(){
     $('#post_image').on('change', function (e) {
     var reader = new FileReader();
@@ -39,3 +38,8 @@ $(function(){
     reader.readAsDataURL(e.target.files[0]);
 });
 });
+
+//フラッシュメッセージ
+$(function(){
+  setTimeout("$('#notice, #alert').fadeOut('slow')", 1000);
+  });
