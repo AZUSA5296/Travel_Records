@@ -16,6 +16,13 @@
  */
 @import "bootstrap";
 
+@font-face {
+  font-family: 'MyFont';
+  src: font-url('YuseiMagic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html{
   height: 100%;
 }
@@ -29,12 +36,15 @@ html{
  body {
   width: 100%;
   position: relative;
-  min-height: 100%;
   background: white;
   text-align: center;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
  }
 
  main {
+  flex: 1;
   padding-top: 65px;
 }
 
@@ -45,10 +55,15 @@ a {
 
 a:hover {
   color: white;
+  text-decoration: none;
 }
 
 ul {
   text-align: center;
+}
+
+.flash-message p {
+  font-size: 20px;
 }
 
 /* ========================================================================== */
@@ -61,18 +76,22 @@ header {
   height: 65px;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 100;
   border-bottom: 1px solid;
   border-color: white;
 }
 
-.container {
-  margin-right: 170px;
+.navbar-brand {
+  padding: 0px;
 }
 
-.nav-item {
-  margin-left: 60px;
-  margin-top: 7px;
+.navbar-brand img {
+	height: 55px;
+}
+
+.navbar {
+  padding-right: 160px;
+  padding-top: 0px;
 }
 
 .nav-link {
@@ -84,6 +103,7 @@ header {
   border-radius: 25%;
   background: #3f3f3f;
   border: 5px solid #3f3f3f;
+  margin-top: 8px;
 }
 
 .link-text {
@@ -98,34 +118,6 @@ header {
   color: white;
 }
 
-
-.icon:after {
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 25%;
-  content:'';
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-.icon.effect:after {
-  top: -7px;
-  left: -7px;
-  padding: 7px;
-  box-shadow: 0 0 0 4px #fff;
-  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-  -webkit-transform: scale(.8);
-  -moz-transition: -moz-transform 0.2s, opacity 0.2s;
-  -moz-transform: scale(.8);
-  -ms-transform: scale(.8);
-  transition: transform 0.2s, opacity 0.2s;
-  transform: scale(.8);
-  opacity: 0;
-}
-
 .icon.effect:hover i {
   border-radius: 25%;
   background: white;
@@ -134,30 +126,24 @@ header {
 
 .icon.effect.blue:hover i {
   color: #4689FF;
+  font-size: 20px;
 }
 
-.icon.effect.orange:hover i {
-  color: #FF6928;
+.icon.effect.green:hover i {
+  color: #00aa71;
 }
 
 .icon.effect.pink:hover i {
   color: #FF5192;
+  font-size: 20px;
 }
 
 .icon.effect.purple:hover i {
   color: #9057FF;
 }
 
-.icon.effect.green:hover i {
-  color: #3CB371;
-}
-
-.icon.effect:hover:after {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  opacity: 0.5;
+.icon.effect.yellow:hover i {
+  color: #FFCC33;
 }
 
 .nav-item2 i {
@@ -237,6 +223,14 @@ header {
   left:0;
 }
 
+.navbar .navbar-toggler-icon{
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar .navbar-toggler{
+  border-color: white;
+}
+
 /* ========================================================================== */
 /* footer                                                                     */
 /* ========================================================================== */
@@ -246,7 +240,6 @@ footer {
   width: 100%;
   height: 65px;
   line-height: 65px;
-  margin-top: auto;
   border-top: 1px solid;
   border-color: white;
 }

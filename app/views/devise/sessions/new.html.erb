@@ -1,9 +1,16 @@
+<% if flash[:alert]%>
+  <div class="alert alert-danger">
+    <ul class="list-unstyled">
+      <li><%= alert %></li>
+    </ul>
+  </div>
+<% end %>
 <div class="box1">
   <div class="box1-inner">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
     <div class="devise-text">
       <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-lock fa-stack-1x"></i>
+      <i class="fa fa-lock fa-stack-1x" id="key"></i>
     </div>
     <div class="box-form">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
@@ -27,7 +34,7 @@
     </div>
     <% end %>
     <div class="box-user">
-      <p>新しいお客様は <%= link_to "こちら", new_user_registration_path %> から</p>
+      <p>新規登録は <%= link_to "こちら", new_user_registration_path %> から</p>
     </div>
   </div>
 </div>

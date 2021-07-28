@@ -1,15 +1,29 @@
 <hr>
 <div class="comments card-text">
-  <h4 class="mt-3"><%= post.comments.count %>件コメント</h4>
+  <h4 class="mt-3"><%= post.comments.count %>件のコメント</h4>
   <% post.comments.each do |comment| %>
-    <div class="media border mb-3">
-      <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"bd-placeholder-img align-self-center mx-3" %>
-      <div class="media-body ml-4 p-3">
-        <p><%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %></p>
-        <p><%= comment.comment %></p>
-        <% if comment.user == current_user %>
-          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
-        <% end %>
+    <p class="text-right mb-0"><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+    <div class="comment-box mb-3">
+      <div class="row">
+        <div class="col-2 text-center">
+          <%= link_to user_path(comment.user) do %>
+            <%= attachment_image_tag comment.user, :profile_image, :fill, 70, 70, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
+            <div class="username-comment"><%= comment.user.nickname %></div>
+          <% end %>
+        </div>
+        <div class="col-10 py-2 pr-4">
+          <p><%= comment.comment %></p>
+          <% if comment.user == current_user %>
+            <div class="text-right mr-3">
+              <%= link_to post_comment_path(comment.post, comment), method: :delete, remote: true do %>
+                <span class="trash">
+                  <span></span>
+                  <i></i>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
@@ -21,9 +35,13 @@
       <%= render 'layouts/error_messages', model: f.object %>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">コメントする</label>
-      <%= f.text_area :comment, rows:'5', class: "form-control", id: "comment_form", placeholder: "300文字以内" %>
+      <div class="comment-field">
+        <%= f.label :コメント %><br />
+       <%= f.text_area :comment, rows:'5', class: "form-control", id: "comment_form", placeholder: "500文字以内" %>
+      </div>
+      <div class="comment-action">
+        <%= f.submit "コメントを送る" %>
+      </div>
     </div>
-    <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right" %>
   <% end %>
 </div>

@@ -1,14 +1,14 @@
 <header>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-xl fixed-top">
     <div class="container">
-      <a class="navbar-brand p-3" href="/">ロゴ予定</a>
+      <h1><a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a></h1>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <% if user_signed_in? %>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+          <ul class="navbar-nav mt-1 w-100 nav-justified">
+            <li class="nav-item active">
               <%= link_to "/#about-visual", class: 'nav-link' do %>
                 <div class="icon effect blue">
                   <i class="far fa-question-circle"></i>
@@ -18,7 +18,7 @@
             </li>
             <li class="nav-item">
               <%= link_to posts_path, class: 'nav-link' do %>
-                <div class="icon effect orange">
+                <div class="icon effect green">
                   <i class="fas fa-stream"></i>
                 </div>
                 <p class="link-text">タイムライン</p>
@@ -34,7 +34,7 @@
             </li>
             <li class="nav-item">
               <%= link_to user_path(current_user.id), class: 'nav-link' do %>
-                <div class="icon effect purple">
+                <div class="icon effect yellow">
                   <i class="fas fa-user-circle"></i>
                 </div>
                 <p class="link-text">マイページ</p>
@@ -42,7 +42,7 @@
             </li>
             <li class="nav-item">
               <%= link_to users_path(current_user.id), class: 'nav-link' do %>
-                <div class="icon effect green">
+                <div class="icon effect purple">
                   <i class="fas fa-users"></i>
                 </div>
                 <p class="link-text">ユーザー</p>

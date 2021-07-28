@@ -1,6 +1,14 @@
-<h2>Let's Post!!</h2>
-<%= form_with model: @post, local:true do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
-  <%= render "posts/post_form", post: @post, f: f %>
-  <%= f.submit '投稿' %>
-<% end %>
+<div class="post-container">
+  <div class="post-contents">
+    <h1>Let's Post !!</h1>
+    <div class="post-form">
+      <%= form_with model: @post, local:true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <%= render "posts/post_form", post: @post, f: f %>
+        <span class="post-action">
+          <%= f.submit '投稿' %>
+        </span>
+      <% end %>
+     </div>
+  </div>
+</div>

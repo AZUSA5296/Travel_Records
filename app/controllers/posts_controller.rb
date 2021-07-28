@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      flash[:notice] = "画像を投稿しました"
+      flash[:notice] = "投稿しました。"
       redirect_to posts_path
     else
       render :new
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-       flash[:notice] = "投稿を変更しました"
+       flash[:notice] = "投稿を変更しました。"
        redirect_to post_path(@post.id)
     else
       render :edit
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = "画像を削除しました"
+    flash[:notice] = "投稿を削除しました。"
     redirect_to  posts_path
   end
 
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
 
   def baria_user
     if current_user.nil? || Post.find(params[:id]).user.id.to_i != current_user.id
-      flash[:alert] = "権限がありません"
+      flash[:alert] = "権限がありません。"
       redirect_to top_path
     end
   end

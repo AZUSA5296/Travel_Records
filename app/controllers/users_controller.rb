@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "プロフィールを更新しました"
+      flash[:notice] = "プロフィールを更新しました。"
       redirect_to user_path(@user.id)
     else
       render :edit
@@ -32,14 +32,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "フォロー一覧"
+    @title = "Following"
     @user = User.find(params[:id])
     @users = @user.following
     render 'follow'
   end
 
   def followers
-    @title = "フォロワー一覧"
+    @title = "Followers"
     @user = User.find(params[:id])
     @users = @user.followers
     render 'follow'
@@ -61,6 +61,7 @@ class UsersController < ApplicationController
   # 編集、削除の権限を投稿者だけの機能にする
   def baria_user
     if current_user.nil? || User.find(params[:id]).id.to_i != current_user.id
+      flash[:alert] = "権限がありません。"
       redirect_to top_path
     end
   end

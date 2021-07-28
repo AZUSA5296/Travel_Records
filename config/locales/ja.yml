@@ -23,14 +23,14 @@ ja:
               blank: "を入力してください。"
               too_long: "は20文字以内で入力してください。"
             content:
-              too_long: "は500文字以内で入力してください。"
+              too_long: "は1000文字以内で入力してください。"
             image:
-              blank: "を選択して下さい"
+              blank: "を選択して下さい。"
         comment:
           attributes:
             comment:
               blank: "を入力してください。"
-              too_long: "は300文字以内で入力してください。"
+              too_long: "は500文字以内で入力してください。"
     attributes:
       user:
         name: "氏名"
@@ -44,7 +44,7 @@ ja:
         current_password: "現在のパスワード"
       post:
         title: "タイトル"
-        content: "思い出の内容"
+        content: "テキスト"
         date: "日付"
         image: "写真"
       comment:

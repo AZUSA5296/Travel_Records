@@ -1,29 +1,33 @@
-<table>
-  <tr>
-    <td>タイトル</td>
-    <td><%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "20文字以内" %></td>
-  </tr>
-  <tr>
-    <td>日付</td>
-    <td> <%= raw sprintf(f.date_select(:date, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, date_separator: '%s'),'年 ', '月 ') + '日' %></td>
-  </tr>
-  <tr>
-    <td>画像</td>
-    <td>
-      <%= attachment_image_tag post, :image, :fill, 60, 60, fallback: "no_image.jpg" %>
-      <%= f.attachment_field :image, placeholder: "画像" %>
-    </td>
-  </tr>
-  <tr>
-    <td>思い出</td>
-    <td><%= f.text_area :content, autocomplete: "content", placeholder: "500文字以内" %></td>
-  </tr>
-  <tr>
-    <td>タグ</td>
-    <td><%= f.text_field :tag_list, value: @post.tag_list.join(',') %></td>
-  </tr>
-  <tr>
-    <td>公開設定</td>
-    <td><%= f.radio_button :status, :false %>公開<%= f.radio_button :status, :true %>非公開</td>
-  </tr>
-</table>
+<div class="post-field" id="field-text">
+  <%= f.label :タイトル %><span Class="required">必須</span><br />
+  <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "20文字以内" %>
+</div>
+<div class="post-field" id="field-date">
+  <%= f.label :日付 %><span Class="required">必須</span><br />
+  <%= raw sprintf(f.date_select(:date, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, date_separator: '%s'),'&nbsp;年&emsp;', '&nbsp;月&emsp;') + '&nbsp;日' %>
+</div>
+<div class="post-field" id="field-image">
+  <%= f.label :写真 %><span Class="required">必須</span><br />
+  <%= attachment_image_tag post, :image, fallback: "no_image.jpg" %>
+  <%= f.attachment_field :image %>
+</div>
+<div class="post-field" id="field-text">
+  <%= f.label :テキスト %><br />
+  <%= f.text_area :content, autocomplete: "content", placeholder: "1000文字以内" %>
+</div>
+<div class="post-field" id="field-text">
+  <%= f.label :タグ %><br />
+  <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
+  <p class="explanation">※「,」(カンマ)で区切ると同時に複数のタグを登録することができます。</p>
+</div>
+<div class="post-field" id="field-radio_button">
+  <%= f.label :公開設定 %><br />
+  <div id="inline-radio">
+    <%= f.radio_button(:status, :false) %>
+    <%= f.label(:status, "公開" ,value: "false")  %>
+    <%= f.radio_button(:status, :true) %>
+    <%= f.label(:status, "非公開" ,value: "true")  %>
+  </div>
+  <p class="explanation">※ 非公開にするとタイムラインには表示されません。</p>
+</div>
+

@@ -9,8 +9,6 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
     @comment_post = @comment.post
     if @comment.save
-      flash.now[:notice] = "コメントを送信しました"
-      # 通知を作成
       @comment_post.create_notification_comment!(current_user, @comment.id)
     else
       render :error  #render先にjsファイルを指定
@@ -21,7 +19,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
-    flash.now[:notice] = "コメントを削除しました"
   end
 
   private
@@ -32,7 +29,7 @@ class CommentsController < ApplicationController
 
   def baria_user
     if current_user.nil? || Comment.find(params[:id]).user.id.to_i != current_user.id
-      flash[:alert] = "権限がありません"
+      flash[:alert] = "権限がありません。"
       redirect_to post_path(@post)
     end
   end

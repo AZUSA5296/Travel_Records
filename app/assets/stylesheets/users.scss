@@ -1,3 +1,490 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ========================================================================== */
+/* index                                                                      */
+/* ========================================================================== */
+
+.search-form {
+ position: relative;
+ box-sizing: border-box;
+ border: 2px solid #9057FF;
+ display: block;
+ margin: 20px 20px 0px 30px;
+ padding: 3px 10px;
+ border-radius: 3px;
+ height: 2.3em;
+ width: 265px;
+ overflow: hidden;
+}
+
+.search_title input {
+ width: 230px;
+ padding-right: 40px;
+}
+
+.search_action button {
+ cursor: pointer;
+ border: none;
+ background: #9057FF;
+ color: #fff;
+ position: absolute;
+ width: 3.5em;
+ height: 3.0em;
+ right: 0px;
+ top: -5px;
+ outline : none;
+}
+
+.search_action button i {
+ font-size: 25px;
+}
+
+.users-contents {
+ width: 80%;
+ display: inline-block;
+ padding: 120px 0;
+ text-align: center;
+}
+
+.users-contents h1 {
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+ margin-bottom: 40px;
+}
+
+.following-count a {
+ color: black;
+}
+
+.following-count a:hover {
+ color: #9057FF;
+ font-weight: 700;
+}
+
+.followers-count a {
+ color: black;
+}
+
+.followers-count a:hover {
+ color: #9057FF;
+ font-weight: 700;
+}
+
+/* ========================================================================== */
+/* show                                                                       */
+/* ========================================================================== */
+#flash-message-user p {
+ color: black;
+}
+
+#userpage-title h1 {
+ padding: 90px 0;
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+}
+
+.card {
+ position: relative;
+ width: 500px;
+ height: 650px;
+ background: white;
+ box-shadow: 0 10px 7px -5px rgba(#000,.4);
+}
+
+.users-header {
+ position: relative;
+ width: 100%;
+ min-height: 80px;
+ background-color: #d978c8;
+ z-index: 5;
+  &::after{
+   content: '';
+   position: absolute;
+   top: 0;bottom: 0;left: 0;right: 0;
+   background: inherit;
+    -webkit-transform: skewY(8deg);
+    -moz-transform: skewY(8deg);
+    -ms-transform: skewY(8deg);
+    -o-transform: skewY(8deg);
+    transform: skewY(8deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+  }
+  .avatar{
+   position: absolute;
+   left: 50%;
+   top: 40px;
+   margin-left: -75px;
+   z-index: 5;
+   width: 150px;
+   height: 150px;
+   background: white;
+   border-radius: 50%;
+   overflow: hidden;
+   border: 3px solid white;
+  }
+ }
+
+.card h3 {
+ position: relative;
+ margin: 110px 0 5px;
+ font-size: 40px;
+ text-align: center;
+  &::after{
+   content: '';
+   position: absolute;
+   bottom: -15px;
+   left: 50%;
+   margin-left: -15px;
+   width: 30px;
+   height: 1px;
+ }
+}
+
+.desc{
+ padding: 15px 20px 2px;
+ text-align: center;
+ min-height: 150px;
+ line-height: 1.5;
+ color: #777;
+}
+
+.counts {
+ color: #d978c8;
+ margin-bottom: 43px;
+}
+
+.counts li {
+ width: 32%;
+ text-align: center;
+ display: inline-block;
+ font-size: 20px;
+}
+
+.counts li a {
+ color: #d978c8;
+}
+
+.counts li a:hover {
+ color: orange;
+}
+
+.counts li span {
+ display: block;
+ text-transform: uppercase;
+ font-size: 25px;
+ margin-top: 10px;
+ font-weight: 700;
+}
+
+.follow_footer_a .users-footer {
+ position: relative;
+ height: 80px;
+  input{
+   font-size: 20px;
+   position: absolute;
+   bottom: 20px; left: 0;
+   width: 100%;
+   z-index: 1;
+   color: white;
+   font-weight: 700;
+   text-decoration: none;
+    &:hover{
+     color: #d978c8;
+     font-weight: 700;
+     text-decoration: none;
+    }
+    &:focus{
+     box-shadow:none;
+    }
+  }
+  &::before{
+   z-index: 1;
+   content: '';
+   position: absolute;
+   top: 0px;bottom: 0px;left: 0;right: 0;
+   background: inherit;
+    -webkit-transform: skewY(8deg);
+    -moz-transform: skewY(8deg);
+    -ms-transform: skewY(8deg);
+    -o-transform: skewY(8deg);
+    transform: skewY(8deg);
+    -webkit-transform-origin: 100%;
+    -moz-transform-origin: 100%;
+    -ms-transform-origin: 100%;
+    -o-transform-origin: 10%;
+    transform-origin: 100%;
+ }
+}
+
+.follow_footer_a .users-footer a {
+ font-size: 20px;
+ position: absolute;
+ bottom: 20px; left: 0;
+ width: 100%;
+ z-index: 1;
+ color: white;
+ font-weight: 700;
+ text-decoration: none;
+  &:hover{
+   color: #d978c8;
+   font-weight: 700;
+  }
+  &:focus{
+   box-shadow:none;
+  }
+}
+
+.follow_footer_a #footer-followed {
+ background-color: orange;
+}
+
+.follow_footer_a #footer-follow {
+ background-color: #6464c8;
+}
+
+#footer-mypage {
+ background-color: orange;
+}
+
+.users-show-post {
+ padding: 90px 0;
+ font-size: 45px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+}
+
+.card2-group {
+ display: flex;
+}
+
+.card2 {
+ background: white;
+}
+
+.card2-header {
+ height: 60px;
+ position: relative;
+ display: flex;
+ justify-content: center;
+ align-items: center
+}
+
+.card2-title {
+ font-size: 20px;
+ font-family: MyFont;
+}
+
+.card2-img {
+ width: 100%;
+ object-fit: contain;
+}
+
+.card2-body {
+ padding: 30px;
+ text-align: left;
+}
+
+.icon a{
+ font-size: 19px;
+}
+
+.favorite {
+ width: 70px;
+ display: inline;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ display: inline;
+}
+
+.fa:hover {
+ font-size: 25px;
+}
+
+.comment {
+ width: 70px;
+ position: absolute;
+ bottom: 0;
+ left: 75px;
+}
+
+.far:hover {
+ font-size: 24px;
+}
+
+.status {
+ width: 70px;
+ position: absolute;
+ bottom: 0;
+ left: 150px;
+ color: black;
+ pointer-events: none;
+ font-size: 18px;
+}
+
+/* ========================================================================== */
+/* calender                                                                   */
+/* ========================================================================== */
+
+#calendar {
+ width: 650px;
+ margin: 30px auto;
+}
+
+.fc-sun { color: red; }  /* 日曜日 */
+.fc-sat { color: blue; } /* 土曜日 */
+
+/* ========================================================================== */
+/* edit                                                                       */
+/* ========================================================================== */
+
+.user-container {
+ width: 100%;
+ height: 100%;
+ border: 20px solid orange;
+ text-align: center;
+}
+
+.user-contents {
+ width: 500px;
+ display: inline-block;
+ padding: 120px 0;
+ text-align: left;
+}
+
+.user-contents h1 {
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+}
+
+.user-form {
+ padding-top: 40px;
+}
+
+.user-field {
+ margin-bottom: 20px;
+}
+
+.user-field label {
+ font-weight: 700;
+ font-size: 15px;
+ padding-left: 2px;
+ padding-bottom: 2px;
+}
+
+.required-orange {
+ background-color: orange;
+ color: #fff;
+ font-size: 12px;
+ font-weight: bold;
+ min-width: 10px;
+ padding: 3px 7px;
+ margin: 0px 5px;
+ line-height: 1;
+ vertical-align: middle;
+ white-space: nowrap;
+ text-align: center;
+ border-radius: 5px;
+ display: inline-block;
+}
+
+.user-field input {
+ height: 50px;
+ width: 500px;
+ background: #fef7ea;
+ border-radius: 0;
+ border: 1px solid orange;
+ padding: 10px;
+}
+
+.user-field input:focus {
+ box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+ border: solid 2px orange;
+}
+
+.user-field input:after {
+ background: #fef7ea;
+}
+
+#birthday select {
+ border: solid 1px orange;
+ background: #fef7ea;
+ height: 40px;
+ padding: 10px;
+}
+
+#birthday select:focus {
+ box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+ border: solid 2px orange;
+ outline: none;
+}
+
+#profile input {
+ background: #fff;
+ width: auto;
+ border: none;
+ padding: 10px 0 0 0;
+}
+
+#introduction textarea {
+ height: 100px;
+ width: 500px;
+ background: #fef7ea;
+ border-radius: 0;
+ border: 1px solid orange;
+ padding: 10px;
+}
+
+#introduction textarea:focus {
+ box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+ border: solid 2px orange;
+ outline: none;
+}
+
+#fintroduction textarea:after {
+ height: 100px;
+ width: 500px;
+ background: #fef7ea;
+ border-radius: 0;
+ border: 1px solid orange;
+ padding: 10px;
+}
+
+.user-action input {
+ width: 80px;
+ font-size: 20px;
+ border: 1px solid orange;
+ background: orange;
+ color: white;
+ display: block;
+ margin: 30px auto;
+ min-width: 1px;
+ padding: .25rem;
+ transition: 250ms background ease-in;
+  &:hover, &:focus {
+   background: white;
+   color: orange;
+   transition: 250ms background ease-in;
+ }
+}
