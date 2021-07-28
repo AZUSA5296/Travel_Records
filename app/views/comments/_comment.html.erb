@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-2 text-center">
           <%= link_to user_path(comment.user) do %>
-            <%= attachment_image_tag comment.user, :profile_image, :fill, 70, 70, fallback: "no_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
+            <%= attachment_image_tag comment.user, :profile_image, :fill, 70, 70, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
             <div class="username-comment"><%= comment.user.nickname %></div>
           <% end %>
         </div>

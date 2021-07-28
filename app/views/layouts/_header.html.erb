@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-xl">
     <div class="container">
       <a class="navbar-brand p-3" href="/">ロゴ予定</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,7 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <% if user_signed_in? %>
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav mt-1 w-100 nav-justified">
             <li class="nav-item">
               <%= link_to "/#about-visual", class: 'nav-link' do %>
                 <div class="icon effect blue">

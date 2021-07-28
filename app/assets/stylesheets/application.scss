@@ -77,9 +77,8 @@ header {
   border-color: white;
 }
 
-.nav-item {
-  margin-left: 60px;
-  margin-top: 7px;
+.navbar {
+  padding-right: 160px;
 }
 
 .nav-link {
@@ -105,34 +104,6 @@ header {
   color: white;
 }
 
-
-.icon:after {
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 25%;
-  content:'';
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-.icon.effect:after {
-  top: -7px;
-  left: -7px;
-  padding: 7px;
-  box-shadow: 0 0 0 4px #fff;
-  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-  -webkit-transform: scale(.8);
-  -moz-transition: -moz-transform 0.2s, opacity 0.2s;
-  -moz-transform: scale(.8);
-  -ms-transform: scale(.8);
-  transition: transform 0.2s, opacity 0.2s;
-  transform: scale(.8);
-  opacity: 0;
-}
-
 .icon.effect:hover i {
   border-radius: 25%;
   background: white;
@@ -141,6 +112,7 @@ header {
 
 .icon.effect.blue:hover i {
   color: #4689FF;
+  font-size: 20px;
 }
 
 .icon.effect.green:hover i {
@@ -149,6 +121,7 @@ header {
 
 .icon.effect.pink:hover i {
   color: #FF5192;
+  font-size: 20px;
 }
 
 .icon.effect.purple:hover i {
@@ -157,14 +130,6 @@ header {
 
 .icon.effect.yellow:hover i {
   color: #FFCC33;
-}
-
-.icon.effect:hover:after {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  opacity: 0.5;
 }
 
 .nav-item2 i {

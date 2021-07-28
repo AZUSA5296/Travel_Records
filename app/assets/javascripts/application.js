@@ -27,3 +27,15 @@ $('input').on('change', function () {
     var image = $(this).prop('images')[0];
     $('p').text(image.name);
 });
+
+//投稿画像即時プレビュー
+
+$(function(){
+    $('#post_image').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+});
