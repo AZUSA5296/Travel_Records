@@ -8,9 +8,7 @@
 </div>
 <div class="post-field" id="field-image">
   <%= f.label :写真 %><span Class="required">必須</span><br />
-  <%= attachment_image_tag post, :image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <%= f.label(:image, "画像を選択する" ) %>
-  <p>選択されていません</p>
+  <%= attachment_image_tag post, :image, fallback: "no_image.jpg" %>
   <%= f.attachment_field :image %>
 </div>
 <div class="post-field" id="field-text">

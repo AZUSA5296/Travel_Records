@@ -12,7 +12,7 @@
         <div class="card mx-auto">
           <header class="users-header">
             <div class="avatar">
-              <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "no_image.jpg" %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "no_profile_image.jpg" %>
             </div>
           </header>
           <h3><%= @user.nickname %></h3>

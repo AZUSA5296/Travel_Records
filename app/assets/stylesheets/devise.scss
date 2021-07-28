@@ -143,6 +143,14 @@ input[type="checkbox"]:checked + label:before {
   transform: rotate(45deg);
 }
 
+.box-user a {
+  font-weight: 700;
+}
+
+.box-user a:hover {
+  text-decoration: underline;
+}
+
 /* ========================================================================== */
 /* sign up                                                                    */
 /* ========================================================================== */
@@ -193,6 +201,23 @@ input[type="checkbox"]:checked + label:before {
   border-radius: 3px;
   padding: 0 7px;
 }
+
+.required-black {
+ background-color: black;
+ color: #fff;
+ font-size: 12px;
+ font-weight: bold;
+ min-width: 10px;
+ padding: 3px 7px;
+ margin: 0px 5px;
+ line-height: 1;
+ vertical-align: middle;
+ white-space: nowrap;
+ text-align: center;
+ border-radius: 5px;
+ display: inline-block;
+}
+
 
 /* ========================================================================== */
 /* password                                                                   */

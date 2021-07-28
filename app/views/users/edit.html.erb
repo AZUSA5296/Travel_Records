@@ -22,7 +22,7 @@
         </div>
         <div class="post-field" id="profile">
           <%= f.label :プロフィール画像 %><br />
-          <%= attachment_image_tag @user, :profile_image, :fill, 75, 75, fallback: "no_image.jpg", class:"profile-image mt-3 rounded-circle"; %><br />
+          <%= attachment_image_tag @user, :profile_image, :fill, 75, 75, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"; %><br />
           <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
         </div>
         <div class="post-field" id="introduction">
