@@ -81,19 +81,29 @@ header {
   border-color: white;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand img {
+	height: 55px;
+}
+
 .navbar {
   padding-right: 160px;
+  padding-top: 0px;
 }
 
 .nav-link {
   padding: 0;
 }
 
-.nav-item1 i {
+.nav-item i {
   font-size: 20px;
   border-radius: 25%;
   background: #3f3f3f;
   border: 5px solid #3f3f3f;
+  margin-top: 8px;
 }
 
 .link-text {
