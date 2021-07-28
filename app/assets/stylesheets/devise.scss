@@ -70,6 +70,10 @@ input {
   line-height: 80px;
 }
 
+#key:hover {
+  font-size: 40px;
+}
+
 .box-form {
   margin-top: 25px;
 }
@@ -78,7 +82,6 @@ input {
   background: transparent;
   border: 0 solid;
   border-bottom: 1px solid black;
-  color: white;
   display: block;
   width: 100%;
   padding: .5rem;
