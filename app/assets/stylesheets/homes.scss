@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#flash-message-top p {
+  color: white;
+}
+
 .main-visual {
   background-image: url("top.jpg");
   height: 800px;
@@ -21,12 +25,12 @@
 .main-visual-text {
   font-size: 120px;
   font-weight: bold;
-  color: black;
   color: rgba(255, 255, 255, 1);
 }
 
 #about-visual {
   padding: 120px 50px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 a#blue {

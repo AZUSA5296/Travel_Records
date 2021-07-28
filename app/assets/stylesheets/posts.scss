@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#flash-message-post p {
+ color: white;
+}
+
+/* ========================================================================== */
+/* index                                                                      */
+/* ========================================================================== */
+
 .polaroid-list-containar {
  background-image: url(black.jpg);
  min-height: 100%;

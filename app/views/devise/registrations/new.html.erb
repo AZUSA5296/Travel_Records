@@ -1,10 +1,10 @@
+<%= render "devise/shared/error_messages", resource: resource %>
 <div class="box2">
   <div class="box2-inner">
     <div class="signup-text">
       <h1>新規会員登録</h1>
     </div>
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
         <%= f.label :氏名 %><span Class="required-black">必須</span><br />
         <%= f.text_field :name, autofocus: true %>
