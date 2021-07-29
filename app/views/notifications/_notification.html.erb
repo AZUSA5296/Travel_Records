@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-2 text-center">
-    <%= link_to users_path(notification.visiter) do %>
+    <%= link_to user_path(notification.visiter) do %>
       <%= attachment_image_tag visiter, :profile_image, :fill, 75, 75, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"; %>
     <% end %>
     </div>
