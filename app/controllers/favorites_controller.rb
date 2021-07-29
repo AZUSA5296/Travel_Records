@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
     @post = Post.find(params[:post_id])
     favorite = current_user.favorites.new(post_id: @post.id)
     favorite.save
-    # 通知を作成
+    #通知を作成
     @post.create_notification_by(current_user)
     respond_to do |format|
       format.html {redirect_to request.referrer}
