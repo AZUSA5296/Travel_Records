@@ -19,6 +19,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post.status = true && @post.user != current_user
+      flash[:alert] = "この投稿は非公開です。"
+      redirect_to posts_path
+    end
     @comment = Comment.new
   end
 
