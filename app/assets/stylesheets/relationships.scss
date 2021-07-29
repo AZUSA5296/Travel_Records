@@ -5,7 +5,7 @@
 .follow-container {
  width: 100%;
  height: 100%;
- border: 20px solid #9057FF;
+ border: 20px solid #CC66FF;
  text-align: center;
 }
 
@@ -39,14 +39,14 @@
  top: 0px;
  font-size: 14px;
  height: 37px;
- border: 1px solid #9057FF;
- color: #9057FF;
+ border: 1px solid #CC66FF;
+ color: #CC66FF;
  display: block;
  width: 110px;
  padding: .25rem;
  transition: 250ms background ease-in;
   &:hover, &:focus {
-   background: #9057FF;
+   background: #CC66FF;
    color: white;
    transition: 250ms background ease-in;
    text-decoration: none;
@@ -58,9 +58,9 @@
  right: 0px;
  top: 0px;
  font-size: 14px;
- background: #9057FF;
+ background: #CC66FF;
  height: 37px;
- border: 1px solid #9057FF;
+ border: 1px solid #CC66FF;
  color: white;
  display: block;
  width: 110px;
@@ -68,7 +68,7 @@
  transition: 250ms background ease-in;
   &:hover, &:focus {
    background: white;
-   color: #9057FF;
+   color: #CC66FF;
    transition: 250ms background ease-in;
    text-decoration: none;
  }
