@@ -10,7 +10,7 @@
 }
 
 .notifications-contents {
- width: 60%;
+ width: 600px;
  display: inline-block;
  padding: 120px 0;
  text-align: center;
@@ -29,6 +29,10 @@
 #notifications-delete-btn {
  margin-bottom: -20px;
 }
+
+.notification-text {
+  margin-left: 25px;
+ }
 
 .notification_form a {
  color: black;
@@ -52,4 +56,3 @@
 #notifications-trash:hover span:after {
  background: #00428f;
 }
-

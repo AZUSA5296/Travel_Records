@@ -266,13 +266,10 @@ footer p {
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
-  .social i {
-    color: red;
-  }
+
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width:425px) {
-  .social i {
-    color: blue;
-  }
+
+ 
 }

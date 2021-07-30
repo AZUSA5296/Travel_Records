@@ -17,19 +17,19 @@
       <% @users.each do |user| %>
         <div class="container">
           <div class="row">
-            <div class="col-2 text-center">
+            <div class="col-xl-2 col-md-3 text-center">
               <%= link_to user_path(user) do %>
                 <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"; %>
               <% end %>
             </div>
-            <div class="col-8 text-left">
+            <div class="col-xl-8 col-md-7 text-left">
               <div class="row">
                 <%= link_to user_path(user) do %>
                   <h2 class="username-show"><%= user.name %>（<%= user.nickname %>）</h2>
                  <% end %>
               </div>
               <div class="row">
-                <div class="col-2">
+                <div class="col-lg-2 col-md-4">
                   <div class="row">
                     <h7>posts : <%= user.posts.count %></h7>
                   </div>
@@ -50,7 +50,7 @@
                     </span>
                   </div>
                 </div>
-                <div class="col-10">
+                <div class="col-lg-10 col-md-8">
                   <%= user.introduction %>
                 </div>
               </div>

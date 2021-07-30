@@ -14,13 +14,13 @@
     <%= attachment_image_tag @post, :image, class:"polaroid-img"; %>
     <div class="polaroid-body" id="comment_<%= @post.id %>">
       <div class="row">
-        <div class="col-2 text-center">
+        <div class="col-lg-2 col-md-3 text-center">
           <%= link_to user_path(@post.user) do %>
             <%= attachment_image_tag @post.user, :profile_image, :fill, 100, 100, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
             <div class="username-show"><%= @post.user.nickname %></div>
           <% end %>
         </div>
-        <div class="col-10" id="favorite_<%= @post.id %>">
+        <div class="col-lg-10 col-md-9" id="favorite_<%= @post.id %>">
           <p class="polaroid-text-show">
             <%= @post.content %>
           </p>
