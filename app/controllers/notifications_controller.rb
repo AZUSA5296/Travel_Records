@@ -1,7 +1,7 @@
 class NotificationsController < ApplicationController
 
   def index
-    # 通知一覧
+    #通知一覧
     @notifications = current_user.passive_notifications
     # 未確認通知のみ
     @notifications.where(check: false).each do |notification|
