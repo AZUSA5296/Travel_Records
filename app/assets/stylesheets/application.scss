@@ -94,6 +94,10 @@ header {
   padding: 0;
 }
 
+.nav-item {
+  margin-left: 30px;
+}
+
 .nav-item i {
   font-size: 20px;
   border-radius: 25%;
@@ -241,4 +245,31 @@ footer {
 
 footer p {
   color: #FFFFF0;
+}
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width:1024px) {
+
+  .link-text {
+    display: none;
+  }
+
+  .nav-item {
+    margin-top: -20px;
+  }
+
+  .main-visual-text {
+    font-size: 90px;
+  }
+
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+
+ 
 }

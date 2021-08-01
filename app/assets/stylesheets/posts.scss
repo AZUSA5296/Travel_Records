@@ -19,6 +19,7 @@
  padding: 0 30px;
  margin-bottom: 80px;
  background: white;
+ width: 50%;
 }
 
 .polaroid-header {
@@ -640,4 +641,13 @@ a#pink {
  border-radius: 0;
  border: 1px solid #00aa71;
  padding: 10px;
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+
+.polaroid {
+ width: 75%;
+}
+
 }
