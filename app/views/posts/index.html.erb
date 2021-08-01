@@ -4,7 +4,7 @@
   </div>
   <% if @posts.present? %>
     <% @posts.each do |post| %>
-    <div class="polaroid w-50 mx-auto mt-4 shadow-lg">
+    <div class="polaroid mx-auto mt-4 shadow-lg">
       <div class="polaroid-header">
         <span class="polaroid-title">
           <%= post.title %>
@@ -18,13 +18,13 @@
       <% end %>
       <div class="polaroid-body">
         <div class="row">
-          <div class="col-2 text-center">
+          <div class="col-md-2 text-center">
             <%= link_to user_path(post.user) do %>
               <%= attachment_image_tag post.user, :profile_image, :fill, 75, 75, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
               <div class="username"><%= post.user.nickname %></div>
             <% end %>
           </div>
-          <div class="col-10" id="favorite_<%= post.id %>">
+          <div class="col-md-10" id="favorite_<%= post.id %>">
             <p class="polaroid-text">
               <%= post.content %>
             </p>
