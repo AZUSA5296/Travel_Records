@@ -85,6 +85,10 @@ header {
   padding: 0px;
 }
 
+.logoimage {
+  height: 55px;
+}
+
 .navbar {
   padding-right: 160px;
   padding-top: 0px;
@@ -264,12 +268,15 @@ footer p {
 
 }
 
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
 
+@media screen and (max-width:767px) {
+
+.logoimage {
+  height: 30px;
 }
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
 
- 
+.nav-right {
+ display: none;
+}
+
 }

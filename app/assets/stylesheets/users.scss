@@ -85,6 +85,7 @@
 /* ========================================================================== */
 /* show                                                                       */
 /* ========================================================================== */
+
 #flash-message-user p {
  color: black;
 }
@@ -267,7 +268,7 @@
 }
 
 .users-show-post {
- padding: 90px 0;
+ padding: 50px 0;
  font-size: 45px;
  font-weight: bold;
  line-height: 1.2;
@@ -493,4 +494,55 @@
    color: orange;
    transition: 250ms background ease-in;
  }
+}
+
+/* ========================================================================== */
+/* responsive                                                                 */
+/* ========================================================================== */
+
+#users-counts-responsive {
+ display: none;
+}
+
+@media screen and (max-width:767px) {
+
+.users-contents h1 {
+ font-size: 50px;
+}
+
+
+.users-contents {
+ width: 100%;
+ padding: 40px 0;
+}
+
+.search-form {
+ margin: 10px auto;
+}
+
+.follow-index {
+ padding-top: 20px;
+}
+
+.profile-image {
+ width: 45px;
+}
+
+#users-counts {
+ display: none;
+}
+
+#users-counts-responsive {
+ display: inline;
+ font-size: 9px;
+}
+
+.follow-container h2 {
+ font-size: 15px;
+}
+
+#user-introduction h7 {
+ font-size: 12px;
+}
+
 }
