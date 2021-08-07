@@ -235,3 +235,37 @@ input[type="checkbox"]:checked + label:before {
   font-size: 35px;
   color: black;
 }
+
+/* ========================================================================== */
+/* responsive                                                                 */
+/* ========================================================================== */
+
+@media screen and (max-width:767px) {
+
+/* ========================================================================== */
+/* sign in                                                                    */
+/* ========================================================================== */
+
+.box1 {
+  width: 90%;
+  height: 450px;
+  margin: 40px auto;
+}
+
+.box1-inner {
+  margin: 0px;
+}
+
+.devise-text {
+  margin-bottom: 50px;
+}
+
+input[type="checkbox"] + label:before {
+  left: 30px;
+}
+
+input[type="checkbox"]:checked + label:before {
+  left: 35px;
+}
+
+}
