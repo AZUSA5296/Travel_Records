@@ -340,7 +340,7 @@ a#pink {
 
 #field-image input {
  background: #fff;
- width: auto;
+ width: 100%;
  border: none;
  padding: 10px 0 0 0;
 }
@@ -643,11 +643,57 @@ a#pink {
  padding: 10px;
 }
 
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
+/* ========================================================================== */
+/* responsive                                                                 */
+/* ========================================================================== */
+
+#post-responsive {
+ display: none;
+}
+
+@media screen and (max-width:767px) {
 
 .polaroid {
  width: 75%;
+}
+
+
+.post-container {
+ border: 5px solid #FF5192;
+}
+
+.post-contents {
+ width: 90%;
+ padding: 40px 0;
+}
+
+#post {
+ display: none;
+}
+
+#post-responsive {
+ display: block;
+}
+
+.post-contents h1 {
+ font-size: 50px;
+}
+
+.post-field input {
+ height: 40px;
+ width: 100%;
+}
+
+#field-date select {
+ padding: 5px;
+}
+
+#field-image img {
+ width: 100%;
+}
+
+#field-text textarea {
+ width: 100%;
 }
 
 }
