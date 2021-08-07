@@ -447,11 +447,21 @@
  outline: none;
 }
 
+#profile img {
+ width: 200px;
+ height: 200px;
+ pointer-events: none;
+}
+
 #profile input {
  background: #fff;
- width: auto;
+ width: 100%;
  border: none;
  padding: 10px 0 0 0;
+}
+
+#profile input:focus {
+ box-shadow: none;
 }
 
 #introduction textarea {
@@ -542,6 +552,36 @@
 
 .user-introduction {
  font-size: 12px;
+}
+
+/* ========================================================================== */
+/* edit                                                                       */
+/* ========================================================================== */
+
+.user-container {
+ border: 5px solid orange;
+}
+
+.user-contents {
+ width: 90%;
+ padding: 40px 0;
+}
+
+.user-contents h1 {
+ font-size: 50px;
+}
+
+.user-field input {
+ height: 40px;
+ width: 100%;
+}
+
+#birthday select {
+ padding: 5px;
+}
+
+#introduction textarea {
+ width: 100%;
 }
 
 }

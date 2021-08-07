@@ -345,6 +345,10 @@ a#pink {
  padding: 10px 0 0 0;
 }
 
+#field-image input:focus {
+ box-shadow: none;
+}
+
 #field-image img {
  width: 300px;
  object-fit: contain;
