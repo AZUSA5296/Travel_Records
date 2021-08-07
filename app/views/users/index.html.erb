@@ -41,13 +41,13 @@
               </div>
               <div class="col-xl-10 col-md-9 col-8 text-left px-0">
                 <div class="row">
-                  <div class="col-xl-10 col-md-10 col-8 text-left px-0">
+                  <div class="col-xl-10 col-md-10 col-8 text-left px-0 mt-3">
                     <%= link_to user_path(user) do %>
                       <h2 class="username-show"><%= user.name %><br>(<%= user.nickname %>)</h2>
                     <% end %>
                   </div>
-                  <div class="col-md-2 col-3 mr-md-0 mr-1">
-                    <div class="follow_<%= user.id %>">
+                  <div class="col-md-2 col-3 mr-md-0 mr-1 mt-3">
+                    <div class="follow_<%= user.id %>" id="follow">
                       <span class="index_follow_form">
                         <span class="follow_form" >
                           <%= render 'relationships/follow_form', user: user %>

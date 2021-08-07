@@ -2,9 +2,9 @@
   <div class="notifications-contents">
     <h1>Notifications</h1>
     <div class="row">
-      <div class="col-10">
+      <div class="col-md-10 col-8">
       </div>
-      <div class="col-2">
+      <div class="col-md-2 col-4">
         <div class="delete-btn text-center" id="notifications-delete-btn">
           <%= link_to user_notifications_destroy_all_path, method: :delete do %>
             <span class="trash" id="notifications-trash">
@@ -19,9 +19,7 @@
     <div class="notifications-index">
       <hr>
       <% if @notifications.exists? %>
-        <div class="container">
-          <%= render @notifications %>
-        </div>
+        <%= render @notifications %>
       <% else %>
         <h4 class="mt-5">通知はありません</h4>
       <% end %>

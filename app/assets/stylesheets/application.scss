@@ -254,20 +254,19 @@ footer p {
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
 @media screen and (max-width:1024px) {
 
-  .link-text {
-    display: none;
-  }
-
-  .nav-item {
-    margin-top: -20px;
-  }
-
-  .main-visual-text {
-    font-size: 90px;
-  }
-
+.link-text {
+  display: none;
 }
 
+.nav-item {
+  margin-top: -20px;
+}
+
+.main-visual-text {
+  font-size: 90px;
+}
+
+}
 
 @media screen and (max-width:767px) {
 
