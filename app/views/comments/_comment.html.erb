@@ -5,13 +5,13 @@
     <p class="text-right mb-0"><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></p>
     <div class="comment-box mb-3">
       <div class="row">
-        <div class="col-xl-2 col-md-3 text-center">
+        <div class="col-xxl-2 col-lg-3 col-sm-2 col-3 px-0 ml-sm-0 ml-1 text-center">
           <%= link_to user_path(comment.user) do %>
             <%= attachment_image_tag comment.user, :profile_image, :fill, 70, 70, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
-            <div class="username-comment"><%= comment.user.nickname %></div>
           <% end %>
         </div>
-        <div class="col-xl-10 col-md-9 py-2 pr-4">
+        <div class="col-xxl-10 col-lg-9 col-sm-10 col-8 px-0 py-2 pr-4">
+          <div class="username my-3"><%= comment.user.nickname %></div>
           <p><%= comment.comment %></p>
           <% if comment.user == current_user %>
             <div class="text-right mr-3">
