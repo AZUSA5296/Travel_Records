@@ -662,6 +662,10 @@ a#pink {
  display: none;
 }
 
+#noposts-responsive {
+ display: none;
+}
+
 @media screen and (max-width:767px) {
 
 /* ========================================================================== */
@@ -799,6 +803,10 @@ a#pink {
 
 #noposts {
  display: none;
+}
+
+#noposts-responsive {
+ display: block;
 }
 
 }
