@@ -8,8 +8,7 @@
 
 .main-visual {
   background-image: image-url("top.jpg");
-
-  background-size:cover;
+  background-size: cover;
   position: relative;
 }
 
@@ -100,12 +99,20 @@ a#blue {
 /* タブレット縦置きサイズ（991px）以下の際に適用される設定 */
 @media screen and (max-width: 991px) {
 
+.main-visual-text {
+  font-size: 10vw;
+}
+
 #about-visual {
   padding: 60px 50px;
 }
 
 #about-image {
   display: none;
+}
+
+.about-title {
+  transform: translateX(-30px);
 }
 
 .about-text {
@@ -121,6 +128,16 @@ a#blue {
 /* タブレット縦置きサイズ（767px）以下の際に適用される設定 */
 @media screen and (max-width: 767px) {
 
+.main-visual-content {
+  height: 400px;
+  padding-top: 140px;
+  line-height: 60px;
+}
+
+.main-visual-text {
+  font-size: 8vw;
+}
+
 .about-title {
   transform: translateX(-30px);
 }
@@ -129,6 +146,16 @@ a#blue {
 
 /* タブレット縦置きサイズ（575px）以下の際に適用される設定 */
 @media screen and (max-width: 575px) {
+
+.main-visual-content {
+  height: 330px;
+  padding-top: 90px;
+  line-height: 70px;
+}
+
+.main-visual-text {
+  font-size: 15vw;
+}
 
 #about-visual {
   padding: 30px 10px;
@@ -153,6 +180,15 @@ a#blue {
 
 .start a {
   margin: 20px auto;
+}
+
+}
+
+@media screen and (max-width: 414px) {
+
+.main-visual-content {
+  padding-top: 100px;
+  line-height: 50px;
 }
 
 }
