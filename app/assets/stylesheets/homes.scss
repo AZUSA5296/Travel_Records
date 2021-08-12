@@ -23,7 +23,8 @@
 }
 
 .main-visual-text {
-  font-size: 120px;
+  font-size: 8vw;
+  margin-left: 10px;
   font-weight: bold;
   color: rgba(255, 255, 255, 1);
 }
@@ -99,8 +100,59 @@ a#blue {
 /* タブレット縦置きサイズ（991px）以下の際に適用される設定 */
 @media screen and (max-width: 991px) {
 
+#about-visual {
+  padding: 60px 50px;
+}
+
 #about-image {
   display: none;
+}
+
+.about-text {
+  padding: 20px 0 20px 0px;
+}
+
+.start {
+  margin-top: 0px;
+}
+
+}
+
+/* タブレット縦置きサイズ（767px）以下の際に適用される設定 */
+@media screen and (max-width: 767px) {
+
+.about-title {
+  transform: translateX(-30px);
+}
+
+}
+
+/* タブレット縦置きサイズ（575px）以下の際に適用される設定 */
+@media screen and (max-width: 575px) {
+
+#about-visual {
+  padding: 30px 10px;
+}
+
+.about-text {
+  padding: 20px 0px 0px 0px;
+}
+
+.about-title {
+  padding-bottom: 20px;
+  transform: translateX(0px);
+}
+
+.about-title p {
+  font-size: 15px;
+}
+
+.about-title h2{
+  font-size: 30px;
+}
+
+.start a {
+  margin: 20px auto;
 }
 
 }
