@@ -81,17 +81,17 @@ header {
   border-color: white;
 }
 
+.navbar {
+  height: 65px;
+  padding-right: 160px;
+}
+
 .navbar-brand {
   padding: 0px;
 }
 
 .logoimage {
   height: 55px;
-}
-
-.navbar {
-  padding-right: 160px;
-  padding-top: 0px;
 }
 
 .nav-link {
@@ -107,7 +107,6 @@ header {
   border-radius: 25%;
   background: #3f3f3f;
   border: 5px solid #3f3f3f;
-  margin-top: 8px;
 }
 
 .link-text {
@@ -198,7 +197,7 @@ header {
 }
 
 #nav_right_1:hover:before {
-  left:0;
+  left: 0;
 }
 
 #nav_right_2 {
@@ -224,14 +223,7 @@ header {
 }
 
 #nav_right_2:hover:before {
-  left:0;
-}
-
-.navbar .navbar-toggler-icon{
-}
-
-.navbar .navbar-toggler{
-  border-color: white;
+  left: 0;
 }
 
 /* ========================================================================== */
@@ -266,12 +258,46 @@ footer p {
 
 @media screen and (max-width:767px) {
 
-.logoimage {
-  height: 30px;
+header {
+  height: 50px;
 }
 
-.nav-right {
- display: none;
+.navbar {
+  padding-left: 0px;
+}
+
+.logoimage {
+  height: 45px;
+  margin-top: -25px;
+}
+
+.nav-item {
+  margin-left: 10px;
+}
+
+.nav_right li {
+  width: 130px;
+  font-size: 15px;
+  padding-left: 15px;
+  height: 50px;
+  line-height: 50px;
+}
+
+main {
+  padding-top: 50px;
+}
+
+footer {
+  height: 50px;
+  line-height: 50px;
+}
+
+}
+
+@media screen and (max-width:575px) {
+
+.nav_right {
+  display: none;
 }
 
 }

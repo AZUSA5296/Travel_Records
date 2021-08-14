@@ -1,9 +1,9 @@
 <header>
-  <nav class="navbar navbar-expand-md fixed-top">
+  <nav class="navbar navbar-expand-sm fixed-top">
     <div class="container">
       <h1><a class="navbar-brand" href="/"><%= image_tag "logo.png", class: "logoimage" %></a></h1>
       <% if user_signed_in? %>
-        <ul class="navbar-nav mt-1">
+        <ul class="navbar-nav mt-md-3 mt-1">
           <li class="nav-item">
             <%= link_to "/#about-visual", class: 'nav-link' do %>
               <div class="icon effect blue">
