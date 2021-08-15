@@ -1,6 +1,7 @@
 <div class="post-container">
   <div class="post-contents">
-    <h1>Let's Post !!</h1>
+    <h1 id="post">Let's Post !!</h1>
+    <h1 id="post-responsive">Post</h1>
     <div class="post-form">
       <%= form_with model: @post, local:true do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>

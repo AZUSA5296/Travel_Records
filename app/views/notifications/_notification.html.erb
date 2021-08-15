@@ -1,25 +1,25 @@
 <% visiter = notification.visiter %>
 <% post = notification.post %>
 
-<div class="container">
+<div class="notification-container">
   <div class="row">
-    <div class="col-2 text-center">
-    <%= link_to user_path(notification.visiter) do %>
-      <%= attachment_image_tag visiter, :profile_image, :fill, 75, 75, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"; %>
-    <% end %>
+    <div class="col-2 ml-md-0 px-0 ml-3">
+      <%= link_to user_path(notification.visiter) do %>
+        <%= attachment_image_tag visiter, :profile_image, :fill, 75, 75, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"; %>
+      <% end %>
     </div>
-    <div class="notification-text col-7 text-left">
-      <div class="notification_form row mt-5">
+    <div class="notification-text col-md-10 col-8 ml-0 pl-0">
+      <div class="text-right pr-0">
+        <span><%= "#{time_ago_in_words(notification.created_at)} 前" %></span>
+      </div>
+      <div class="notification_form text-left row ml-1">
         <%= notification_form(notification) %>
       </div>
-      <div class="row mt-3">
+      <div class="row mt-1 ml-1">
         <% if !@comment.nil? %>
           <p style="color: #C0C0C0;"><%= @comment %></p>
         <% end %>
       </div>
-    </div>
-    <div class="col-2 text-right">
-      <span><%= "#{time_ago_in_words(notification.created_at)} 前" %></span>
     </div>
   </div>
 </div>

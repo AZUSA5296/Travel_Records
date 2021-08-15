@@ -14,60 +14,73 @@
     <div class="follow-index">
       <hr>
       <% if @users.present? %>
-      <% @users.each do |user| %>
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-2 col-md-3 text-center">
-              <%= link_to user_path(user) do %>
-                <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"; %>
-              <% end %>
-            </div>
-            <div class="col-xl-8 col-md-7 text-left">
-              <div class="row">
+        <% @users.each do |user| %>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-2 col-md-3 col-3 text-left ml-md-0 px-0 ml-1">
                 <%= link_to user_path(user) do %>
-                  <h2 class="username-show"><%= user.name %>（<%= user.nickname %>）</h2>
-                 <% end %>
-              </div>
-              <div class="row">
-                <div class="col-lg-2 col-md-4">
-                  <div class="row">
-                    <h7>posts : <%= user.posts.count %></h7>
-                  </div>
-                  <div class="row">
-                    <span class="follow_<%= user.id %>">
-                      <h7>following : </h7>
-                      <span class="following-count">
-                        <%= link_to following_user_path(user) do %>
-                          <h7><%= user.following.count %></h7>
-                        <% end %>
-                      </span>
-                      <h7>followers : </h7>
-                      <span class="followers-count">
-                        <%= link_to followers_user_path(user) do %>
-                          <h7><%= user.followers.count %></h7>
-                        <% end %>
-                      </span>
+                  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"; %><br>
+                <% end %>
+                <span id="users-counts-responsive">
+                  <h7>posts : <%= user.posts.count %></h7><br>
+                  <span class="follow_<%= user.id %>">
+                    <h7>following : </h7>
+                    <span class="following-count">
+                      <%= link_to following_user_path(user) do %>
+                        <h7><%= user.following.count %></h7><br>
+                      <% end %>
                     </span>
-                  </div>
-                </div>
-                <div class="col-lg-10 col-md-8">
-                  <%= user.introduction %>
-                </div>
-              </div>
-            </div>
-            <div class="col-2">
-                <div class="follow_<%= user.id %>">
-                  <span class="index_follow_form">
-                    <span class="follow_form" >
-                      <%= render 'relationships/follow_form', user: user %>
+                    <h7>followers : </h7>
+                    <span class="followers-count">
+                      <%= link_to followers_user_path(user) do %>
+                        <h7><%= user.followers.count %></h7>
+                      <% end %>
                     </span>
                   </span>
+                </span>
+              </div>
+              <div class="col-xl-10 col-md-9 col-8 text-left px-0">
+                <div class="row">
+                  <div class="col-xl-10 col-md-10 col-8 text-left px-0 mt-3">
+                    <%= link_to user_path(user) do %>
+                      <h2 class="username-show"><%= user.name %><br>(<%= user.nickname %>)</h2>
+                    <% end %>
+                  </div>
+                  <div class="col-md-2 col-3 mr-md-0 mr-1 mt-3">
+                    <div class="follow_<%= user.id %>" id="follow">
+                      <span class="index_follow_form">
+                        <span class="follow_form" >
+                          <%= render 'relationships/follow_form', user: user %>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" id="users-counts">
+                 <h7>posts : <%= user.posts.count %>&emsp;</h7>
+                  <span class="follow_<%= user.id %>">
+                    <h7>following : </h7>
+                    <span class="following-count">
+                      <%= link_to following_user_path(user) do %>
+                        <h7><%= user.following.count %>&emsp;</h7>
+                      <% end %>
+                    </span>
+                    <h7>followers : </h7>
+                    <span class="followers-count">
+                      <%= link_to followers_user_path(user) do %>
+                        <h7><%= user.followers.count %></h7>
+                      <% end %>
+                    </span>
+                  </span>
+                </div>
+                <div class="row mr-md-0 mr-md-0 mr-1">
+                  <h7 class="user-introduction"><%= user.introduction %></h7>
                 </div>
               </div>
             </div>
           </div>
           <hr>
-          <% end %>
+        <% end %>
       <% else %>
         <h4 class="mt-5">ユーザーはいません</h4>
       <% end %>

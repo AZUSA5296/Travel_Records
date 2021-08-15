@@ -56,3 +56,32 @@
 #notifications-trash:hover span:after {
  background: #00428f;
 }
+
+/* ========================================================================== */
+/* responsive                                                                 */
+/* ========================================================================== */
+
+@media screen and (max-width:767px) {
+
+.notifications-container {
+ border: 5px solid #00428f;
+}
+
+.notifications-contents {
+ width: 100%;
+ padding: 40px 0;
+}
+
+.notifications-contents h1 {
+ font-size: 40px;
+}
+
+.notification-text {
+ font-size: 12px;
+}
+
+.notification_form a {
+ font-size: 12px;
+}
+
+}

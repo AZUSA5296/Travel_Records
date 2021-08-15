@@ -6,9 +6,9 @@
     <% @posts.each do |post| %>
     <div class="polaroid mx-auto mt-4 shadow-lg">
       <div class="polaroid-header">
-        <span class="polaroid-title">
+        <div class="polaroid-title">
           <%= post.title %>
-        </span>
+        </div>
         <div class="date">
           <%= I18n.l post.date, format: :long %>
         </div>
@@ -18,13 +18,15 @@
       <% end %>
       <div class="polaroid-body">
         <div class="row">
-          <div class="col-md-2 text-center">
+          <div class="col-lg-2 col-md-3 col-2 text-center">
             <%= link_to user_path(post.user) do %>
               <%= attachment_image_tag post.user, :profile_image, :fill, 75, 75, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
-              <div class="username"><%= post.user.nickname %></div>
             <% end %>
           </div>
-          <div class="col-md-10" id="favorite_<%= post.id %>">
+          <div class="col-lg-10 col-md-9 col-10" id="favorite_<%= post.id %>">
+            <div class="username mt-3">
+              <%= post.user.nickname %>
+            </div>
             <p class="polaroid-text">
               <%= post.content %>
             </p>
@@ -45,7 +47,7 @@
     <% end %>
   <% else %>
     <p class="nocontents">まだタイムラインに投稿がありません。</p>
-    <div class="container">
+    <div class="container" id="noposts">
       <div class="row align-items-start">
         <div class="col">
           <p class="lets-text">あなたの思い出を投稿しよう！</p>
@@ -59,6 +61,22 @@
           <a href="/posts/new" class="btn btn-border-shadow btn-border-shadow--color" id="pink">Let's post !!</a>
         </div>
         <div class="col">
+          <a href="/users" class="btn btn-border-shadow btn-border-shadow--color" id="yellow">Let's follow !!</a>
+        </div>
+      </div>
+    </div>
+    <div class="container px-5" id="noposts-responsive">
+      <div class="align-items-start">
+        <div class="text-left">
+          <p class="lets-text">あなたの思い出を投稿しよう！</p>
+        </div>
+        <div class="mb-5">
+          <a href="/posts/new" class="btn btn-border-shadow btn-border-shadow--color" id="pink">Let's post !!</a>
+        </div>
+        <div class="text-left">
+          <p class="lets-text">友達をフォローしよう！</p>
+        </div>
+        <div>
           <a href="/users" class="btn btn-border-shadow btn-border-shadow--color" id="yellow">Let's follow !!</a>
         </div>
       </div>
