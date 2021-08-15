@@ -1,94 +1,197 @@
 <header>
-  <nav class="navbar navbar-expand-sm fixed-top">
-    <div class="container">
-      <h1><a class="navbar-brand" href="/"><%= image_tag "logo.png", class: "logoimage" %></a></h1>
-      <% if user_signed_in? %>
-        <ul class="navbar-nav mt-md-3 mt-1">
-          <li class="nav-item">
-            <%= link_to "/#about-visual", class: 'nav-link' do %>
-              <div class="icon effect blue">
-                <i class="far fa-question-circle"></i>
-              </div>
-              <p class="link-text">このサイトについて</p>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to posts_path, class: 'nav-link' do %>
-              <div class="icon effect green">
-                <i class="fas fa-stream"></i>
-              </div>
-              <p class="link-text">タイムライン</p>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to new_post_path, class: 'nav-link' do %>
-              <div class="icon effect pink">
-                <i class="far fa-plus-square"></i>
-              </div>
-              <p class="link-text">新規投稿</p>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to user_path(current_user.id), class: 'nav-link' do %>
-              <div class="icon effect yellow">
-                <i class="fas fa-user-circle"></i>
-              </div>
-              <p class="link-text">マイページ</p>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to users_path(current_user.id), class: 'nav-link' do %>
-              <div class="icon effect purple">
-                <i class="fas fa-users"></i>
-              </div>
-              <p class="link-text">ユーザー</p>
-            <% end %>
-          </li>
-        </ul>
-        <ul class="nav_right">
-          <li class="nav-item2" id="nav_right_1">
-            <%= link_to notifications_path, class: "nav-link" do %>
-              <% if uncheck_notifications.any? %>
-                <i class="fas fa-exclamation-circle" style="color: gold;"></i>
-              <% else %>
-                <i class="fas fa-exclamation-circle"></i>
+  <span id="header">
+    <nav class="navbar navbar-expand fixed-top">
+      <div class="container">
+        <h1><a class="navbar-brand" href="/"><%= image_tag "logo.png", class: "logoimage" %></a></h1>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav mt-md-3 mt-1">
+            <li class="nav-item">
+              <%= link_to "/#about-visual", class: 'nav-link' do %>
+                <div class="icon effect blue">
+                  <i class="far fa-question-circle"></i>
+                </div>
+                <p class="link-text">このサイトについて</p>
               <% end %>
-              <spna> &emsp;通知</span>
-            <% end %>
-          </li>
-          <li class="nav-item2" id="nav_right_2">
-            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
-              <i class="fas fa-sign-out-alt"></i>
-              <span> &emsp;ログアウト</span>
-            <% end %>
-           </li>
-        </ul>
-      <% else %>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to "/#about-visual", class: 'nav-link' do %>
-              <div class="icon effect blue">
-                <i class="far fa-question-circle"></i>
-              </div>
-              <p class="link-text">このサイトについて</p>
-            <% end %>
-          </li>
-        </ul>
-        <ul class="nav_right">
-          <li class="nav-item2" id="nav_right_1">
-            <%= link_to new_user_registration_path, class: 'nav-link' do %>
-              <i class="fas fa-user-plus"></i>
-              <spna> &emsp;新規登録</span>
-            <% end %>
-          </li>
-          <li class="nav-item2" id="nav_right_2">
-            <%= link_to new_user_session_path, class: 'nav-link' do %>
-              <i class="fas fa-sign-in-alt"></i>
-              <span> &emsp;ログイン</span>
-            <% end %>
-          </li>
-        </ul>
-      <% end %>
-    </div>
-  </nav>
+            </li>
+            <li class="nav-item">
+              <%= link_to posts_path, class: 'nav-link' do %>
+                <div class="icon effect green">
+                  <i class="fas fa-stream"></i>
+                </div>
+                <p class="link-text">タイムライン</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_post_path, class: 'nav-link' do %>
+                <div class="icon effect pink">
+                  <i class="far fa-plus-square"></i>
+                </div>
+                <p class="link-text">新規投稿</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to user_path(current_user.id), class: 'nav-link' do %>
+                <div class="icon effect yellow">
+                  <i class="fas fa-user-circle"></i>
+                </div>
+                <p class="link-text">マイページ</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to users_path(current_user.id), class: 'nav-link' do %>
+                <div class="icon effect purple">
+                  <i class="fas fa-users"></i>
+                </div>
+                <p class="link-text">ユーザー</p>
+              <% end %>
+            </li>
+          </ul>
+          <ul class="nav_right">
+            <li class="nav-item2" id="nav_right_1">
+              <%= link_to notifications_path, class: "nav-link" do %>
+                <% if uncheck_notifications.any? %>
+                  <i class="fas fa-exclamation-circle" style="color: gold;"></i>
+                <% else %>
+                  <i class="fas fa-exclamation-circle"></i>
+                <% end %>
+                <spna> &emsp;通知</span>
+              <% end %>
+            </li>
+            <li class="nav-item2" id="nav_right_2">
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+                <i class="fas fa-sign-out-alt"></i>
+                <span> &emsp;ログアウト</span>
+              <% end %>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="navbar-nav ml-auto mt-md-3 mt-1">
+            <li class="nav-item">
+              <%= link_to "/#about-visual", class: 'nav-link' do %>
+                <div class="icon effect blue">
+                  <i class="far fa-question-circle"></i>
+                </div>
+                <p class="link-text">このサイトについて</p>
+              <% end %>
+            </li>
+          </ul>
+          <ul class="nav_right">
+            <li class="nav-item2" id="nav_right_1">
+              <%= link_to new_user_registration_path, class: 'nav-link' do %>
+                <i class="fas fa-user-plus"></i>
+                <spna> &emsp;新規登録</span>
+              <% end %>
+            </li>
+            <li class="nav-item2" id="nav_right_2">
+              <%= link_to new_user_session_path, class: 'nav-link' do %>
+                <i class="fas fa-sign-in-alt"></i>
+                <span> &emsp;ログイン</span>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </nav>
+  </span>
+  <span id="header-responsive">
+    <% if user_signed_in? %>
+      <nav class="navbar navbar-expand py-0 fixed-top">
+        <div class="container">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to posts_path, class: 'nav-link' do %>
+                <div class="icon effect green">
+                  <i class="fas fa-stream"></i>
+                </div>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_post_path, class: 'nav-link' do %>
+                <div class="icon effect pink">
+                  <i class="far fa-plus-square"></i>
+                </div>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to user_path(current_user.id), class: 'nav-link' do %>
+                <div class="icon effect yellow">
+                  <i class="fas fa-user-circle"></i>
+               </div>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to users_path(current_user.id), class: 'nav-link' do %>
+                <div class="icon effect purple">
+                  <i class="fas fa-users"></i>
+                </div>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <nav class="navbar fixed-top" id="menuebar">
+        <!-- ハンバーガーメニュー -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- ナビゲーションメニュー -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item3 active">
+              <a href="/" class='nav-link'><p>Top</p></a>
+            </li>
+            <hr>
+            <li class="nav-item3">
+              <%= link_to "/#about-visual", class: 'nav-link' do %>
+                <p>About</p>
+              <% end %>
+            </li>
+            <hr>
+            <li class="nav-item3">
+              <%= link_to notifications_path, class: "nav-link" do %>
+                <% if uncheck_notifications.any? %>
+                 <p>通知あり</p>
+                <% else %>
+                  <p>通知なし</p>
+                <% end %>
+              <% end %>
+            </li>
+            <hr>
+            <li class="nav-item3">
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+                <p>ログアウト</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <% else %>
+      <ul class="navbar-nav mt-1 ml-1">
+        <li>
+          <h1><a class="navbar-brand" href="/"><%= image_tag "logo.png", class: "logoimage" %></a></h1>
+        </li>
+        <li class="nav-item" id="about">
+          <%= link_to "/#about-visual", class: 'nav-link' do %>
+            <div class="icon effect blue">
+              <i class="far fa-question-circle"></i>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+      <ul class="nav_right">
+        <li class="nav-item2" id="nav_right_1">
+          <%= link_to new_user_registration_path, class: 'nav-link' do %>
+            <i class="fas fa-user-plus"></i>
+            <spna>&nbsp;新規登録</span>
+          <% end %>
+        </li>
+        <li class="nav-item2" id="nav_right_2">
+          <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <i class="fas fa-sign-in-alt"></i>
+            <span>&nbsp;ログイン</span>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </span>
 </header>
