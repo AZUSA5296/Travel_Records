@@ -2,31 +2,33 @@
   <div class="flash-message" id="flash-message-post">
     <%= render 'layouts/flash_messages' %>
   </div>
-  <div class="polaroid w-75 mx-auto mt-4 shadow-lg">
-    <div class="polaroid-header-show">
-      <span class="polaroid-title-show">
+  <div class="polaroid mx-auto mt-4 shadow-lg">
+    <div class="polaroid-header">
+      <span class="polaroid-title">
         <%= @post.title %>
       </span>
-      <div class="date-show">
+      <div class="date">
         <%= I18n.l @post.date, format: :long %>
       </div>
     </div>
     <%= attachment_image_tag @post, :image, class:"polaroid-img"; %>
     <div class="polaroid-body" id="comment_<%= @post.id %>">
       <div class="row">
-        <div class="col-lg-2 col-md-3 text-center">
+        <div class="col-lg-2 col-md-3 col-2 text-center">
           <%= link_to user_path(@post.user) do %>
-            <%= attachment_image_tag @post.user, :profile_image, :fill, 100, 100, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
-            <div class="username-show"><%= @post.user.nickname %></div>
+            <%= attachment_image_tag @post.user, :profile_image, :fill, 75, 75, fallback: "no_profile_image.jpg", class:"profile-image mt-3 rounded-circle"%></br>
           <% end %>
         </div>
-        <div class="col-lg-10 col-md-9" id="favorite_<%= @post.id %>">
-          <p class="polaroid-text-show">
+        <div class="col-lg-10 col-md-9 col-10" id="favorite_<%= @post.id %>">
+          <div class="username mt-3">
+            <%= @post.user.nickname %>
+          </div>
+          <p class="polaroid-text">
             <%= @post.content %>
           </p>
           <div class="tag"><%= render "posts/index_tag_list", post: @post %></div>
           <div class="icon">
-            <div class="favorite" id="show-favorite"><%= render "favorites/favorite", post: @post %></div>
+            <div class="favorite"><%= render "favorites/favorite", post: @post %></div>
             <% if @post.user == current_user %>
               <div class="edit-btn">
                 <%= link_to edit_post_path(@post) do %>

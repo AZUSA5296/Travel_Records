@@ -85,6 +85,7 @@
 /* ========================================================================== */
 /* show                                                                       */
 /* ========================================================================== */
+
 #flash-message-user p {
  color: black;
 }
@@ -267,7 +268,7 @@
 }
 
 .users-show-post {
- padding: 90px 0;
+ padding: 50px 0;
  font-size: 45px;
  font-weight: bold;
  line-height: 1.2;
@@ -293,8 +294,11 @@
 }
 
 .card2-title {
- font-size: 20px;
+ font-size: 30px;
  font-family: MyFont;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
 }
 
 .card2-img {
@@ -350,8 +354,8 @@
 /* ========================================================================== */
 
 #calendar {
- width: 650px;
- margin: 30px auto;
+ width: 95%;
+ margin: 50px auto;
 }
 
 .fc-sun { color: red; }  /* 日曜日 */
@@ -446,11 +450,21 @@
  outline: none;
 }
 
+#profile img {
+ width: 200px;
+ height: 200px;
+ pointer-events: none;
+}
+
 #profile input {
  background: #fff;
- width: auto;
+ width: 100%;
  border: none;
  padding: 10px 0 0 0;
+}
+
+#profile input:focus {
+ box-shadow: none;
 }
 
 #introduction textarea {
@@ -493,4 +507,231 @@
    color: orange;
    transition: 250ms background ease-in;
  }
+}
+
+/* ========================================================================== */
+/* responsive                                                                 */
+/* ========================================================================== */
+
+#users-counts-responsive {
+ display: none;
+}
+
+@media screen and (max-width:1199px) {
+
+#calendar {
+ width: 80%;
+ margin-top: 150px;
+ margin-bottom: 0;
+}
+
+}
+
+@media screen and (max-width:767px) {
+
+.users-contents h1 {
+ font-size: 50px;
+}
+
+.users-contents {
+ width: 100%;
+ padding: 40px 0;
+}
+
+.search-form {
+ margin: 10px auto;
+}
+
+.follow-index {
+ padding-top: 20px;
+}
+
+.profile-image {
+ width: 45px;
+}
+
+#users-counts {
+ display: none;
+}
+
+#users-counts-responsive {
+ display: inline;
+ font-size: 9px;
+}
+
+.follow-container h2 {
+ font-size: 15px;
+}
+
+.user-introduction {
+ font-size: 12px;
+}
+
+/* ========================================================================== */
+/* edit                                                                       */
+/* ========================================================================== */
+
+.user-container {
+ border: 5px solid orange;
+}
+
+.user-contents {
+ width: 90%;
+ padding: 40px 0;
+}
+
+.user-contents h1 {
+ font-size: 50px;
+}
+
+.user-field input {
+ height: 40px;
+ width: 100%;
+}
+
+#birthday select {
+ padding: 5px;
+}
+
+#introduction textarea {
+ width: 100%;
+}
+
+/* ========================================================================== */
+/* show                                                                      */
+/* ========================================================================== */
+
+#userpage-title h1 {
+ padding: 50px 0;
+}
+
+.card2-header {
+ height: 40px;
+}
+
+.card2-title {
+ font-size: 20px;
+}
+
+.card2-body {
+ padding: 10px;
+ text-align: left;
+}
+
+.icon a{
+ font-size: 15px;
+}
+
+.favorite {
+ width: 50px;
+ bottom: -5px;
+}
+
+.fa:hover {
+ font-size: 18px;
+}
+
+.comment {
+ width: 50px;
+ bottom: -5px;
+ left: 65px;
+}
+
+.far:hover {
+ font-size: 18px;
+}
+
+.status {
+ width: 50px;
+ bottom: -5px;
+ left: 130px;
+ font-size: 15px;
+}
+
+}
+
+@media screen and (max-width:575px) {
+
+.card {
+ width: 90%;
+ height: auto;
+}
+
+.users-header .avatar {
+ margin-left: -63px;
+ width: 130px;
+ height: 130px;
+}
+
+.card h3 {
+ font-size: 30px;
+ margin: 95px 0 5px;
+}
+
+.desc {
+ padding: 10px 10px 2px;
+ min-height: 100px;
+ display: -webkit-box;
+ overflow: hidden;
+ -webkit-line-clamp: 6;
+ -webkit-box-orient: vertical;
+}
+
+.counts {
+ margin-bottom: 30px;
+}
+
+#calendar {
+ margin-top: 50px;
+}
+
+#userpage-title h1 {
+ padding: 30px 0;
+ font-size: 45px;
+}
+
+.users-show-post {
+ padding: 30px 0;
+}
+
+.card2-header {
+ height: 30px;
+}
+
+.card2-title {
+ font-size: 15px;
+}
+
+.card2-body {
+ padding: 5px;
+}
+
+.icon a{
+ font-size: 11px;
+}
+
+.favorite {
+ width: 30px;
+}
+
+.fa:hover {
+ font-size: 15px;
+}
+
+.comment {
+ width: 30px;
+ left: 35px;
+}
+
+.far:hover {
+ font-size: 15px;
+}
+
+.status {
+ width: 50px;
+ left: 65px;
+ bottom: -4px;
+ font-size: 11px;
+}
+
 }

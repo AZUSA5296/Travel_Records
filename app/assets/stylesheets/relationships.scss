@@ -74,3 +74,47 @@
  }
 }
 
+@media screen and (max-width:767px) {
+
+.follow-container {
+ border: 5px solid #CC66FF;
+}
+
+.index_follow_form #footer-follow input {
+ position: absolute;
+ right: -20px;
+ font-size: 10px;
+ font-weight: 600;
+ height: 25px;
+ width: 75px;
+ padding: 0rem;
+}
+
+.index_follow_form #footer-followed input {
+ position: absolute;
+ right: -20px;
+ font-size: 10px;
+ font-weight: 600;
+ height: 25px;
+ width: 75px;
+ padding: 0rem;
+}
+
+.follow-contents {
+ width: 100%;
+ padding: 40px 0;
+}
+
+.follow-contents h1 {
+ font-size: 50px;
+}
+
+#posts-count h6 {
+ font-size: 9px;
+}
+
+#follow {
+ height: 10px;
+}
+
+}
