@@ -48,7 +48,7 @@ https://drive.google.com/file/d/15dV8tTM8vAxEneLVW7AG5Syi5JjibgbJ/view?usp=shari
 [チャレンジ要素機能](https://docs.google.com/spreadsheets/d/1Kp6exGkVbMLAlbBYBjNRqIfxTxfhe0cZlYBZd3PCR3A/edit?usp=sharing)
 
 ## 開発環境
-・OS：Linux(CentOS)
+・OS：Linux(CentOS)<br>
 ・言語：HTML,CSS,JavaScript,Ruby,SQL<br>
 ・フレームワーク：Ruby on Rails<br>
 ・JSライブラリ：jQuery<br>
