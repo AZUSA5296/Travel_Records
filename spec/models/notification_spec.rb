@@ -23,6 +23,6 @@ RSpec.describe 'Notificationモデルのテスト', type: :model do
         expect(Notification.reflect_on_association(:comment).macro).to eq :belongs_to
       end
     end
-    
   end
+  
 end
