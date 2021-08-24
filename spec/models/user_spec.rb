@@ -9,15 +9,15 @@ RSpec.describe 'Userモデルのテスト', type: :model do
 
     context 'nameカラム' do
       it '空欄でないこと' do
-        user.fullname = ''
+        user.name = ''
         is_expected.to eq false
       end
       it '20文字以下であること: 20文字は〇' do
-        user.fullname = Faker::Lorem.characters(number: 20)
+        user.name = Faker::Lorem.characters(number: 20)
         is_expected.to eq true
       end
       it '20文字以下であること: 21文字は×' do
-        user.fullname = Faker::Lorem.characters(number: 21)
+        user.name = Faker::Lorem.characters(number: 21)
         is_expected.to eq false
       end
     end
@@ -63,5 +63,56 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
 
+     describe 'アソシエーションのテスト' do
+    context 'Postモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:posts).macro).to eq :has_many
+      end
+    end
+
+    context 'Relationshipモデルとの関係' do
+      it 'followingと1:Nとなっている' do
+        expect(User.reflect_on_association(:following).macro).to eq :has_many
+      end
+      it 'followersと1:Nとなっている' do
+        expect(User.reflect_on_association(:followers).macro).to eq :has_many
+      end
+    end
+
+    context 'Notificationモデルとの関係' do
+      it 'visiterと1:Nとなっている' do
+        expect(User.reflect_on_association(:visiters).macro).to eq :has_many
+      end
+      it 'visitedと1:Nとなっている' do
+        expect(User.reflect_on_association(:visiteds).macro).to eq :has_many
+      end
+    end
+
+    context 'Commentモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:comments).macro).to eq :has_many
+      end
+    end
+
+    context 'Favoriteモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:favorites).macro).to eq :has_many
+      end
+    end
+  end
+
+  describe 'following, followers関連のテスト' do
+    let(:user) { create(:user) }
+    let(:other_user) { create(:other_user) }
+
+    it 'following, followersの関係性が正しいか' do
+      expect(user.following?(other_user)).to eq false
+      user.follow(other_user)
+      expect(user.following?(other_user)).to eq true
+      expect(other_user.followers.include?(user)).to eq true
+      user.unfollow(other_user)
+      expect(user.following?(other_user)).to eq false
+    end
+  end
   end
 end
