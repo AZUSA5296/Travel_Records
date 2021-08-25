@@ -5,5 +5,10 @@ FactoryBot.define do
     image  { File.open("#{Rails.root}/app/assets/images/image1.jpg") }
     content { Faker::Lorem.characters(number: 50) }
     user
+
+    factory :other_post do
+      date { '2019-01-01' }
+      image { File.open("#{Rails.root}/app/assets/images/image1.jpg") }
+    end
   end
 end

@@ -83,10 +83,10 @@ RSpec.describe 'Userモデルのテスト', type: :model do
 
     context 'Notificationモデルとの関係' do
       it 'visiterと1:Nとなっている' do
-        expect(User.reflect_on_association(:visiters).macro).to eq :has_many
+        expect(User.reflect_on_association(:visiter).macro).to eq :has_many
       end
       it 'visitedと1:Nとなっている' do
-        expect(User.reflect_on_association(:visiteds).macro).to eq :has_many
+        expect(User.reflect_on_association(:visited).macro).to eq :has_many
       end
     end
 
