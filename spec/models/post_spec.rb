@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Postモデルのテスト', type: :model do
-  describe 'バリデーションのテスト' do
+  describe 'バリデーションのチェック' do
     subject { post.valid? }
 
     let(:user) { create(:user) }
