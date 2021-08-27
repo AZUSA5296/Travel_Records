@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Userモデルのテスト', type: :model do
-
   describe 'バリデーションのテスト' do
     subject { user.valid? }
 
@@ -83,10 +82,10 @@ RSpec.describe 'Userモデルのテスト', type: :model do
 
     context 'Notificationモデルとの関係' do
       it 'visiterと1:Nとなっている' do
-        expect(User.reflect_on_association(:visiter).macro).to eq :has_many
+        expect(User.reflect_on_association(:active_notifications).macro).to eq :has_many
       end
       it 'visitedと1:Nとなっている' do
-        expect(User.reflect_on_association(:visited).macro).to eq :has_many
+        expect(User.reflect_on_association(:passive_notifications).macro).to eq :has_many
       end
     end
 
@@ -115,5 +114,4 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       expect(user.following?(other_user)).to eq false
     end
   end
-
 end
