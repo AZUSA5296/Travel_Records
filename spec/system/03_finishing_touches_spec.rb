@@ -1,3 +1,4 @@
+
 require 'rails_helper'
 
 describe '[STEP3] 仕上げのテスト' do
@@ -34,7 +35,7 @@ describe '[STEP3] 仕上げのテスト' do
       fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
-      logout_link = find_all('a')[9].native.inner_text
+      logout_link = find_all('a')[７].native.inner_text
       logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
       click_link logout_link
       is_expected.to have_content 'ログアウトしました。'
@@ -48,34 +49,43 @@ describe '[STEP3] 仕上げのテスト' do
       click_button '更新する'
       is_expected.to have_content 'プロフィールを更新しました。'
     end
-    it '投稿データの新規投稿成功時' do
+    it '新規投稿成功時' do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
-      visit new_spot_path
+      visit new_post_path
       fill_in 'post[title]', with: Faker::Lorem.characters(number: 10)
       select '2021', from: 'post_date_1i'
       select '1', from: 'post_date_2i'
       select '1', from: 'post_date_3i'
       attach_file "post[image]", "app/assets/images/image1.jpg"
       fill_in 'post[content]', with: Faker::Lorem.characters(number: 50)
-      click_button '投稿'
+      click_button '投稿する'
       is_expected.to have_content '投稿しました。'
     end
-    it '投稿データの更新成功時' do
+    it '投稿の更新成功時' do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
       visit edit_post_path(post)
-      click_button '更新'
-      is_expected.to have_content '更新しました'
+      click_button '更新する'
+      is_expected.to have_content '投稿を更新しました。'
+    end
+    it '投稿の削除成功時' do
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+      visit post_path(post)
+      click_button '.delete-btn'
+      is_expected.to have_content '投稿を削除しました。'
     end
   end
 
   describe '処理失敗時のテスト' do
-    context 'ユーザ新規登録失敗: 誕生日を未来の日付にする' do
+    context 'ユーザ新規会員登録失敗: 誕生日を未来の日付にする' do
       before do
         visit new_user_registration_path
         @name = Faker::Lorem.characters(number: 10)
@@ -87,6 +97,7 @@ describe '[STEP3] 仕上げのテスト' do
         select '2021', from: 'user_birthday_1i'
         select '12', from: 'user_birthday_2i'
         select '31', from: 'user_birthday_3i'
+        select @prefecture, from: 'user_prefecture'
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
       end
@@ -94,9 +105,9 @@ describe '[STEP3] 仕上げのテスト' do
       it '新規登録されない' do
         expect { click_button '新規登録' }.not_to change(User.all, :count)
       end
-      it '新規登録画面を表示しており、フォームの内容が正しい' do
+      it '新規会員登録画面を表示しており、フォームの内容が正しい' do
         click_button '新規登録'
-        expect(page).to have_content '新規登録'
+        expect(page).to have_content '新規会員登録'
         expect(page).to have_field 'user[name]', with: @name
         expect(page).to have_field 'user[nickname]', with: @nickname
         expect(page).to have_field 'user[email]', with: @email
@@ -134,7 +145,7 @@ describe '[STEP3] 仕上げのテスト' do
         expect(page).to have_field 'user[birthday(1i)]', with: 2021
         expect(page).to have_field 'user[birthday(2i)]', with: 12
         expect(page).to have_field 'user[birthday(3i)]', with: 31
-        expect(page).to have_selector("img[src$='image1.jpeg']")
+        expect(page).to have_selector("img[src$='profile_image.jpeg']")
         expect(page).to have_field 'user[introduction]', with: user.introduction
       end
       it 'バリデーションエラーが表示される' do
@@ -148,7 +159,7 @@ describe '[STEP3] 仕上げのテスト' do
         fill_in 'user[email]', with: user.email
         fill_in 'user[password]', with: user.password
         click_button 'ログイン'
-        visit new_spot_path
+        visit new_post_path
         @content = Faker::Lorem.characters(number: 50)
         select '2021', from: 'post_date_1i'
         select '1', from: 'post_date_2i'
@@ -173,32 +184,28 @@ describe '[STEP3] 仕上げのテスト' do
       end
     end
 
-    context '投稿データの更新失敗: titleを空にする' do
+    context 'コメント送信失敗: コメントを空にする' do
       before do
         visit new_user_session_path
         fill_in 'user[email]', with: user.email
         fill_in 'user[password]', with: user.password
         click_button 'ログイン'
-        visit edit_post_path(post)
-        @post_old_title = post.title
-        fill_in 'post[title]', with: ''
-        click_button '更新する'
+        visit posts_path(post)
+        @comment_comment = comment.comment
+        fill_in 'comment[comment]', with: ''
+        click_button 'コメントを送る'
       end
 
-      it '投稿が更新されない' do
-        expect(post.reload.title).to eq @post_old_title
+      it 'コメントが保存されない' do
+        expect { click_button 'コメントを送る' }.not_to change(Comment.all, :count)
       end
-      it '投稿編集画面を表示しており、フォームの内容が正しい' do
-        expect(current_path).to eq '/posts/' + post.id.to_s
-        expect(find_field('post[title]').text).to be_blank
-        expect(page).to have_field 'post[date(1i)]', with: 2020
-        expect(page).to have_field 'post[date(2i)]', with: 1
-        expect(page).to have_field 'post[date(3i)]', with: 1
-        expect(page).to have_selector("img[src$='image1.jpeg']")
-        expect(page).to have_field 'post[content]', with: post.content
+      it 'コメントフォームの内容が正しい' do
+        click_button 'コメントを送る'
+        expect(find_field('comment[comment]').text).to be_blank
       end
-      it 'エラーメッセージが表示される' do
-        expect(page).to have_content 'タイトルを入力してください。'
+      it 'バリデーションエラーが表示される' do
+        click_button 'コメントを送る'
+        expect(page).to have_content "コメントを入力してください。"
       end
     end
   end
@@ -216,11 +223,11 @@ describe '[STEP3] 仕上げのテスト' do
     end
     it 'ユーザ情報編集画面' do
       visit edit_user_path(user)
-      is_expected.to eq '/'
+      is_expected.to eq '/users/sign_up'
     end
     it '投稿編集画面' do
       visit edit_spot_path(spot)
-      is_expected.to eq '/'
+      is_expected.to eq '/users/sign_up'
     end
     it 'フォロー一覧画面' do
       visit following_user_path(user)
@@ -242,12 +249,15 @@ describe '[STEP3] 仕上げのテスト' do
 
     describe '他人の投稿詳細画面のテスト' do
       before do
-        visit spot_path(other_spot)
+        visit post_path(other_post)
       end
 
       context '表示内容の確認' do
         it 'URLが正しい' do
-          expect(current_path).to eq '/post/' + other_post.id.to_s
+          expect(current_path).to eq '/posts/' + other_post.id.to_s
+        end
+        it '投稿の画像が表示される' do
+          expect(page).to have_selector("img[src$='image.jpeg']")
         end
         it '投稿のタイトルが表示される' do
           expect(page).to have_content other_post.title
@@ -255,28 +265,44 @@ describe '[STEP3] 仕上げのテスト' do
         it '投稿の日付が表示される' do
           expect(page).to have_content other_post.date.strftime("%Y年%-m月%-d日")
         end
-        it '投稿のいいねボタンが表示される' do
-          expect(page).to have_link '', href: post_favorites_path(other_spot)
-        end
-        it '自分の投稿のいいね数が表示される' do
-          expect(page).to have_content other_post.favorites.count
-        end
-        it '投稿写真が表示される' do
-          expect(page).to have_selector("img[src$='image1.jpeg']")
+        it 'ユーザー画像のリンク先が正しい' do
+          expect(page).to have_link '', href: user_path(other_post.user)
         end
         it '投稿の内容が表示される' do
           expect(page).to have_content other_post.content
         end
-        it '投稿の編集リンクが表示されない' do
-          expect(page).not_to have_link '編集する'
+        it '投稿のいいねボタンが表示される' do
+          expect(page).to have_link '', href: post_favorites_path(other_post)
         end
-        it '投稿の削除リンクが表示されない' do
-          expect(page).not_to have_link '削除する'
+        it '投稿のいいね数が表示される' do
+          expect(page).to have_content other_post.favorites.count
+        end
+        it '投稿のコメント数が表示される' do
+          expect(page).to have_content other_post.comments.count
+        end
+        it '削除リンクが存在しない' do
+          expect(page).not_to have_link '', href: post_path(other_post)
+        end
+        it '編集リンクが存在しない' do
+          expect(page).not_to have_link '', href: edit_post_path(other_post)
+        end
+      end
+
+      context 'コメントエリアのテスト' do
+        it '「コメント」と表示される' do
+          expect(page).to have_content 'コメント'
+        end
+        it 'コメントの全件数が表示される' do
+          expect(page).to have_content "#{other_post.comments.count}件"
+        end
+        it 'コメント入力エリアが表示される' do
+          expect(page).to have_field 'comment[comment]'
+          expect(page).to have_button 'コメントを送る'
         end
       end
     end
 
-    context '他人の投稿編集画面' do
+    describe '他人の投稿編集画面' do
       it '遷移できず、トップ画面にリダイレクトされる' do
         visit edit_post_path(other_post)
         expect(current_path).to eq '/'
@@ -289,8 +315,8 @@ describe '[STEP3] 仕上げのテスト' do
       end
 
       context '表示の確認' do
-        it '「(他人のニックネーム名)」と表示されている' do
-          expect(page).to have_content "#{other_user.nickname} "
+        it '他人のニックネーム名が表示される' do
+          expect(page).to have_content "#{other_user.nickname}"
         end
         it '他人のプロフィール画像が表示される' do
           expect(page).to have_selector("img[src$='profile_image.jpeg']")
@@ -298,38 +324,62 @@ describe '[STEP3] 仕上げのテスト' do
         it '他人のニックネームが表示される' do
           expect(page).to have_content other_user.nickname
         end
+        it '他人の誕生日が表示される' do
+          expect(page).to have_content other_user.birthday
+        end
         it '他人の自己紹介が表示される' do
-          expect(page).to have_content other_user.introduction
-        end
-        it '他人のフォロー数がそれぞれ表示される' do
-          expect(page).to have_content other_user.following.count
-        end
-        it '他人のフォロワー数がそれぞれ表示される' do
-          expect(page).to have_content other_user.followers.count
-        end
-        it '他人の投稿数がそれぞれ表示される' do
+       　　 expect(page).to have_content other_user.introduction
+     　　 end
+        it '他人の投稿数が表示される' do
           expect(page).to have_content other_user.posts.count
         end
-        it '他人の総いいね数が表示される' do
-          user = User.find(other_user.id)
-          user_all_posts = user.posts
-          user_all_favorites_count = 0
-          user_all_posts.each do |post|
-            user_all_favorites_count += post.favorites.count
-          end
-          expect(page).to have_content user_all_favorites_count
+        it '他人のフォロー数が表示され、リンクが存在する' do
+          expect(page).to have_content other_user.following.count
+          expect(page).to have_link '0', href: following_user_path(other_user)
         end
-        it '「フォローする」のボタンが存在する' do
+        it '他人のフォロワー数が表示され、リンクが存在する' do
+          expect(page).to have_content other_user.followers.count
+          expect(page).to have_link '0', href: followers_user_path(other_user)
+        end
+        it '「プロフィール編集」のリンクが存在しない' do
+          expect(page).not_to have_link 'プロフィール編集', href: edit_user_path(user)
+        end
+        it 'フォローボタンが存在する' do
           expect(page).to have_button 'フォローする'
+        end
+      end
+
+      context '投稿一覧の確認' do
+        it '投稿一覧に他人の投稿画像が表示される' do
+          expect(page).to have_selector("img[src$='image.jpeg']")
+        end
+         it '投稿一覧に他人の投稿のタイトルが表示され、リンクが正しい' do
+          expect(page).to have_link other_post.title, href: post_path(other_post)
+        end
+        it '他人の投稿のいいねボタンが表示される' do
+          expect(page).to have_link '', href: post_favorites_path(other_post)
+        end
+        it '他人の投稿のいいね数が表示される' do
+          expect(page).to have_content other_post.favorites.count
+        end
+        it '他人の投稿のコメントボタンが表示される' do
+          expect(page).to have_link '', href: post_path(other_post)
+        end
+        it '他人の投稿のコメント数が表示される' do
+          expect(page).to have_content other_post.comments.count
+        end
+        it '自分の投稿は表示されない' do
+          expect(page).not_to have_link post.title
         end
       end
     end
 
-    context '他人のユーザ情報編集画面' do
+    describe '他人のユーザ情報編集画面' do
       it '遷移できず、トップ画面にリダイレクトされる' do
         visit edit_user_path(other_user)
         expect(current_path).to eq '/'
       end
     end
   end
+
 end
