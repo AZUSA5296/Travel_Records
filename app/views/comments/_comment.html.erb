@@ -15,7 +15,7 @@
           <p><%= comment.comment %></p>
           <% if comment.user == current_user %>
             <div class="text-right mr-3">
-              <%= link_to post_comment_path(comment.post, comment), method: :delete, remote: true do %>
+              <%= link_to post_comment_path(comment.post, comment), id: 'delete-' + comment.id.to_s + '-btn', method: :delete, remote: true do %>
                 <span class="trash">
                   <span></span>
                   <i></i>
