@@ -79,8 +79,7 @@ describe '[STEP3] 仕上げのテスト' do
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
       visit post_path(post)
-      find(".trash").click
-      sleep 1
+      click_link 'delete-btn'
       is_expected.to have_content '投稿を削除しました。'
     end
   end
@@ -201,13 +200,10 @@ describe '[STEP3] 仕上げのテスト' do
       end
 
       it 'コメントが保存されない', js: true do
-        click_button 'コメントを送る'
-        sleep 3
-        expect.not_to change { user.comments.count }.by(1)
+        expect { click_button 'コメントを送る' }.not_to change(Comment.all, :count)
       end
       it 'コメントフォームの内容が正しい', js: true do
         click_button 'コメントを送る'
-        sleep 2
         expect(find_field('comment[comment]').text).to be_blank
       end
       it 'バリデーションエラーが表示される', js: true do
@@ -272,7 +268,7 @@ describe '[STEP3] 仕上げのテスト' do
           expect(page).to have_content other_post.title
         end
         it '投稿の日付が表示される' do
-          expect(page).to have_content other_post.date.long("%Y%m%d")
+          expect(page).to have_content other_post.date.strftime("%Y年%m月%d日")
         end
         it 'ユーザー画像のリンク先が正しい' do
           expect(page).to have_link '', href: user_path(other_post.user)
@@ -338,10 +334,9 @@ describe '[STEP3] 仕上げのテスト' do
         end
         it '他人の自己紹介が表示される' do
           expect(page).to have_content other_user.introduction
-     　  end
+        end
         it '他人の投稿数が表示される' do
           expect(page).to have_content other_user.posts.count
-          expect(page).to have_content other_user.introduction
         end
         it '他人のフォロー数が表示され、リンクが存在する' do
           expect(page).to have_content other_user.following.count

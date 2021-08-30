@@ -58,7 +58,7 @@ group :test do
   gem 'faker'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
 end
@@ -95,6 +95,7 @@ gem 'momentjs-rails'
 gem 'rubocop-airbnb'
 
 gem 'dotenv-rails'
+
 group :production do
   gem 'mysql2'
 end

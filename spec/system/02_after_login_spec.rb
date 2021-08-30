@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe '[STEP2] ユーザログイン後のテスト' do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
   let!(:post) { create(:post, user: user) }
   let!(:other_post) { create(:other_post, user: other_user) }
@@ -89,7 +89,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content other_post.title
       end
       it '自分と他人の投稿の日付が表示される' do
-        expect(page).to have_content post.date
+        expect(page).to have_content post.date.strftime("%Y年%m月%d日")
         expect(page).to have_content other_post.date.strftime("%Y年%m月%d日")
       end
       it '自分と他人の画像のリンク先が正しい' do
@@ -223,14 +223,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
     context 'リンクの内容を確認' do
       it '編集のボタンのリンク先が編集画面になっているか' do
-        edit_link = find_all('a')[19]
-        edit_link.click
+        click_link 'edit-btn'
         expect(current_path).to eq('/posts/' + post.id.to_s + '/edit')
       end
     end
 
-    context 'post削除のテスト' do
-      it 'postの削除' do
+    context '投稿削除のテスト' do
+      it '投稿の削除' do
         expect{ post.destroy }.to change{ Post.count }.by(-1)
       end
     end
@@ -522,21 +521,23 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content other_comment.created_at.strftime('%Y/%m/%d %H:%M')
       end
       it '自分のコメントの削除リンクが表示される' do
-        expect(page).to have_link '#delete-' + comment.id.to_s + '-btn'
+        expect(page).to have_link 'delete-' + comment.id.to_s + '-btn'
       end
       it '他人のコメントの削除リンクは表示されない' do
-        expect(page).not_to have_link '#delete-' + other_comment.id.to_s + '-btn'
+        expect(page).not_to have_link 'delete-' + other_comment.id.to_s + '-btn'
       end
     end
 
     context '新規コメント送信のテスト' do
       before do
-        fill_in 'comment[comment]', with: Faker::Lorem.characters(number: 50)
+        fill_in 'comment[comment]', with: Faker::Lorem.characters(number: 10)
       end
 
       it '正しく送信される' , js: true do
-        click_button 'コメントを送る'
-        expect.to change { user.comments.count }.by(1)
+        expect do
+          click_button 'コメントを送る'
+          sleep 1
+        end.to change { user.comments.count }.by(1)
       end
       it 'リダイレクト先が、投稿詳細画面になっている', js: true do
         expect(current_path).to eq '/posts/' + other_post2.id.to_s
@@ -545,9 +546,10 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
     context '削除のテスト' do
       it '正しく削除される' , js: true do
-        find(".trash").click
-        sleep 3
-        expect.to change { user.comments.count }.by(-1)
+        expect do
+          find(".trash").click
+          sleep 1
+        end.to change { user.comments.count }.by(-1)
       end
       it 'リダイレクト先が、投稿詳細画面になっている', js: true do
         expect(current_path).to eq '/posts/' + other_post2.id.to_s
@@ -600,7 +602,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
       it 'フォローする：フォロー数が1となり、ボタンが「フォローを外す」に変化する', js: true do
         click_button 'フォローする'
-        sleep 3
+        sleep 1
         expect(other_user.followers.count).to eq 1
         expect(page).to have_button 'フォローを外す'
       end
@@ -623,20 +625,20 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
 
       it '他人がいいねした通知が表示される：他人のニックネームと「あなたの投稿」のリンク先が正しいか', js: true do
-        find("#favorite-#{ other_post.id }.favorite").click
+        find("#un-favorite-btn").click
         sleep 1
         click_link 'ログアウト'
         visit new_user_session_path
         fill_in 'user[email]', with: other_user.email
         fill_in 'user[password]', with: other_user.password
         click_button 'ログイン'
-        click_link '通知'
+        visit notifications_path
         expect(page).to have_content "#{ user.nickname }があなたの投稿にいいねしました"
         expect(page).to have_link user.nickname, href: user_path(user)
         expect(page).to have_link 'あなたの投稿', href: post_path(other_post)
       end
 
-      it '他人がコメントした通知が表示されるか：他人のニックネームと「あなたの投稿」のリンク先が正しいか' do
+      it '他人がコメントした通知が表示されるか：他人のニックネームと「あなたの投稿」のリンク先が正しいか', js: true  do
         fill_in 'comment[comment]', with: Faker::Lorem.characters(number: 50)
         click_button 'コメントを送る'
         sleep 1
@@ -645,7 +647,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in 'user[email]', with: other_user.email
         fill_in 'user[password]', with: other_user.password
         click_button 'ログイン'
-        click_link '通知'
+        visit notifications_path
         expect(page).to have_content "#{ user.nickname }があなたの投稿にコメントしました"
         expect(page).to have_link user.nickname, href: user_path(user)
         expect(page).to have_link 'あなたの投稿', href: post_path(other_post)
@@ -665,7 +667,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in 'user[email]', with: other_user.email
         fill_in 'user[password]', with: other_user.password
         click_button 'ログイン'
-        click_link '通知'
+        sleep 1
+        visit notifications_path
         expect(page).to have_content "#{ user.nickname }があなたをフォローしました"
         expect(page).to have_link user.nickname, href: user_path(user)
       end
@@ -678,7 +681,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in 'user[email]', with: other_user.email
         fill_in 'user[password]', with: other_user.password
         click_button 'ログイン'
-        click_link '通知'
+        sleep 1
+        visit notifications_path
         click_link '全て削除'
         expect(page).not_to have_content "#{ user.nickname }があなたをフォローしました"
         expect(page).to have_content "通知はありません"
@@ -687,15 +691,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
   end
 
   describe 'いいね機能のテスト' do
-    let(:user) { create(:user) }
-    let!(:post) { create(:post, user: user) }
-
-    before do
-      visit new_user_session_path
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      click_button 'ログイン'
-    end
 
     context '投稿詳細画面でのテスト' do
       before do
@@ -704,15 +699,15 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
       it 'いいねを押す', js: true do
         expect do
-          find("#favorite-#{post.id}.favorite").click
+          find("#un-favorite-btn").click
           sleep 1
         end.to change { post.favorites.count }.by(1)
       end
       it 'いいねを取り消す', js: true do
-        find("#favorite-#{post.id}.favorite").click
+        find("#un-favorite-btn").click
         sleep 1
         expect do
-          find("#favorite-#{post.id}.favorite").click
+          find("#favorite-btn").click
           sleep 1
         end.to change { post.favorites.count }.by(-1)
       end
@@ -725,15 +720,15 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
       it 'いいねを押す', js: true do
         expect do
-          find("#favorite-#{post.id}.favorite").click
+          find("#un-favorite-btn").click
           sleep 1
         end.to change { post.favorites.count }.by(1)
       end
       it 'いいねを取り消す', js: true do
-        find("#favorite-#{post.id}.favorite").click
+        find("#un-favorite-btn").click
         sleep 1
         expect do
-          find("#favorite-#{post.id}.favorite").click
+          find("#favorite-btn").click
           sleep 1
         end.to change { post.favorites.count }.by(-1)
       end

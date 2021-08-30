@@ -31,12 +31,12 @@
             <div class="favorite"><%= render "favorites/favorite", post: @post %></div>
             <% if @post.user == current_user %>
               <div class="edit-btn">
-                <%= link_to edit_post_path(@post) do %>
+                <%= link_to edit_post_path(@post), id: "edit-btn" do %>
                   <i class="fas fa-edit"></i>
                 <% end %>
               </div>
               <div class="delete-btn text-right mr-3">
-                <%= link_to post_path(@post), method: :delete do %>
+                <%= link_to post_path(@post), method: :delete, id: "delete-btn" do %>
                   <span class="trash">
                     <span></span>
                     <i></i>
