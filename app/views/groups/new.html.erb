@@ -2,7 +2,13 @@
   <div class="group-contents">
     <h1>Create Group</h1>
     <div class="group-form">
-      <%= render 'form', group: @group %>
+      <%= form_with model: @group, local:true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <%= render "groups/group_form", group: @group, f: f %>
+        <span class="group-action">
+          <%= f.submit 'グループ作成' %>
+        </span>
+      <% end %>
     </div>
   </div>
 </div>

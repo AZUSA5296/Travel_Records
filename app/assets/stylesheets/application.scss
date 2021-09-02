@@ -41,6 +41,10 @@ html{
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  --post-color: #FF5192;
+  --user-color: orange;
+  --users-color: #CC66FF;
+  --group-color: #FF6600;
  }
 
  main {

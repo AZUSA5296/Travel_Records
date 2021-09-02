@@ -27,7 +27,7 @@
 .search_action button {
  cursor: pointer;
  border: none;
- background: #CC66FF;
+ background: var(--users-color);
  color: #fff;
  position: absolute;
  width: 3.5em;
@@ -69,7 +69,7 @@
 }
 
 .following-count a:hover {
- color: #CC66FF;
+ color: var(--users-color);
  font-weight: 700;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .followers-count a:hover {
- color: #CC66FF;
+ color:var(--users-color);
  font-weight: 700;
 }
 
@@ -372,7 +372,7 @@
 .user-container {
  width: 100%;
  height: 100%;
- border: 20px solid orange;
+ border: 20px solid var(--user-color);
  text-align: center;
 }
 
@@ -408,7 +408,7 @@
 }
 
 .required-orange {
- background-color: orange;
+ background-color: var(--user-color);
  color: #fff;
  font-size: 12px;
  font-weight: bold;
@@ -428,13 +428,13 @@
  width: 500px;
  background: #fef7ea;
  border-radius: 0;
- border: 1px solid orange;
+ border: 1px solid var(--user-color);
  padding: 10px;
 }
 
 .user-field input:focus {
  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
- border: solid 2px orange;
+ border: solid 2px var(--user-color);
 }
 
 .user-field input:after {
@@ -442,7 +442,7 @@
 }
 
 #birthday select {
- border: solid 1px orange;
+ border: solid 1px var(--user-color);
  background: #fef7ea;
  height: 40px;
  padding: 10px;
@@ -450,7 +450,7 @@
 
 #birthday select:focus {
  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
- border: solid 2px orange;
+ border: solid 2px var(--user-color);
  outline: none;
 }
 
@@ -476,13 +476,13 @@
  width: 500px;
  background: #fef7ea;
  border-radius: 0;
- border: 1px solid orange;
+ border: 1px solid var(--user-color);
  padding: 10px;
 }
 
 #introduction textarea:focus {
  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
- border: solid 2px orange;
+ border: solid 2px var(--user-color);
  outline: none;
 }
 
@@ -491,15 +491,15 @@
  width: 500px;
  background: #fef7ea;
  border-radius: 0;
- border: 1px solid orange;
+ border: 1px solid var(--user-color);
  padding: 10px;
 }
 
 .user-action input {
  width: 80px;
  font-size: 20px;
- border: 1px solid orange;
- background: orange;
+ border: 1px solid var(--user-color);
+ background: var(--user-color);
  color: white;
  display: block;
  margin: 30px auto;
@@ -508,7 +508,7 @@
  transition: 250ms background ease-in;
   &:hover, &:focus {
    background: white;
-   color: orange;
+   color: var(--user-color);
    transition: 250ms background ease-in;
  }
 }
