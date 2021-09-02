@@ -1,0 +1,25 @@
+<div class="group-container">
+  <div class="group-contents">
+    <h1>Create Group</h1>
+    <div class="group-form">
+      <%= form_with model: @group, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="group-field">
+          <%= f.label :グループ名 %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="group-field">
+          <%= f.label :紹介文 %>
+          <%= f.text_area :introduction, class: 'form-control' %>
+        </div>
+        <div class="group-field">
+          <%= f.label :グループ画像 %>
+          <%= f.attachment_field :image, class: "form-control-file" %>
+        </div>
+        <div class="group-field">
+          <%= f.submit "グループ作成" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
