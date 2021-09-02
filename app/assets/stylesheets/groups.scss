@@ -13,6 +13,56 @@
  text-align: center;
 }
 
+.groups-contents {
+ width: 80%;
+ display: inline-block;
+ padding: 120px 0;
+ text-align: center;
+}
+
+.groups-contents h1 {
+ font-size: 60px;
+ font-weight: bold;
+ line-height: 1.2;
+ letter-spacing: .1em;
+ font-family: DINPro-Bold,sans-serif;
+ text-align: center;
+ margin-bottom: 40px;
+}
+
+.group-container h2 {
+ font-weight: 700;
+ font-size: 23px;
+ color: black;
+}
+
+.group-image {
+  width: 100px;
+  height: 100px;
+}
+
+.groups-count a {
+ color: black;
+}
+
+.groups-count a:hover {
+ color: var(--users-color);
+ font-weight: 700;
+}
+
+.user-introduction{
+ word-break: break-word;
+}
+
+
+/* ========================================================================== */
+/* show                                                                       */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* new                                                                        */
+/* ========================================================================== */
+
 .group-contents {
  width: 500px;
  display: inline-block;
@@ -28,14 +78,6 @@
  font-family: DINPro-Bold,sans-serif;
  text-align: center;
 }
-
-/* ========================================================================== */
-/* show                                                                       */
-/* ========================================================================== */
-
-/* ========================================================================== */
-/* new                                                                        */
-/* ========================================================================== */
 
 .group-form {
  padding-top: 40px;
