@@ -36,7 +36,7 @@
  color: black;
 }
 
-.group-image {
+.groups-image {
  width: 100px;
  height: 100px;
  border-radius: 10%;
@@ -57,7 +57,7 @@
 
 #join-btn a {
  position: absolute;
- right: 0px;
+ right: 15px;
  top: 0px;
  font-size: 14px;
  font-weight: 700;
@@ -83,7 +83,7 @@
 
 #leave-btn a, #edit-btn a {
  position: absolute;
- right: 0px;
+ right: 15px;
  top: 0px;
  font-size: 14px;
  font-weight: 700;
@@ -111,6 +111,54 @@
 /* ========================================================================== */
 /* show                                                                       */
 /* ========================================================================== */
+
+.group-image {
+ width: 350px;
+ height: 350px;
+ border-radius: 0.5rem;
+}
+
+.group_follow_form #footer-follow input {
+ position: absolute;
+ right: 25px;
+ top: 0px;
+ font-size: 14px;
+ height: 37px;
+ border: 1px solid var(--group-color);
+ color: var(--group-color);
+ display: block;
+ width: 110px;
+ padding: .25rem;
+ transition: 250ms background ease-in;
+  &:hover, &:focus {
+   background: var(--group-color);
+   color: white;
+   transition: 250ms background ease-in;
+   text-decoration: none;
+ }
+}
+
+.group_follow_form #footer-followed input {
+ position: absolute;
+ right: 25px;
+ top: 0px;
+ font-size: 14px;
+ background: var(--group-color);
+ height: 37px;
+ border: 1px solid var(--group-color);
+ color: white;
+ display: block;
+ width: 110px;
+ padding: .25rem;
+ transition: 250ms background ease-in;
+  &:hover, &:focus {
+   background: white;
+   color: var(--group-color);
+   transition: 250ms background ease-in;
+   text-decoration: none;
+ }
+}
+
 
 /* ========================================================================== */
 /* new                                                                        */
