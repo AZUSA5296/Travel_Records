@@ -21,8 +21,7 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
-
-   # フォローする
+  # フォローする
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
@@ -49,7 +48,7 @@ class User < ApplicationRecord
 
   # 通知機能（フォロー）
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and kind = ? ",current_user.id, id, 'follow'])
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and kind = ? ", current_user.id, id, 'follow'])
     if temp.blank?
       notification = current_user.active_notifications.new(visited_id: id, kind: 'follow')
       notification.save if notification.valid?
@@ -60,5 +59,4 @@ class User < ApplicationRecord
   validates :nickname, { presence: true, uniqueness: true, length: { maximum: 20 } }
   validate :birthday_is_valid?
   validates :introduction, length: { maximum: 150 }
-
 end
