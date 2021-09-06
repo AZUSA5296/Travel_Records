@@ -25,4 +25,5 @@ Rails.application.routes.draw do
     get "join" => "groups#join"
   end
 
+  resources :messages, only: [:show, :create]
 end
