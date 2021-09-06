@@ -1,0 +1,21 @@
+<div class="follow-container">
+  <div class="follow-contents">
+    <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %></h1>
+    <h1>Message</h1>
+    <div class="message">
+      <% @messages.each do |message| %>
+        <% if message.user_id == current_user.id %>
+          <p style="text-align: left;"><%= message.message %></p>
+        <% else %>
+          <p style="text-align: right;"><%= message.message %></p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="message-form text-right">
+      <%= form_with model: @message, data: {remote: true} do |f| %>
+        <%= f.text_field :message %>
+        <%= f.hidden_field :room_id %>
+      <% end %>
+    </div>
+  </div>
+</div>
