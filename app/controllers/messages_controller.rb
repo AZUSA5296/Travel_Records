@@ -13,13 +13,18 @@ class MessagesController < ApplicationController
       Entry.create(user_id: current_user.id, room_id: @room.id)
       Entry.create(user_id: @user.id, room_id: @room.id)
     end
-    @messages = @room.messages
+    @messages = @room.messages.last(50)
     @message = Message.new(room_id: @room.id)
   end
 
   def create
     @message = current_user.messages.new(message_params)
     @message.save
+  end
+
+  def destroy
+    @message = current_user.messages
+    @message.destroy
   end
 
   private

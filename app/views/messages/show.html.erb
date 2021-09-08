@@ -6,7 +6,10 @@
       <% @messages.each do |message| %>
         <% if message.user_id == current_user.id %>
           <div class="my-message">
-            <p style="text-align: right;"><%= message.message %></p>
+            <p style="text-align: left;">
+              <%= message.message %>
+            </p>
+            <%= link_to "削除", message_path(@room, @message), method: :delete, class: "nav-link text-dark" %>
           </div>
         <% else %>
           <div class="friend-message">
@@ -22,13 +25,19 @@
         <% end %>
       <% end %>
     </div>
-    <div class="message-form text-center">
+    <div class="message-form">
       <%= form_with model: @message, data: {remote: true} do |f| %>
-        <%= f.text_field :message, id: "message-send", placeholder: "メッセージ" %>
-        <%= f.hidden_field :room_id %>
-        <%= f.button :type => "submit", style: 'border-style: none; background: none;' do %>
-          <i class="fas fa-caret-right"></i>
-        <% end %>
+        <div class="form-group row">
+          <div class="col-9 text-right">
+            <%= f.text_field :message, id: "message-send", placeholder: "メッセージ" %>
+            <%= f.hidden_field :room_id %>
+          </div>
+          <div class="col-2 p-0 text-left">
+            <%= f.button :type => "submit", style: 'border-style: none; background: none;' do %>
+              <i class="fas fa-caret-right"></i>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

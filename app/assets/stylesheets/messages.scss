@@ -6,17 +6,19 @@
   width: 320px;
   display: inline-block;
   padding: 80px 15px;
-  text-align: center;
+}
+
+.message {
+  padding: 10px;
+  text-align: right;
 }
 
 .my-message {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0;
-  float: right;
+  margin-bottom: 10px;
+  text-align: right;
 }
 
-.my-message p {
+.my-message p, .message p {
   display: inline-block;
   position: relative;
   margin: 0 10px 0 0;
@@ -25,9 +27,10 @@
   border-radius: 12px;
   background: #30e852;
   font-size: 15px;
+  word-break: break-word;
 }
 
-.my-message p:after {
+.my-message p:after, .message p:after {
   content: "";
   position: absolute;
   top: 3px;
@@ -40,7 +43,7 @@
 
 .friend-message {
   width: 100%;
-  margin: 10px 0;
+  margin-bottom: 10px;
   overflow: hidden;
   float: left;
   display: flex;
@@ -92,21 +95,29 @@
   margin: 0;
   padding: 0;
   max-width: 250px;
+  background: none;
+  word-break: break-word;
+}
+
+.friend-message .text p:after {
+  border: none;
 }
 
 .message-form {
-  display: inline;
+  position: fixed;
+  bottom: 90px;
+  width: 320px;
 }
 
 #message-send {
   width: 200px;
   height: 30px;
   text-align: center;
-  margin: 50px;
   border-radius: 10px;
 }
 
 .fa-caret-right {
   font-size: 35px;
   background-color: none;
+  height: 30px;
 }
