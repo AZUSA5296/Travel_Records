@@ -149,6 +149,16 @@
   }
  }
 
+#message-link a {
+  font-size: 25px;
+  position: absolute;
+  right: 10px;
+}
+
+ #message-link i:hover {
+  font-size: 30px;
+}
+
 .card h3 {
  position: relative;
  margin: 110px 0 5px;

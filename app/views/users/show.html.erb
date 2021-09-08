@@ -14,7 +14,7 @@
       <div class="user-show-containar mx-sm-5 mx-0" >
         <div class="card mx-auto">
           <header class="users-header">
-            <div class="message-link">
+            <div id="message-link">
               <% if current_user != @user and current_user.following?(@user) %>
                 <%= link_to message_path(@user.id) do %>
                   <i class="far fa-envelope"></i>
