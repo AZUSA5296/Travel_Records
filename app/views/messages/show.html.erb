@@ -1,20 +1,34 @@
 <div class="follow-container">
-  <div class="follow-contents">
+  <div class="message-container">
     <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %></h1>
     <h1>Message</h1>
     <div class="message">
       <% @messages.each do |message| %>
         <% if message.user_id == current_user.id %>
-          <p style="text-align: left;"><%= message.message %></p>
+          <div class="my-message">
+            <p style="text-align: right;"><%= message.message %></p>
+          </div>
         <% else %>
-          <p style="text-align: right;"><%= message.message %></p>
+          <div class="friend-message">
+            <div class="faceicon">
+              <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "no_profile_image.jpg" %>
+            </div>
+            <div class="text-container">
+              <div class="text">
+                <p style="text-align: left;"><%= message.message %></p>
+              </div>
+            </div>
+          </div>
         <% end %>
       <% end %>
     </div>
-    <div class="message-form text-right">
+    <div class="message-form text-center">
       <%= form_with model: @message, data: {remote: true} do |f| %>
-        <%= f.text_field :message %>
+        <%= f.text_field :message, id: "message-send", placeholder: "メッセージ" %>
         <%= f.hidden_field :room_id %>
+        <%= f.button :type => "submit", style: 'border-style: none; background: none;' do %>
+          <i class="fas fa-caret-right"></i>
+        <% end %>
       <% end %>
     </div>
   </div>
