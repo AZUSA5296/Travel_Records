@@ -21,6 +21,10 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
+  # DM機能
+  has_many :entries
+  has_many :messages
+  has_many :rooms, through: :entries
 
    # フォローする
   def follow(other_user)
