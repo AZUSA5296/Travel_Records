@@ -41,6 +41,10 @@ html{
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  --post-color: #FF5192;
+  --user-color: orange;
+  --users-color: #CC66FF;
+  --group-color: #FF6600;
  }
 
  main {
@@ -382,12 +386,6 @@ footer {
 
 .navbar-nav .nav-link {
   padding: 3px 0px 0px 5px;
-}
-
-hr {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-top: 1px solid rgba(255, 255, 255, 1);
 }
 
 }

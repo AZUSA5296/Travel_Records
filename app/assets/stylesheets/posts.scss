@@ -259,7 +259,7 @@ a#pink {
 .post-container {
  width: 100%;
  height: 100%;
- border: 20px solid #FF5192;
+ border: 20px solid var(--post-color);
  text-align: center;
 }
 
@@ -295,7 +295,7 @@ a#pink {
 }
 
 .required {
- background-color: #FF5192;
+ background-color: var(--post-color);
  color: #fff;
  font-size: 12px;
  font-weight: bold;
@@ -319,13 +319,13 @@ a#pink {
  width: 500px;
  background: #FFF0F5;
  border-radius: 0;
- border: 1px solid #FF5192;
+ border: 1px solid var(--post-color);
  padding: 10px;
 }
 
 .post-field input:focus {
  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
- border: solid 2px #FF5192;
+ border: solid 2px var(--post-color);
 }
 
 .post-field input:after {
@@ -333,7 +333,7 @@ a#pink {
 }
 
 #field-date select {
- border: solid 1px #FF5192;
+ border: solid 1px var(--post-color);
  background: #FFF0F5;
  height: 40px;
  padding: 10px;
@@ -341,7 +341,7 @@ a#pink {
 
 #field-date select:focus {
  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
- border: solid 2px #FF5192;
+ border: solid 2px var(--post-color);
  outline: none;
 }
 
@@ -366,13 +366,13 @@ a#pink {
  width: 500px;
  background: #FFF0F5;
  border-radius: 0;
- border: 1px solid #FF5192;
+ border: 1px solid var(--post-color);
  padding: 10px;
 }
 
 #field-text textarea:focus {
  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
- border: solid 2px #FF5192;
+ border: solid 2px var(--post-color);
  outline: none;
 }
 
@@ -381,7 +381,7 @@ a#pink {
  width: 500px;
  background: #fef7ea;
  border-radius: 0;
- border: 1px solid #FF5192;
+ border: 1px solid var(--post-color);
  padding: 10px;
 }
 
@@ -396,12 +396,12 @@ a#pink {
 #inline-radio label {
  width: 100px;
  height: 50px;
- color: #FF5192;
+ color: var(--post-color);
  background: #fff;
  display: flex;
  align-items: center;
  justify-content: center;
- border: 1px solid #FF5192;
+ border: 1px solid var(--post-color);
 }
 
 #field-radio_button input:checked + label {
@@ -413,7 +413,7 @@ a#pink {
 .post-action input {
  width: 80px;
  font-size: 20px;
- border: 1px solid #FF5192;
+ border: 1px solid var(--post-color);
  background: #FF5192;
  color: white;
  display: block;
@@ -423,7 +423,7 @@ a#pink {
  transition: 250ms background ease-in;
   &:hover, &:focus {
    background: white;
-   color: #FF5192;
+   color: var(--post-color);
    transition: 250ms background ease-in;
  }
 }

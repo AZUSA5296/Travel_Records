@@ -17,7 +17,7 @@
 }
 
 .follow-contents h1 {
- font-size: 60px;
+ font-size: 50px;
  font-weight: bold;
  line-height: 1.2;
  letter-spacing: .1em;
@@ -29,13 +29,13 @@
  padding-top: 40px;
 }
 
-.index_follow_form .users-footer {
+.users-footer {
  background: transparent;
 }
 
 .index_follow_form #footer-follow input {
  position: absolute;
- right: 0px;
+ right: 15px;
  top: 0px;
  font-size: 14px;
  height: 37px;
@@ -55,7 +55,7 @@
 
 .index_follow_form #footer-followed input {
  position: absolute;
- right: 0px;
+ right: 15px;
  top: 0px;
  font-size: 14px;
  background: #CC66FF;
@@ -72,6 +72,22 @@
    transition: 250ms background ease-in;
    text-decoration: none;
  }
+}
+
+@media screen and (max-width:1400px) {
+
+.follow-contents h1 {
+ font-size: 40px;
+}
+
+}
+
+@media screen and (max-width:1150px) {
+
+.follow-contents h1 {
+ font-size: 35px;
+}
+
 }
 
 @media screen and (max-width:767px) {
@@ -102,12 +118,13 @@
 
 .follow-contents {
  width: 100%;
- padding: 40px 0;
+ padding: 60px 0;
 }
 
 .follow-contents h1 {
- font-size: 50px;
+ font-size: 30px;
 }
+
 
 #posts-count h6 {
  font-size: 9px;
@@ -115,6 +132,14 @@
 
 #follow {
  height: 10px;
+}
+
+}
+
+@media screen and (max-width:575px) {
+
+.follow-contents h1 {
+ font-size: 25px;
 }
 
 }

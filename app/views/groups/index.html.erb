@@ -1,0 +1,55 @@
+<div class="group-container">
+  <div class="groups-contents">
+    <h1>Groups</h1>
+    <div class="group-form">
+      <hr>
+      <% if @groups.present? %>
+        <% @groups.each do |group| %>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-2 col-md-3 col-3 text-left ml-md-0 px-0 ml-1">
+                <%= link_to group_path(group) do %>
+                  <%= attachment_image_tag group, :image, fallback: "no_image.jpg", class:"groups-image mt-3"; %><br>
+                <% end %>
+              </div>
+              <div class="col-xl-10 col-md-9 col-8 text-left px-0">
+                <div class="row">
+                  <div class="col-xl-10 col-md-10 col-8 text-left px-0 mt-3">
+                    <%= link_to group_path(group) do %>
+                      <h2><%= group.name %></h2>
+                    <% end %>
+                  </div>
+                  <div class="group-btn col-md-2 col-3 mr-md-0 mr-1 mt-3">
+                    <% if group.owner_id == current_user.id %>
+                      <div id="edit-btn">
+                        <%= link_to 'Edit', edit_group_path(group) %>
+                      </div>
+                    <% elsif group.users.include?(current_user) %>
+                      <div id="leave-btn">
+                        <%= link_to 'Leave', group_path(group), method: :delete %>
+                      </div>
+                    <% else %>
+                      <div id="join-btn">
+                        <%= link_to 'Join', group_join_path(group) %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row" id="groups-counts">
+                 <h7>users : <%= group.users.count %>&emsp;</h7>
+                </div>
+                <div class="user-introduction row mr-md-0 mr-md-0 mr-1">
+                  <h7><%= group.introduction %></h7>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      <% else %>
+        <h4 class="mt-5">グループはありません</h4>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

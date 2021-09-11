@@ -19,4 +19,10 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
   delete "notifications" => "notifications#destroy_all", as: "user_notifications_destroy_all"
+
+  resources :groups do
+    get "join" => "groups#join"
+  end
+
+  resources :messages, only: [:show, :create, :destroy]
 end
