@@ -18,7 +18,7 @@
   text-align: right;
 }
 
-.my-message p, .message p {
+.my-message p {
   display: inline-block;
   position: relative;
   margin: 0 10px 0 0;
@@ -30,7 +30,7 @@
   word-break: break-word;
 }
 
-.my-message p:after, .message p:after {
+.my-message p:after {
   content: "";
   position: absolute;
   top: 3px;

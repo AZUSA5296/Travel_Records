@@ -9,7 +9,7 @@
             <p style="text-align: left;">
               <%= message.message %>
             </p>
-            <%= link_to "削除", message_path(@room, @message), method: :delete, class: "nav-link text-dark" %>
+            <%= link_to "削除", message_path(message), method: :delete, class: "nav-link text-dark", local: true %>
           </div>
         <% else %>
           <div class="friend-message">
@@ -23,7 +23,7 @@
             </div>
           </div>
         <% end %>
-      <% end %>
+     <% end %>
     </div>
     <div class="message-form">
       <%= form_with model: @message, data: {remote: true} do |f| %>

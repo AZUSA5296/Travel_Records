@@ -23,8 +23,10 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = current_user.messages
+    @user = current_user
+    @message = @user.messages.find(params[:id])
     @message.destroy
+    redirect_back(fallback_location: message_path)
   end
 
   private
