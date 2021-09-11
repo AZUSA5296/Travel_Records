@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Postモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { post.valid? }
@@ -72,6 +71,5 @@ RSpec.describe 'Postモデルのテスト', type: :model do
         expect(Post.reflect_on_association(:notifications).macro).to eq :has_many
       end
     end
-
   end
 end

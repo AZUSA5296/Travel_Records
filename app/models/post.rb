@@ -1,17 +1,14 @@
 class Post < ApplicationRecord
-
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
-
   attachment :image
-
   # いいね済みか判断する
- def favorited_by?(user)
-   favorites.where(user_id: user.id).exists?
- end
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 
   # タグ付け機能
   acts_as_taggable
@@ -30,7 +27,7 @@ class Post < ApplicationRecord
   # 通知機能（コメント）
   def create_notification_comment!(current_user, comment_id)
     # 自分以外のコメントしている人を全て取得し、全員に通知を送る
-    temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct  # distinctメソッドで、重複レコードを1つにまとめる
+    temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct # distinctメソッドで、重複レコードを1つにまとめる
     temp_ids.each do |temp_id|
       save_notification_comment!(current_user, comment_id, temp_id['user_id'])
     end
@@ -52,5 +49,4 @@ class Post < ApplicationRecord
   validates :image, presence: true
   validate :date_is_valid?
   validates :content, length: { maximum: 1000 }
-
 end

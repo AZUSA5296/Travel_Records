@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   before_action :baria_user, only: [:destroy]
-
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
@@ -11,7 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       @comment_post.create_notification_comment!(current_user, @comment.id)
     else
-      render :error  #render先にjsファイルを指定
+      render:error # render先にjsファイルを指定
     end
   end
 
@@ -33,5 +32,4 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
     end
   end
-
 end

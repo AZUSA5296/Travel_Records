@@ -1,6 +1,4 @@
-
 require 'rails_helper'
-
 describe '[STEP3] 仕上げのテスト' do
   let(:user) { create(:user) }
   let!(:other_user) { create(:user) }
@@ -324,7 +322,7 @@ describe '[STEP3] 仕上げのテスト' do
           expect(page).to have_content "#{other_user.nickname}"
         end
         it '他人のプロフィール画像が表示される' do
-           expect(page).to have_selector("img[src$='profile_image']")
+          expect(page).to have_selector("img[src$='profile_image']")
         end
         it '他人のニックネームが表示される' do
           expect(page).to have_content other_user.nickname
@@ -358,7 +356,7 @@ describe '[STEP3] 仕上げのテスト' do
         it '投稿一覧に他人の投稿画像が表示される' do
           expect(page).to have_selector("img[src$='image']")
         end
-         it '投稿一覧に他人の投稿のタイトルが表示される' do
+        it '投稿一覧に他人の投稿のタイトルが表示される' do
           expect(page).to have_content other_post.title
         end
         it '他人の投稿のいいねボタンが表示される' do
@@ -386,5 +384,4 @@ describe '[STEP3] 仕上げのテスト' do
       end
     end
   end
-
 end

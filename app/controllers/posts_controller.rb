@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :baria_user, only: [:edit, :update, :destroy]
-
   def new
     @post = Post.new
   end
@@ -28,10 +27,10 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    #フォローしてるユーザーの投稿のみをタイムラインに表示
-    #ステータスが公開の投稿のみを表示
-    @posts = Post.where(status: false, user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC") # idの降順
-    #タグで絞り込む
+    # フォローしてるユーザーの投稿のみをタイムラインに表示
+    # ステータスが公開の投稿のみを表示
+    @posts = Post.where(status: false, user_id: [current_user.id, *current_user.following_ids]).order(id: "DESC")
+    # タグで絞り込む
     if params[:tag_name]
       @posts = Post.tagged_with(params[:tag_name])
     end
@@ -44,8 +43,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-       flash[:notice] = "投稿を変更しました。"
-       redirect_to post_path(@post.id)
+      flash[:notice] = "投稿を変更しました。"
+      redirect_to post_path(@post.id)
     else
       render :edit
     end
@@ -55,7 +54,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました。"
-    redirect_to  posts_path
+    redirect_to posts_path
   end
 
   private
@@ -70,5 +69,4 @@ class PostsController < ApplicationController
       redirect_to top_path
     end
   end
-
 end
