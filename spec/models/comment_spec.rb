@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Commentモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { comment.valid? }
@@ -36,6 +35,5 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
         expect(Comment.reflect_on_association(:post).macro).to eq :belongs_to
       end
     end
-
   end
 end

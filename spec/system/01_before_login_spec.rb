@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe '[STEP1] ユーザログイン前のテスト' do
   describe 'トップ画面のテスト' do
     let(:user) { create(:user) }
@@ -240,7 +239,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
         users_link = find_all('a')[5].native.inner_text
         expect(users_link).to match('ユーザー')
       end
-       it '通知リンクが表示される: 左上から6番目のリンクが「通知」である' do
+      it '通知リンクが表示される: 左上から6番目のリンクが「通知」である' do
         notifications_link = find_all('a')[6].native.inner_text
         expect(notifications_link).to match('通知')
       end

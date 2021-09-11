@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Userモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { user.valid? }
@@ -101,6 +100,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
   end
+
   describe 'following, followers関連のテスト' do
     let(:user) { create(:user) }
     let(:other_user) { create(:other_user) }

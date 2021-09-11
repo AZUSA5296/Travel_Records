@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe '[STEP2] ユーザログイン後のテスト' do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
@@ -54,13 +53,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
         click_link users_link
         is_expected.to eq '/users.' + user.id.to_s
       end
-        it '「通知」を押すと、通知一覧画面に遷移する' do
+      it '「通知」を押すと、通知一覧画面に遷移する' do
         notifications_link = find_all('a')[6].native.inner_text
         notifications_link = notifications_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link notifications_link
         is_expected.to eq '/notifications'
       end
-        it '「ログアウト」を押すと、トップ画面に遷移する' do
+      it '「ログアウト」を押すと、トップ画面に遷移する' do
         logout_link = find_all('a')[7].native.inner_text
         logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link logout_link
@@ -84,7 +83,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link '', href: post_path(post)
         expect(page).to have_link '', href: post_path(other_post)
       end
-       it '自分と他人の投稿のタイトルが表示される' do
+      it '自分と他人の投稿のタイトルが表示される' do
         expect(page).to have_content post.title
         expect(page).to have_content other_post.title
       end
@@ -102,7 +101,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
       it '自分と他人の投稿のいいねボタンが表示される' do
         expect(page).to have_link '', href: post_favorites_path(post)
-         expect(page).to have_link '', href: post_favorites_path(other_post)
+        expect(page).to have_link '', href: post_favorites_path(other_post)
       end
       it '自分と他人の投稿のいいね数が表示される' do
         expect(page).to have_content post.favorites.count
@@ -114,7 +113,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
       it '自分と他人の投稿のコメント数が表示される' do
         expect(page).to have_content post.comments.count
-         expect(page).to have_content other_post.comments.count
+        expect(page).to have_content other_post.comments.count
       end
     end
   end
@@ -179,7 +178,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '投稿の画像が表示される' do
         expect(page).to have_selector("img[src$='image']")
       end
-       it '投稿のタイトルが表示される' do
+      it '投稿のタイトルが表示される' do
         expect(page).to have_content post.title
       end
       it '投稿の日付が表示される' do
@@ -545,7 +544,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
 
     context '削除のテスト' do
-      it '正しく削除される' , js: true do
+      it '正しく削除される', js: true do
         expect do
           find(".trash").click
           sleep 1
@@ -618,7 +617,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
   end
 
   describe '通知機能のテスト' do
-
     context 'いいね・コメント通知のテスト' do
       before do
         visit post_path(other_post)
@@ -633,7 +631,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in 'user[password]', with: other_user.password
         click_button 'ログイン'
         visit notifications_path
-        expect(page).to have_content "#{ user.nickname }があなたの投稿にいいねしました"
+        expect(page).to have_content "#{user.nickname}があなたの投稿にいいねしました"
         expect(page).to have_link user.nickname, href: user_path(user)
         expect(page).to have_link 'あなたの投稿', href: post_path(other_post)
       end
@@ -648,7 +646,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in 'user[password]', with: other_user.password
         click_button 'ログイン'
         visit notifications_path
-        expect(page).to have_content "#{ user.nickname }があなたの投稿にコメントしました"
+        expect(page).to have_content "#{user.nickname}があなたの投稿にコメントしました"
         expect(page).to have_link user.nickname, href: user_path(user)
         expect(page).to have_link 'あなたの投稿', href: post_path(other_post)
       end
@@ -669,7 +667,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         click_button 'ログイン'
         sleep 1
         visit notifications_path
-        expect(page).to have_content "#{ user.nickname }があなたをフォローしました"
+        expect(page).to have_content "#{user.nickname}があなたをフォローしました"
         expect(page).to have_link user.nickname, href: user_path(user)
       end
 
@@ -684,14 +682,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
         sleep 1
         visit notifications_path
         click_link '全て削除'
-        expect(page).not_to have_content "#{ user.nickname }があなたをフォローしました"
+        expect(page).not_to have_content "#{user.nickname}があなたをフォローしました"
         expect(page).to have_content "通知はありません"
       end
     end
   end
 
   describe 'いいね機能のテスト' do
-
     context '投稿詳細画面でのテスト' do
       before do
         visit post_path(post)
@@ -734,5 +731,4 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
     end
   end
-
 end
